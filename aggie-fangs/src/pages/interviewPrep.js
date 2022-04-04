@@ -1,10 +1,12 @@
 import React from 'react'
+import Cards from '../components/Cards'
 
 const InterviewPrep = () => {
   return (
-    <div>
-    <h2>InterviewPrep</h2>
-    </div>
+    <>
+    <Cards />
+    </>
+
   )
 }
 
