@@ -9,8 +9,8 @@ function Cards() {
         <div className='cards__container'>
             <div className='cards__wrapper'>
                 <ul className='cards__items'>
-                    <CardItems src= "images/googleLogo.png" text="Interview Prep for Google" label = "Google" path = ""/>
-                    <CardItems src= "images/facebookLogo.png" text="Interview Prep for Facebook" label = "Facebook" path = ""/>
+                    <CardItems src= "images/googleLogo.png" text="Interview Prep for Google" label = "Google" path = "/googlePrep"/>
+                    <CardItems src= "images/facebookLogo.png" text="Interview Prep for Facebook" label = "Facebook" path = "/facebookPrep"/>
                     <CardItems src= "images/amazonLogo.jpg" text="Interview Prep for Amazon" label = "Amazon" path = ""/>
                 </ul>
                 <ul className='cards__items'>

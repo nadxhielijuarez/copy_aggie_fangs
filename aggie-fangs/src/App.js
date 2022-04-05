@@ -6,6 +6,7 @@ import Home from "./pages";
 import Applications from './pages/applications';
 import Network from './pages/network';
 import InterviewPrep from './pages/interviewPrep';
+import GooglePrep from './pages/googlePrep'
 
 function App() {
   return (
@@ -13,14 +14,15 @@ function App() {
     <Router>
       <Navbar />
       <Routes>
-        <Route path="/" element = {<Home />}/>
+        <Route exact path="/" element = {<Home />}/>
         <Route path="/applications" element = {<Applications/>}/>
         <Route path="/interviewPrep" element = {<InterviewPrep/>}/>
         <Route path="/network" element = {<Network/>}/>
-
+        <Route path="/googlePrep" element = {<GooglePrep/>}/>
        
       </Routes>
     </Router>
+
   );
 }
 
