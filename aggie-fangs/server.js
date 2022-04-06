@@ -8,6 +8,8 @@ const notion = require('./notion')
     res.send("THE SERVER SIDE IS SET UP")
 }) */
 
+
+
 app.use("/notion/", require("./routes/notionRoute"));
 
 
