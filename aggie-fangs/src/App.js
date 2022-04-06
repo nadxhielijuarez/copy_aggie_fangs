@@ -1,15 +1,16 @@
-import logo from './logo.svg';
+import React from 'react';
+import Navbar from './components/Navbar';
 import './App.css';
 import {BrowserRouter as Router, Routes, Route } from 'react-router-dom'
 import Home from "./pages";
 import Applications from './pages/applications';
 import Network from './pages/network';
 import InterviewPrep from './pages/interviewPrep';
-import GooglePrep from './pages/googlePrep';
+import GooglePrep from './pages/googlePrep'
 
 function App() {
-
   return (
+
     <Router>
       <Navbar />
       <Routes>
@@ -21,6 +22,7 @@ function App() {
        
       </Routes>
     </Router>
+
   );
 }
 
