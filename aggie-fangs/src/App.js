@@ -7,8 +7,14 @@ import Applications from './pages/applications';
 import Network from './pages/network';
 import InterviewPrep from './pages/interviewPrep';
 import GooglePrep from './pages/googlePrep'
+import FacebookPrep from './pages/facebookPrep';
+import AmazonPrep from './pages/AmazonPrep';
+import NetflixPrep from './pages/NetflixPrep';
+import ApplePrep from './pages/ApplePrep';
+import MicrosoftPrep from './pages/microsoftPrep';
 
 function App() {
+  
   return (
 
     <Router>
@@ -19,6 +25,11 @@ function App() {
         <Route path="/interviewPrep" element = {<InterviewPrep/>}/>
         <Route path="/network" element = {<Network/>}/>
         <Route path="/googlePrep" element = {<GooglePrep/>}/>
+        <Route path="/facebookPrep" element = {<FacebookPrep/>}/>
+        <Route path="/amazonPrep" element = {<AmazonPrep/>}/>
+        <Route path="/netflixPrep" element = {<NetflixPrep/>}/>
+        <Route path="/applePrep" element = {<ApplePrep/>}/>
+        <Route path="/microsoftPrep" element = {<MicrosoftPrep/>}/>
        
       </Routes>
     </Router>
