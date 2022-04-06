@@ -3,7 +3,7 @@ import React, {useState, useEffect} from "react";
 function Users() {
     const [users, setUsers] = useState([]);
     useEffect(() => {
-        fetch("/users/").then(res => {
+        fetch("/notion/").then(res => {
             if(res.ok) {
                 return res.json()
             }else{
