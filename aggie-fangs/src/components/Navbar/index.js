@@ -1,25 +1,30 @@
 import React from 'react'
 import {Nav, NavLink, Bars, NavMenu, NavBtn, NavBtnLink} from "./NavbarElements";
+import logo from "./../../images/Aggie_Fangs_Logo_Transparent.png";
 const Navbar = () => {
   return (
     <>
     <Nav>
         <NavLink exact to="/">
-            <h1>Aggie Fangs</h1>
+            <h1 class="nav-title">Aggie Fangs</h1>
         </NavLink>
         <Bars />
         <NavMenu>
+            <img class="logo-img" src={logo} alt="logo"/>
             <NavLink to="/applications" activeStyle>
-                Applications
+                <div class = "nav-link">Applications</div>
             </NavLink>
             <NavLink to="/network" activeStyle>
-                Network
+                <div class = "nav-link">Network</div>
             </NavLink>
             <NavLink to="/interviewPrep" activeStyle>
-                Interview Prep
+                <div class = "nav-link">Interview Prep</div>
+            </NavLink>
+            <NavLink to="/coding" activeStyle>
+                <div class = "nav-link">Coding Problems</div>
             </NavLink>
             <NavLink to="/settings" activeStyle>
-                Settings
+                <div class = "nav-link">Settings</div>
             </NavLink>
         </NavMenu>
         <NavBtn>

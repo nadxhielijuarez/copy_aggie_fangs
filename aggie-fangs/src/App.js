@@ -6,8 +6,10 @@ import Home from "./pages";
 import Applications from './pages/applications';
 import Network from './pages/network';
 import InterviewPrep from './pages/interviewPrep';
+import Coding from './pages/coding';
 
 function App() {
+  document.title = "Aggie Fangs";
   return (
 
     <Router>
@@ -16,6 +18,7 @@ function App() {
         <Route path="/" element = {<Home />}/>
         <Route path="/applications" element = {<Applications/>}/>
         <Route path="/interviewPrep" element = {<InterviewPrep/>}/>
+        <Route path="/coding" element = {<Coding/>}/>
         <Route path="/network" element = {<Network/>}/>
 
        
