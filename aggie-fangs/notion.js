@@ -1,4 +1,3 @@
-
 const {Client} = require('@notionhq/client')
 
 const notion = new Client({auth: process.env.NOTION_API_KEY})
@@ -10,7 +9,6 @@ async function getDatabase(){
          process.env.NOTION_DATABASE_ID
     })
     console.log(response)
-    return response;
 }
 
 function createSuggestion(suggestion){
@@ -18,12 +16,3 @@ function createSuggestion(suggestion){
 }
 
 getDatabase()
-
-
-
-exports.notionControllers = (req, res) =>{
-    res.json({
-     usersList: ["user 1", "user 2"]
-    })
-}
-//this is where the api responses are posted!
