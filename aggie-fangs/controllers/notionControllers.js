@@ -4,12 +4,12 @@ const { getDatabase } = require('@notionhq/client/build/src/api-endpoints')
 
 
 
-exports.defaultController = (req, res) =>{
+/* exports.defaultController = (req, res) =>{
     res.json({
      usersList: ["user 0", "user 1"]
     })
 }
-
+ */
 exports.notionDefaultDB = (req, res) => {
     res.send("Hello, its express!");
 }
