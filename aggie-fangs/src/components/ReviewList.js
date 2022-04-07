@@ -1,5 +1,4 @@
 import React from 'react'
-<<<<<<< HEAD
 import ReviewItem from './ReviewItem'
 const ReviewList = ({reviews, setReviews}) => {
   const handleDelete = (id) => {
@@ -13,12 +12,6 @@ const ReviewList = ({reviews, setReviews}) => {
         <ReviewItem key = {review.id} review={review} handelDelete={handleDelete}/>
       ))}
     </div>
-=======
-
-const ReviewList = () => {
-  return (
-    <div>ReviewList</div>
->>>>>>> NotionAPI
   )
 }
 
