@@ -3,20 +3,38 @@
   "version": "0.1.0",
   "private": true,
   "dependencies": {
+    "@notionhq/client": "^1.0.4",
     "@testing-library/jest-dom": "^5.16.3",
     "@testing-library/react": "^12.1.4",
     "@testing-library/user-event": "^13.5.0",
+<<<<<<< HEAD
     "express": "^4.17.3",
     "react": "^18.0.0",
     "react-dom": "^18.0.0",
     "react-icons": "^4.3.1",
+=======
+    "ejs": "^3.1.6",
+    "express": "^4.17.3",
+    "js-polyfills": "^0.1.43",
+    "nodemon": "^2.0.15",
+    "polyfills": "^2.1.1",
+    "react": "^18.0.0",
+    "react-dom": "^18.0.0",
+    "react-icons": "^4.3.1",
+    "react-native-dotenv": "^3.3.1",
+>>>>>>> NotionAPI
     "react-router-dom": "^6.3.0",
     "react-scripts": "^5.0.0",
     "styled-components": "^5.3.5",
     "util": "^0.12.4",
     "uuidv4": "^6.2.13",
     "web-vitals": "^2.1.4",
+<<<<<<< HEAD
     "yarn": "^1.22.18"
+=======
+    "yarn": "^1.22.18",
+    "zlib": "^1.0.5"
+>>>>>>> NotionAPI
   },
   "scripts": {
     "start": "react-scripts start",
@@ -42,9 +60,24 @@
       "last 1 safari version"
     ]
   },
+<<<<<<< HEAD
   "description": "This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).",
   "main": "index.js",
   "devDependencies": {},
+=======
+  "browser": {
+    "fs": false,
+    "path": false,
+    "os": false,
+    "crypto": false
+  },
+  "description": "This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).",
+  "main": "index.js",
+  "devDependencies": {
+    "dotenv": "^16.0.0"
+  },
+  "proxy": "http://localhost:5000",
+>>>>>>> NotionAPI
   "keywords": [],
   "author": "",
   "license": "ISC"

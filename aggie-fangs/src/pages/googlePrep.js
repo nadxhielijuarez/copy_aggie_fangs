@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 import React, {useState} from 'react'
 import Form from '../components/Form'
 import ReviewList from '../components/ReviewList'
@@ -10,8 +11,25 @@ const GooglePrep = () => {
         <h1>Google Interview Feedback</h1>
         <Form form = {form} reviews = {reviews} setForm={setForm} setReviews={setReviews}/>
         <ReviewList reviews = {reviews} setReviews = {setReviews}/>
+=======
+import React from 'react'
+import Form from '../components/Form'
+import Notion from '../components/Notion'
+
+//const database_id = process.env.REACT_APP_NOTION_DATABASE_ID
+const googlePrep = () => {
+  return (
+    <div>
+        <h1>Google Interview Feedback</h1>
+        <Form/>
+        <Notion/> 
+>>>>>>> NotionAPI
     </div>
   )
 }
 
+<<<<<<< HEAD
 export default GooglePrep
+=======
+export default googlePrep
+>>>>>>> NotionAPI

@@ -11,12 +11,21 @@ function Cards() {
                 <ul className='cards__items'>
                     <CardItems src= "images/googleLogo.png" text="Interview Prep for Google" label = "Google" path = "/googlePrep"/>
                     <CardItems src= "images/facebookLogo.png" text="Interview Prep for Facebook" label = "Facebook" path = "/facebookPrep"/>
+<<<<<<< HEAD
                     <CardItems src= "images/amazonLogo.png" text="Interview Prep for Amazon" label = "Amazon" path = "/amazonPrep"/>
                 </ul>
                 <ul className='cards__items'>
                     <CardItems src= "images/netflixLogo.png" text="Interview Prep for Google" label = "Netflix" path = "/netflixPrep"/>
                     <CardItems src= "images/appleLogo.png" text="Interview Prep for Facebook" label = "Apple" path = "/applePrep"/>
                     <CardItems src= "images/microsoftLogo.png" text="Interview Prep for Amazon" label = "Microsoft" path = "/microsoftPrep"/>
+=======
+                    <CardItems src= "images/amazonLogo.jpg" text="Interview Prep for Amazon" label = "Amazon" path = ""/>
+                </ul>
+                <ul className='cards__items'>
+                    <CardItems src= "images/netflixLogo.png" text="Interview Prep for Google" label = "Netflix" path = ""/>
+                    <CardItems src= "images/appleLogo.png" text="Interview Prep for Facebook" label = "Apple" path = ""/>
+                    <CardItems src= "images/microsoftLogo.png" text="Interview Prep for Amazon" label = "Microsoft" path = ""/>
+>>>>>>> NotionAPI
                 </ul>
             </div>
         </div>
