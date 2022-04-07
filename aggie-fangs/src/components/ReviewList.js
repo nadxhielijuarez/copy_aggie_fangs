@@ -1,8 +1,17 @@
 import React from 'react'
-
-const ReviewList = () => {
+import ReviewItem from './ReviewItem'
+const ReviewList = ({reviews, setReviews}) => {
+  const handleDelete = (id) => {
+    const updatedReviews = reviews.filter(review => review.id !== id)
+    setReviews(updatedReviews)
+  }
   return (
-    <div>ReviewList</div>
+    <div className='reviewList'>
+      <h2>Company Reviews</h2>
+      {reviews.map(review => (
+        <ReviewItem key = {review.id} review={review} handelDelete={handleDelete}/>
+      ))}
+    </div>
   )
 }
 
