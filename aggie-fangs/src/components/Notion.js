@@ -31,16 +31,20 @@ export default () => {
         fetch("/notion/").then(res => {
             if(res.ok) {
                 console.log("the response was ok");
-                console.log(res);
-                return res.json()
+                console.log(res.text());
+                //Content( JsonConvert.SerializeObject(battle), "application/json" );
+                return res.text();
+            }else{
+                console.log("the response was NOT ok");
+
             }
-        }).then(jsonRes => setNotion(jsonRes))
+        }).then(res => setNotion(res.result))
 
         console.log()
     }) 
     return (<div>
-        {"THIS THE BACKEND"}
-        {notion}
+        {"BACKEND RESPONSE IS VISIBLE IN CONSOLE"}
+       <h1>{notion}</h1> 
     </div>)
   };
 
