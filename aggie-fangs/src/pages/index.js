@@ -17,7 +17,7 @@ const LinkButton = styled.button `
 
 const Home = () => {
   return (
-    <div class="homepage">
+    <div>
       <div class="hp welcome">
         <div class="split welcome-left">
           <h1>Welcome To</h1>
@@ -52,7 +52,7 @@ const Home = () => {
           </LinkButton></Link>
         </div>
       </div>
-      <div class="hp coding">
+      <div class="hp codinghp">
         <div class="split coding-left">
           <Link to="/coding"><LinkButton>
             Practice Coding
