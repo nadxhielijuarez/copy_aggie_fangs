@@ -10,8 +10,11 @@ const RunButton = styled.button `
   padding: 5px 15px;
   border-radius: 8px;
   color: white;
+  text-align: center;
   font-size: 13px;
   font-family: "Lucida Console", "Courier New", monospace;
+  align-self: left;
+  left: 0;
 `
 
 var probName = <text></text>;
@@ -67,7 +70,7 @@ function Coding() {
                     <h2>Your Code:</h2>
                     <div class="coding-problem-left">
                         <textarea class="code-window" id="userCode" name="userCode"/>
-                        <RunButton>Run Code</RunButton>
+                        <RunButton class="run-button">Run Code</RunButton>
                     </div>
                     <div class="coding-problem-right">
                         <textarea disabled class="compiler-window" id="terminal" name="terminal">

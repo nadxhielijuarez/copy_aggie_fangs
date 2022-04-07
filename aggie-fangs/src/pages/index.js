@@ -10,6 +10,7 @@ const LinkButton = styled.button `
   height: 150px;
   padding: 5px 15px;
   border-radius: 20px;
+  text-decoration: none;
   color: white;
   font-size: 40px;
   font-family: "Lucida Console", "Courier New", monospace;

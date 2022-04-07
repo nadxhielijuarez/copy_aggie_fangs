@@ -26,6 +26,9 @@ h1{
   border-bottom-style: solid;
   overflow: auto;
 }
+.hp Link {
+  text-decoration: none;
+}
 .hp body {
   font-size: 26px;
   text-align: left;
@@ -254,7 +257,7 @@ button{
   display: block;
   margin: 0.5rem auto 0 auto;
   padding: .25rem .5rem;
-
+  text-decoration: none;
 }
 
 input,
