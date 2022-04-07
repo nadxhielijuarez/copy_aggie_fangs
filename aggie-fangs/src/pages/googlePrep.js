@@ -1,6 +1,6 @@
 import React from 'react'
 import Form from '../components/Form'
-import Notion from "../components/Notion"
+import Notion from '../components/Notion'
 
 //const database_id = process.env.REACT_APP_NOTION_DATABASE_ID
 const googlePrep = () => {
