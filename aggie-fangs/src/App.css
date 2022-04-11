@@ -19,6 +19,11 @@ h1{
   top:5px;
 }
 
+/* ----- Button Styling ----- */
+.Link {
+  text-decoration: none;
+}
+
 /* ----- Home Page Styling ----- */
 .hp {
   border-width: 0.5px;
@@ -203,6 +208,31 @@ h1{
 }
 
 
+/* ----- Guide Styling ----- */
+.guide-header {
+  width: 100%;
+  height: 300px;
+  padding: 30px;
+  border-width: 0.5px;
+  background-color: rgb(254,251,234);
+  border-color: black;
+  border-bottom-style: solid;
+}
+.guide-header h1 {
+  text-align: left;
+  font-size: 60px;
+  margin-bottom: 25px;
+  color: rgb(100, 0, 0);
+  font-style: italic
+}
+.guide-header h2 {
+  text-align: left;
+  font-size: 30px;
+  margin-bottom: 5px;
+  color: rgb(100, 0, 0);
+}
+
+
 /* ----- Nav Bar Styling ----- */
 /*.nav-title {
   padding-right: 50px;
@@ -236,6 +266,8 @@ h1{
 .nav-link:hover {
   text-decoration: none;
 }*/
+
+
 .googleForm{
   width: 100%;
   display: flex;

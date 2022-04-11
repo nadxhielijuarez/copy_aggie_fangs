@@ -14,6 +14,9 @@ const LinkButton = styled.button `
   color: white;
   font-size: 40px;
   font-family: "Lucida Console", "Courier New", monospace;
+
+  overflow-x: hidden;
+  float: left;
 `
 
 const Home = () => {
@@ -70,7 +73,7 @@ const Home = () => {
       </div>
       <div class="hp interview-help">
         <div class="split help-left">
-          <h1>Interview Guide</h1>
+          <h1>Interview Guides</h1>
           <body>
             If you are new to interviewing, then this guide may be helpful to you. Here,
             you can learn about how to present yourself during an interview in a professional 
@@ -78,8 +81,8 @@ const Home = () => {
           </body>
         </div>
         <div class="split help-right">
-          <Link to="/coding"><LinkButton>
-            Interview Guide
+          <Link to="/guide1"><LinkButton>
+            Interview Guides
           </LinkButton></Link>
         </div>
       </div>
