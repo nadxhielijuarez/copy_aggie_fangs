@@ -27,7 +27,7 @@ function Guide2 () {
                 <h1>Personality Interviews</h1>
                 <h2>Guides:</h2>
                 <Link to="/guide1"><LinkButton>
-                    Application Guide
+                    Applications
                 </LinkButton></Link>
                 <Link to="/guide2"><LinkButton>
                     Personality Interviews
