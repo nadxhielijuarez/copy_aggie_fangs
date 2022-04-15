@@ -223,13 +223,40 @@ h1{
   font-size: 60px;
   margin-bottom: 25px;
   color: rgb(100, 0, 0);
-  font-style: italic
+  font-style: italic;
 }
 .guide-header h2 {
   text-align: left;
   font-size: 30px;
   margin-bottom: 5px;
   color: rgb(100, 0, 0);
+}
+.guide-section {
+  background-color: rgb(254,251,234);
+  padding: 50px;
+  border-color: black;
+  border-width: 0.5px;
+  border-bottom-style: dashed;
+}
+.guide-section h2 {
+  color:rgb(100, 0, 0);
+  font-size: 45px;
+  font-style: italic;
+  text-align: left;
+  margin-bottom: 25px;
+}
+.guide-section body {
+  color: black;
+  font-size: 30px;
+  line-height: 1.8;
+}
+.guide-section ul {
+  list-style: circle outside;
+  padding-left: 50px;
+}
+.guide-section li {
+  margin-top: 20px;
+  margin-bottom: 20px;
 }
 
 

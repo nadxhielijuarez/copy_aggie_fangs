@@ -43,7 +43,7 @@ const Home = () => {
       </div>
       <div class="hp companies">
         <div class="split companies-left">
-          <h1>Companies</h1>
+          <h1>Interview Prep</h1>
           <body>
             Every company has a different way of interviewing applicants. Here, you can 
             see resources related to particular companies, including interview experiences 
@@ -52,7 +52,7 @@ const Home = () => {
         </div>
         <div class="split companies-right">
           <Link to="/interviewPrep"><LinkButton>
-            Browse Companies
+            Interview Prep
           </LinkButton></Link>
         </div>
       </div>
