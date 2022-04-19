@@ -16,6 +16,7 @@ import MicrosoftPrep from './pages/microsoftPrep';
 import Guide1 from "./pages/guide1";
 import Guide2 from "./pages/guide2";
 import Guide3 from "./pages/guide3";
+import FeedbackForm from "./pages/feedbackform";
 
 function App() {
   document.title = "Aggie Fangs";
@@ -27,6 +28,7 @@ function App() {
       <Routes>
         <Route exact path="/" element = {<Home />}/>
         <Route path="/applications" element = {<Applications/>}/>
+        <Route path="/feedbackform" element = {<FeedbackForm/>}/>
         <Route path="/interviewPrep" element = {<InterviewPrep/>}/>
         <Route path="/coding" element = {<Coding/>}/>
         <Route path="/network" element = {<Network/>}/>
