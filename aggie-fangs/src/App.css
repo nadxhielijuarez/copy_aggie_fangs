@@ -6,7 +6,8 @@
   --btncolor: rgb(100, 0, 0);
   --hdrcolor: rgb(100, 0, 0);
   --txtcolor: rgb(0, 0, 0);
-  --brdrcolor: rgb(0, 0, 0);
+  --brdrcolor: #0d0d0d;
+  --shdwcolor: #ccc;
 }
 
 *{
@@ -369,7 +370,7 @@ h1{
   margin-bottom: 0.75rem;
   font-size: 25px;
   border-radius: 5px;
-  box-shadow: 4px 4px #ccc;
+  box-shadow: 4px 4px var(--shdwcolor);
 }
 .feedback-section input, textarea, button {
   display: block;
@@ -383,7 +384,7 @@ h1{
   resize: none;
   font-size: 20px;
   padding: 0.75rem;
-  box-shadow: 4px 4px #ccc;
+  box-shadow: 4px 4px var(--shdwcolor);
 }
 .feedback-section button {
   border: 1px solid #0d0d0d;
@@ -401,8 +402,8 @@ h1{
   font-style: italic;
 }
 .reviewItem {
-  border: 1px solid #0d0d0d;
-  box-shadow: 1px 1px #0d0d0d, 2px 2px #0d0d0d;
+  border: 1px solid var(--brdrcolor);
+  box-shadow: 1px 1px var(--brdrcolor), 2px 2px var(--brdrcolor);
   padding: 1rem;
   width:20rem;
   margin-top: 1rem;
