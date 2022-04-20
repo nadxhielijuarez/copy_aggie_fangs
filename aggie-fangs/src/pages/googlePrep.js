@@ -1,12 +1,12 @@
 import React, {useState} from 'react'
 import ReviewList from '../components/ReviewList'
+import VideoComp from '../components/VideoPlayer/VideoComp'
 import { v4 as uuidv4 } from "uuid";
-
-var companyName = <text>Google</text>;
 
 const GooglePrep = () => {
   const [reviews, setReviews] = useState([])
   return (
+
     <div class='company-page'>
         <div class='company-header'>
           <h1>Interview Preparation Resources For {companyName}</h1>
