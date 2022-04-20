@@ -2,7 +2,7 @@ import React, {useState} from 'react'
 import ReviewList from '../components/ReviewList'
 import { v4 as uuidv4 } from "uuid";
 
-var companyName = <text>Facebook</text>;
+var companyName = <text>Apple</text>;
 
 const ApplePrep = () => {
     const [reviews, setReviews] = useState([])
@@ -37,7 +37,13 @@ const ApplePrep = () => {
             <div class='company-section'>
               <h1>HackerRank Links</h1>
               <ul>
-                <li><a href="https://www.hackerrank.com/blog/how-to-crack-microsoft-interview/">Blog: How To Crack The Microsoft Interview</a></li>
+                
+              </ul>
+            </div>
+            <div class='company-section'>
+              <h1>More Resources</h1>
+              <ul>
+                
               </ul>
             </div>
           </div>

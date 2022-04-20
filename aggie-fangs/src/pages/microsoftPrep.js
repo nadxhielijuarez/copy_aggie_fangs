@@ -54,6 +54,12 @@ const MicrosoftPrep = () => {
             <div class='company-section'>
               <h1>HackerRank Links</h1>
               <ul>
+                
+              </ul>
+            </div>
+            <div class='company-section'>
+              <h1>More Resources</h1>
+              <ul>
                 <li><a href="https://www.hackerrank.com/blog/how-to-crack-microsoft-interview/">Blog: How To Crack The Microsoft Interview</a></li>
               </ul>
             </div>

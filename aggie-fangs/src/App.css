@@ -89,7 +89,13 @@ h1{
   padding-left: 50px;
 }
 .show-reviews {
-  width: 100%;
+  width: 86%;
+  background-color: var(--bg2color);
+  border: 0.5px solid var(--brdrcolor);
+  margin-left: auto;
+  margin-right: auto;
+  padding: 50px;
+  margin-bottom: 50px;
 }
 
 /* ----- Button Styling ----- */
