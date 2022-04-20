@@ -30,20 +30,36 @@ const Home = () => {
         </div>
         <div class="split welcome-right">
           <body>
-            Are you looking for a place to start preparing for a technical interview?
-            Do you need information on the company you're applying to and what they're
-            looking for in their employees? Do you want to share feedback on a company 
-            you just interviewed with? Then you came to the right place! Here at Aggie 
+            Are you looking for:
+            <ul>
+              <li>Technical interview preparation help</li>
+              <li>In-depth inormation on the company you're applying to</li>
+              <li>A place to share feedback on your interview with a company</li>
+            </ul>
+            If so, then you came to the right place! Here at Aggie 
             Fangs, we want to give you a one-stop shop for all of your interview 
-            preparation needs! From student feedback to practice coding problems to 
-            interview prep checklists, our goal is to make your preparation as smooth 
-            as possible so that <i>you don't suck</i> in your next interview.
+            preparation needs!
+          </body>
+        </div>
+      </div>
+      <div class="hp hpfeedback">
+        <div class = "split fb-left">
+          <Link to="/feedbackform"><LinkButton>
+            Share Experience
+          </LinkButton></Link>
+        </div>
+        <div class = "split fb-right">
+          <h1>Interview Feedback</h1>
+          <body>
+            Here, you can share your experience in an interview and talk about what went well, 
+            what went poorly, and things to keep in mind for others going into an interview with the 
+            same company.
           </body>
         </div>
       </div>
       <div class="hp companies">
         <div class="split companies-left">
-          <h1>Companies</h1>
+          <h1>Interview Prep</h1>
           <body>
             Every company has a different way of interviewing applicants. Here, you can 
             see resources related to particular companies, including interview experiences 
@@ -52,7 +68,7 @@ const Home = () => {
         </div>
         <div class="split companies-right">
           <Link to="/interviewPrep"><LinkButton>
-            Browse Companies
+            Start Preparing
           </LinkButton></Link>
         </div>
       </div>

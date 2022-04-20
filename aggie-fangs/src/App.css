@@ -1,9 +1,20 @@
 @import url('https://fonts.googleapis.com/css2?family=Roboto+Mono:wght@300;500&display=swap');
 
+:root {
+  --bgcolor: rgb(254,251,234);
+  --bg2color: rgb(250, 250, 250);
+  --btncolor: rgb(100, 0, 0);
+  --hdrcolor: rgb(100, 0, 0);
+  --txtcolor: rgb(0, 0, 0);
+  --brdrcolor: #0d0d0d;
+  --shdwcolor: #ccc;
+}
+
 *{
   box-sizing: border-box;
   margin: 0;
   padding: 0;
+  /*background-color: var(--bgcolor);*/
 }
 
 h1{
@@ -19,6 +30,68 @@ h1{
   top:5px;
 }
 
+/* ----- Company Page Styling ----- */
+.company-page {
+  width: 100%;
+  position: absolute;
+  background-color: var(--bgcolor);
+}
+.company-header {
+  width: 100%;
+  margin-top: 3rem;
+  margin-bottom: 3rem;
+  padding: 1.5rem;
+  border-bottom: 0.5px solid var(--brdrcolor);
+  border-top: 0.5px solid var(--brdrcolor);
+  background-color: var(--bg2color);
+}
+.company-header h1 {
+  font-size: 50px;
+  font-style: italic;
+  color: var(--hdrcolor);
+}
+.company-left {
+  width: 50%;
+  float: left;
+  align-items: center;
+}
+.company-right {
+  width: 50%;
+  float: right;
+  align-items: center;
+}
+.company-section {
+  width: 80%;
+  border: 0.5px solid var(--brdrcolor);
+  margin-left: auto;
+  margin-right: auto;
+  margin-bottom: 50px;
+  background-color: var(--bg2color);
+  padding: 1rem;
+}
+.company-section h1 {
+  width: 100%;
+  border-bottom: 0.25px dashed var(--brdrcolor);
+  color: var(--hdrcolor);
+  font-size: 40px;
+  font-style: italic;
+  padding: 0.7rem;
+}
+.company-section body, li {
+  font-size: 25px;
+  color: var(--txtcolor);
+  font-style: normal;
+  margin-top: 1rem;
+  margin-bottom: 1rem;
+}
+.company-section ul {
+  list-style: circle outside;
+  padding-left: 50px;
+}
+.show-reviews {
+  width: 100%;
+}
+
 /* ----- Button Styling ----- */
 .Link {
   text-decoration: none;
@@ -27,7 +100,7 @@ h1{
 /* ----- Home Page Styling ----- */
 .hp {
   border-width: 0.5px;
-  border-bottom-color: black;
+  border-bottom-color: var(--brdrcolor);
   border-bottom-style: solid;
   overflow: auto;
 }
@@ -42,12 +115,12 @@ h1{
 .hp h1 {
   text-align: left;
   margin-bottom: 10px;
-  color: rgb(100, 0, 0);
+  color: var(--hdrcolor);
   font-size: 50px;
 }
 .welcome {
   height: 400px;
-  background-color: rgb(254,251,234);
+  background-color: var(--bgcolor);
 }
 .split {
   height: 100%;
@@ -81,9 +154,33 @@ h1{
   right: 0;
   width: 70%;
 }
+.welcome-right ul {
+  list-style: circle outside;
+  padding-left: 50px;
+}
+.welcome-right li {
+  margin-top: 20px;
+  margin-bottom: 20px;
+}
+.hpfeedback {
+  height: 300px;
+  background-color: var(--bgcolor);
+}
+.fb-left {
+  left: 0;
+  float: left;
+  width: 30%;
+  padding-top: 75px;
+}
+.fb-right {
+  float: right;
+  right: 0;
+  width: 70%;
+}
+
 .companies {
   height: 300px;
-  background-color: rgb(254,251,234);
+  background-color: var(--bgcolor);
 }
 .companies-left {
   left: 0;
@@ -98,7 +195,7 @@ h1{
 }
 .codinghp {
   height: 300px;
-  background-color: rgb(254,251,234);
+  background-color: var(--bgcolor);
 }
 .coding-left {
   left: 0;
@@ -113,7 +210,7 @@ h1{
 }
 .interview-help {
   height: 300px;
-  background-color: rgb(254,251,234);
+  background-color: var(--bgcolor);
 }
 .help-left {
   left: 0;
@@ -131,10 +228,10 @@ h1{
 /* ----- Coding Problems Styling ----- */
 .coding {
   border-width: 0.25px;
-  border-bottom-color: black;
+  border-bottom-color: var(--brdrcolor);
   border-bottom-style: solid;
   overflow: auto;
-  background-color: rgb(254,251,234);
+  background-color: var(--bgcolor);
 }
 .coding-header {
   height: 150px;
@@ -155,7 +252,7 @@ h1{
   right: 0;
   float: right;
   width: 70%;
-  border-left-color: black;
+  border-left-color: var(--brdrcolor);
   border-left-style: solid;
   padding: 20px;
 }
@@ -179,7 +276,7 @@ h1{
   right: 0;
   float: right;
   width: 70%;
-  border-left-color: black;
+  border-left-color: var(--brdrcolor);
   border-left-style: solid;
 }
 .coding-problem-left {
@@ -214,22 +311,49 @@ h1{
   height: 300px;
   padding: 30px;
   border-width: 0.5px;
-  background-color: rgb(254,251,234);
-  border-color: black;
+  background-color: var(--bgcolor);
+  border-color: var(--brdrcolor);
   border-bottom-style: solid;
 }
 .guide-header h1 {
   text-align: left;
   font-size: 60px;
   margin-bottom: 25px;
-  color: rgb(100, 0, 0);
-  font-style: italic
+  color: var(--hdrcolor);
+  font-style: italic;
 }
 .guide-header h2 {
   text-align: left;
   font-size: 30px;
   margin-bottom: 5px;
-  color: rgb(100, 0, 0);
+  color: var(--hdrcolor);
+}
+.guide-section {
+  background-color: var(--bgcolor);
+  padding: 50px;
+  border-color: var(--brdrcolor);
+  border-width: 0.5px;
+  border-bottom-style: dashed;
+}
+.guide-section h2 {
+  color:var(--hdrcolor);
+  font-size: 45px;
+  font-style: italic;
+  text-align: left;
+  margin-bottom: 25px;
+}
+.guide-section body {
+  color: var(--txtcolor);
+  font-size: 30px;
+  line-height: 1.8;
+}
+.guide-section ul {
+  list-style: circle outside;
+  padding-left: 50px;
+}
+.guide-section li {
+  margin-top: 20px;
+  margin-bottom: 20px;
 }
 
 
@@ -268,6 +392,7 @@ h1{
 }*/
 
 
+/* ----- Share Experience Styling ----- */
 .googleForm{
   width: 100%;
   display: flex;
@@ -275,40 +400,72 @@ h1{
   justify-content: center;
   align-items: center;
 }
-
-.form{
-  border: 1px solid #0d0d0d;
-  box-shadow: 1px 1px #0d0d0d, 2px 2px #0d0d0d;
-  padding: 1rem;
-  width: 30 rem;
+.feedback-section {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding-top: 50px;
+  padding-bottom: 50px;
+  background-color: var(--bgcolor);
 }
-
-input,
-textarea,
-button{
+.form {
+  border: 1px solid; 
+  border-color: var(--brdrcolor);
+  border-radius: 1rem;
+  padding: 1.5rem;
+  width: 70%;
+  font-size: 25px;
+  background-color: var(--bg2color);
+}
+.form label {
+  color: var(--hdrcolor);
+  font-size: 40px;
+  margin-top: 0.75rem;
+}
+.feedback-section select {
+  display: block;
+  width: 30rem;
+  padding: 0.75rem;
+  margin-top: 0.75rem;
+  margin-bottom: 0.75rem;
+  font-size: 25px;
+  border-radius: 5px;
+  box-shadow: 4px 4px var(--shdwcolor);
+}
+.feedback-section input, textarea, button {
   display: block;
   margin: 0.5rem auto 0 auto;
   padding: .25rem .5rem;
   text-decoration: none;
+  margin-bottom: 0.75rem;
 }
-
-input,
-textarea {
+.feedback-section input, textarea {
   width: calc(100% - 1rem);
+  resize: none;
+  font-size: 20px;
+  padding: 0.75rem;
+  box-shadow: 4px 4px var(--shdwcolor);
 }
-
-button{
+.feedback-section button {
   border: 1px solid #0d0d0d;
   cursor: pointer;
 }
-
-h2,h3{
-  margin: 0 0 1rem 0;
+.review-box textarea {
+  height: 12rem;
+  margin-bottom: 0;
 }
-
-.reviewItem{
-  border: 1px solid #0d0d0d;
-  box-shadow: 1px 1px #0d0d0d, 2px 2px #0d0d0d;
+.feedback-section h2 {
+  margin: 0 0 1rem 0;
+  text-align: center;
+  color: var(--hdrcolor);
+  font-size: 45;
+  font-style: italic;
+}
+.reviewItem {
+  border: 1px solid var(--brdrcolor);
+  box-shadow: 1px 1px var(--brdrcolor), 2px 2px var(--brdrcolor);
   padding: 1rem;
   width:20rem;
   margin-top: 1rem;
