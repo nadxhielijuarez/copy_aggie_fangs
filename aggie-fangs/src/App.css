@@ -30,6 +30,68 @@ h1{
   top:5px;
 }
 
+/* ----- Company Page Styling ----- */
+.company-page {
+  width: 100%;
+  position: absolute;
+  background-color: var(--bgcolor);
+}
+.company-header {
+  width: 100%;
+  margin-top: 3rem;
+  margin-bottom: 3rem;
+  padding: 1.5rem;
+  border-bottom: 0.5px solid var(--brdrcolor);
+  border-top: 0.5px solid var(--brdrcolor);
+  background-color: var(--bg2color);
+}
+.company-header h1 {
+  font-size: 50px;
+  font-style: italic;
+  color: var(--hdrcolor);
+}
+.company-left {
+  width: 50%;
+  float: left;
+  align-items: center;
+}
+.company-right {
+  width: 50%;
+  float: right;
+  align-items: center;
+}
+.company-section {
+  width: 80%;
+  border: 0.5px solid var(--brdrcolor);
+  margin-left: auto;
+  margin-right: auto;
+  margin-bottom: 50px;
+  background-color: var(--bg2color);
+  padding: 1rem;
+}
+.company-section h1 {
+  width: 100%;
+  border-bottom: 0.25px dashed var(--brdrcolor);
+  color: var(--hdrcolor);
+  font-size: 40px;
+  font-style: italic;
+  padding: 0.7rem;
+}
+.company-section body, li {
+  font-size: 25px;
+  color: var(--txtcolor);
+  font-style: normal;
+  margin-top: 1rem;
+  margin-bottom: 1rem;
+}
+.company-section ul {
+  list-style: circle outside;
+  padding-left: 50px;
+}
+.show-reviews {
+  width: 100%;
+}
+
 /* ----- Button Styling ----- */
 .Link {
   text-decoration: none;

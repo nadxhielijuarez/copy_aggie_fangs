@@ -145,6 +145,7 @@ function Guide1() {
                         <li><a href="https://www.freecodecamp.org/news/writing-a-killer-software-engineering-resume-b11c91ef699d/">How To Write A Killer Resume</a></li>
                         <li><a href="https://www.hackreactor.com/blog/6-tips-for-a-software-engineer-resume-that-gets-you-hired"> 6 Tips For A Resume That Will Get You Hired</a></li>
                         <li><a href="https://novoresume.com/career-blog/software-engineer-resume">Novoresume: Examples and Resume Builder</a></li>
+                        <li><a href="https://www.hackerrank.com/blog/tips-for-building-a-stellar-tech-resume/">6 Tips For Building A Stellar Tech Resume</a></li>
                     </ul>
                 </body>
             </div>
