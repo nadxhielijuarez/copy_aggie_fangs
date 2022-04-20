@@ -2,6 +2,7 @@ import React, {useState} from 'react'
 import ReviewList from '../components/ReviewList'
 import {Link } from "react-router-dom";
 import styled from "styled-components";
+import VideoComp from '../components/VideoPlayer/VideoComp'
 
 const LinkButton = styled.button `
   cursor: pointer;
@@ -32,6 +33,7 @@ const MicrosoftPrep = () => {
           <div class='company-left'>
             <div class='company-section'>
               <h1>Youtube Playlist</h1>
+              <VideoComp playListId = "PLi9RQVmJD2fYMiu6JOL3PiEVh_Is6jAin"/>
             </div>
             <div class='company-section'>
               <h1>Our Coding Problems</h1>

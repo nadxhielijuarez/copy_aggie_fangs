@@ -19,11 +19,11 @@ export default class App extends React.Component{
         })
     }
     async componentDidMount(){
-        const response = await fetch(`${YOUTUBE_PLAYLIST_ITEMS_API}?part=snippet&playlistId=PLi9RQVmJD2fapKJ4DnZzAn55NJfo5IM1c&key=${YOUTUBE_API_KEY}`)
+        const response = await fetch(`${YOUTUBE_PLAYLIST_ITEMS_API}?part=snippet&playlistId=${this.props.playListId}&key=${YOUTUBE_API_KEY}`)
         const data = await response.json()
 
 
-        const response2 = await fetch(`${YOUTUBE_PLAYLIST_ITEMS_API}?part=contentDetails&playlistId=PLi9RQVmJD2fapKJ4DnZzAn55NJfo5IM1c&key=${YOUTUBE_API_KEY}`)
+        const response2 = await fetch(`${YOUTUBE_PLAYLIST_ITEMS_API}?part=contentDetails&playlistId=${this.props.playListId}&key=${YOUTUBE_API_KEY}`)
         const data2 = await response2.json()
         this.setState({
             videoMetaInfo: data.items,

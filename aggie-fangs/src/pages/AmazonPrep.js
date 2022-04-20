@@ -1,6 +1,7 @@
 import React, {useState} from 'react'
 import ReviewList from '../components/ReviewList'
 import { v4 as uuidv4 } from "uuid";
+import VideoComp from '../components/VideoPlayer/VideoComp'
 
 var companyName = <text>Amazon</text>;
 
@@ -15,6 +16,7 @@ const AmazonPrep = () => {
           <div class='company-left'>
             <div class='company-section'>
               <h1>Youtube Playlist</h1>
+              <VideoComp playListId = "PLi9RQVmJD2fZgRyOunLyt94uVbJL43pZ_"/>  
             </div>
             <div class='company-section'>
               <h1>Our Coding Problems</h1>
