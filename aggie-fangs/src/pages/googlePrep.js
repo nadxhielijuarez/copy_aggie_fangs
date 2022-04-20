@@ -3,6 +3,8 @@ import ReviewList from '../components/ReviewList'
 import VideoComp from '../components/VideoPlayer/VideoComp'
 import { v4 as uuidv4 } from "uuid";
 
+var companyName = <text>Google</text>;
+
 const GooglePrep = () => {
   const [reviews, setReviews] = useState([])
   return (
@@ -15,6 +17,7 @@ const GooglePrep = () => {
           <div class='company-left'>
             <div class='company-section'>
               <h1>Youtube Playlist</h1>
+              <VideoComp playListId = "PLi9RQVmJD2fapKJ4DnZzAn55NJfo5IM1c"/>
             </div>
             <div class='company-section'>
               <h1>Our Coding Problems</h1>

@@ -1,6 +1,7 @@
 import React, {useState} from 'react'
 import ReviewList from '../components/ReviewList'
 import { v4 as uuidv4 } from "uuid";
+import VideoComp from '../components/VideoPlayer/VideoComp'
 
 var companyName = <text>Facebook</text>;
 
@@ -14,7 +15,8 @@ const FacebookPrep = () => {
         <div class='split'>
           <div class='company-left'>
             <div class='company-section'>
-              <h1>Youtube Playlist</h1>
+              <h1>Youtube Playlist</h1> 
+              <VideoComp playListId = "PLi9RQVmJD2fYckvJZSKA4YcUQ4eyNupuY"/>
             </div>
             <div class='company-section'>
               <h1>Our Coding Problems</h1>
