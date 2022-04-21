@@ -16,14 +16,16 @@ const GooglePrep = () => {
         <div class='split'>
           <div class='company-left'>
             <div class='company-section'>
-              <h1>Youtube Playlist</h1>
-              <VideoComp playListId = "PLi9RQVmJD2fapKJ4DnZzAn55NJfo5IM1c"/>
-            </div>
-            <div class='company-section'>
               <h1>Our Coding Problems</h1>
               <body>
                 Go to our <a href="/coding">practice coding problems</a> and select the "Sort By {companyName}" option.
               </body>
+            </div>
+            <div class='company-section'>
+              <h1>HackerRank Links</h1>
+              <ul>
+                
+              </ul>
             </div>
           </div>
           <div class='company-right'>
@@ -38,12 +40,6 @@ const GooglePrep = () => {
               </ul>
             </div>
             <div class='company-section'>
-              <h1>HackerRank Links</h1>
-              <ul>
-                
-              </ul>
-            </div>
-            <div class='company-section'>
               <h1>More Resources</h1>
               <ul>
                 
@@ -51,7 +47,12 @@ const GooglePrep = () => {
             </div>
           </div>
         </div>
-        <div class="show-reviews">
+        <div class='company-section'>
+          <h1>Youtube Playlist</h1>
+          <VideoComp playListId = "PLi9RQVmJD2fapKJ4DnZzAn55NJfo5IM1c"/>
+        </div>
+        <div class="company-section">
+          <h1>Interview Reviews For {companyName}</h1>
           <ReviewList reviews = {reviews} setReviews = {setReviews}/>
         </div>
     </div>

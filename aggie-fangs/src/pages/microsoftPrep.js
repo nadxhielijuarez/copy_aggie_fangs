@@ -32,14 +32,16 @@ const MicrosoftPrep = () => {
         <div class='split'>
           <div class='company-left'>
             <div class='company-section'>
-              <h1>Youtube Playlist</h1>
-              <VideoComp playListId = "PLi9RQVmJD2fYMiu6JOL3PiEVh_Is6jAin"/>
-            </div>
-            <div class='company-section'>
               <h1>Our Coding Problems</h1>
               <body>
                 Go to our <a href="/coding">practice coding problems</a> and select the "Sort By {companyName}" option.
               </body>
+            </div>
+            <div class='company-section'>
+              <h1>HackerRank Links</h1>
+              <ul>
+                
+              </ul>
             </div>
           </div>
           <div class='company-right'>
@@ -54,12 +56,6 @@ const MicrosoftPrep = () => {
               </ul>
             </div>
             <div class='company-section'>
-              <h1>HackerRank Links</h1>
-              <ul>
-                
-              </ul>
-            </div>
-            <div class='company-section'>
               <h1>More Resources</h1>
               <ul>
                 <li><a href="https://www.hackerrank.com/blog/how-to-crack-microsoft-interview/">Blog: How To Crack The Microsoft Interview</a></li>
@@ -67,7 +63,12 @@ const MicrosoftPrep = () => {
             </div>
           </div>
         </div>
-        <div class="show-reviews">
+        <div class='company-section'>
+          <h1>Youtube Playlist</h1>
+          <VideoComp playListId = "PLi9RQVmJD2fYMiu6JOL3PiEVh_Is6jAin"/>
+        </div>
+        <div class="company-section">
+          <h1>Interview Reviews For {companyName}</h1>
           <ReviewList reviews = {reviews} setReviews = {setReviews}/>
         </div>
     </div>

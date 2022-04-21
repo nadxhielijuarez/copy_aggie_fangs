@@ -7,11 +7,19 @@ const VideoList = ({ data, onVideoSelected, meta2}) => {
     <div className="video-list">
       <div style={{ padding: "20px 0" }}>
         <h3
-          style={{ textAlign: "center", fontSize: "18px", fontWeight: "bold" }}
+          style={{ 
+            textAlign: "center", 
+            fontSize: "18px", 
+            fontWeight: "bold",
+          }}
         >
           Videos List
         </h3>
-        <Video data={data} onVideoSelected={onVideoSelected} meta2 = {meta2}/>
+        <Video 
+          data={data} 
+          onVideoSelected={onVideoSelected} 
+          meta2 = {meta2}
+        />
       </div>
     </div>
   );
