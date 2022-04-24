@@ -34,21 +34,24 @@ const Form = ({form, reviews, setForm, setReviews}) => {
     return true;
   }
   const handleSubmit = e => {
-/*     console.log('BEGINING THE INITIAL TEST CALL!!!!!!!!!!!')
+/*    func
     fetch('http://localhost:3002/' + database_id).then(async (resp) => {
       console.log(resp);
     });
-    console.log('DONE WITH INITIAL TEST THE CALL!!!!!!!!!!!')
  */
     fetch('http://localhost:3002/' + database_id, {
       mode:'no-cors',
       method: 'POST',
       headers: {'Content-Type': 'application/x-www-form-urlencoded'},
       body: JSON.stringify({
-        title: 'EMPTY TEST',
-        email: 'test@tamu.edu' 
+        title: form.company,
+        name: form.name,
+        userEmail: form.email,
+        description: form.review
+
       }) 
     });
+    console.log("form is:", form)
 
 /*     if (checkValidity()) {
       alert("The input data is good!");

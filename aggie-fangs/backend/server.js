@@ -27,48 +27,7 @@ app.use(express.urlencoded({extended: true }));
 
 app.use(express.json());   
 //properties: myProperties
-const myProperties = {
-      'title': {
-        title: [
-          {
-            type: "text",
-            text: {
-              content: "testing empty",
-            },
-          },
-        ],
-      },
-      'S%3AUR': {
-        email : 'testEmail@tamu.edu'
-      },
-      'Tqov': {
-        rich_text: [
-          {
-            type: "text",
-            text: {
-              content: "testName",
-            },
-          },
-        ],
-      },
-      'h%5Da%3E': {
-        rich_text: [
-          {
-            type: "text",
-            text: {
-              content: 'testDescription',
-            },
-          },
-        ],
-      },
-      'g~OQ': {
-        number: 10,
-      },
-      'k_Eb': {
-        number: 12,
-      },
-      
-  }
+//const myProperties = 
 // What we'll pass into axios
 const headers = {
   'Content-Type': 'application/json',
@@ -96,8 +55,8 @@ app.post('/:database_id' , async (req, res) => {
   var body = req.body //the object is listed as: { '{"title":"EMPTY TEST","email":"test@tamu.edu"}': '' } note the 1st key is the actual obj
   var strData = Object.keys(body)[0] //obtains the first key, currently as a string 
   var data = JSON.parse(strData) //actual object is now obtained
-  /* corrected the wierd behaviour*/
-  const { title, email } = data
+  /* corrected the wierd behavior*/
+  const { title, description, userEmail, name} = data
   res.header("Access-Control-Allow-Origin", "*");
   await axios({
     method: 'POST',
@@ -106,9 +65,47 @@ app.post('/:database_id' , async (req, res) => {
     data: {
       parent: { database_id },
       properties: {
-        "title": { "title": [{ text: { content: title } }] },
-        'S%3AUR': { "email": email }
-      }
+        'Company Name': {
+          title: [
+            {
+              type: "text",
+              text: {
+                content:title,
+              },
+            },
+          ],
+        },
+        'S%3AUR': {
+          email : userEmail
+        },
+        'Tqov': {
+          rich_text: [
+            {
+              type: "text",
+              text: {
+                content: name,
+              },
+            },
+          ],
+        },
+        'h%5Da%3E': {
+          rich_text: [
+            {
+              type: "text",
+              text: {
+                content: description,
+              },
+            },
+          ],
+        },
+        'g~OQ': {
+          number: 0,
+        },
+        'k_Eb': {
+          number: 12,
+        },
+        
+    }
     }
   })
   
@@ -124,9 +121,3 @@ app.listen(port, () => {
   console.log(`On port ${port}`)
 })
 
-
-
-/*NOTES:
-
-
-*/

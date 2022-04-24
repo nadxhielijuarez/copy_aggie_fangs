@@ -1,38 +1,484 @@
-.App {
+@import url('https://fonts.googleapis.com/css2?family=Roboto+Mono:wght@300;500&display=swap');
+
+:root {
+  --bgcolor: rgb(254,251,234);
+  --bg2color: rgb(250, 250, 250);
+  --btncolor: rgb(100, 0, 0);
+  --hdrcolor: rgb(100, 0, 0);
+  --txtcolor: rgb(0, 0, 0);
+  --brdrcolor: #0d0d0d;
+  --shdwcolor: #ccc;
+}
+
+*{
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  /*background-color: var(--bgcolor);*/
+}
+
+h1{
+  font-size: 30px;
+  font-family: "Roboto", sans-serif;
+}
+
+.logo-img {
+  position: absolute;
+  width: 90px;
+  height: 90px;
+  left: 15px;
+  top:5px;
+}
+
+/* ----- Company Page Styling ----- */
+.company-page {
+  width: 100%;
+  position: absolute;
+  background-color: var(--bgcolor);
+}
+.company-header {
+  width: 100%;
+  margin-top: 3rem;
+  margin-bottom: 3rem;
+  padding: 1.5rem;
+  border-bottom: 0.5px solid var(--brdrcolor);
+  border-top: 0.5px solid var(--brdrcolor);
+  background-color: var(--bg2color);
+}
+.company-header h1 {
+  font-size: 50px;
+  font-style: italic;
+  color: var(--hdrcolor);
+}
+.company-left {
+  width: 50%;
+  float: left;
+  align-items: center;
+}
+.company-right {
+  width: 50%;
+  float: right;
+  align-items: center;
+}
+.company-section {
+  width: 90%;
+  border: 0.5px solid var(--brdrcolor);
+  margin-left: auto;
+  margin-right: auto;
+  margin-bottom: 50px;
+  background-color: var(--bg2color);
+  padding: 1rem;
+}
+.company-section h1 {
+  width: 100%;
+  border-bottom: 0.25px dashed var(--brdrcolor);
+  color: var(--hdrcolor);
+  font-size: 40px;
+  font-style: italic;
+  padding: 0.7rem;
+}
+.company-section body, li {
+  font-size: 25px;
+  color: var(--txtcolor);
+  font-style: normal;
+  margin-top: 1rem;
+  margin-bottom: 1rem;
+}
+.company-section ul {
+  list-style: circle outside;
+  padding-left: 50px;
+}
+
+/* ----- Button Styling ----- */
+.Link {
+  text-decoration: none;
+}
+
+/* ----- Home Page Styling ----- */
+.hp {
+  border-width: 0.5px;
+  border-bottom-color: var(--brdrcolor);
+  border-bottom-style: solid;
+}
+.hp Link {
+  text-decoration: none;
+}
+.hp body {
+  font-size: 26px;
+  text-align: left;
+  margin: auto;
+  margin-bottom: 0px;
+}
+.hp h1 {
+  text-align: left;
+  margin-bottom: 10px;
+  color: var(--hdrcolor);
+  font-size: 50px;
+}
+.welcome {
+  height: 400px;
+  background-color: var(--bgcolor);
+}
+.split {
+  height: 100%;
+  z-index: 1;
+  top: 0;
+  overflow-x: hidden;
+  overflow: hidden;
+  padding-top: 30px;
+  padding-bottom: 30px;
+  border-width: 0.5px;
+  padding: 40px;
+}
+.welcome-left {
+  left: 0;
+  float: left;
+  width: 30%;
+  padding: 0px;
+  padding-top: 30px;
+}
+.welcome-left h1 {
+  font-size: 55px;
+  text-align: center;
+}
+.welcome-left img {
+  height: 55%;
+  margin-left: auto;
+  margin-right: auto;
+  display: block;
+}
+.welcome-right {
+  float: right;
+  right: 0;
+  width: 70%;
+}
+.welcome-right ul {
+  list-style: circle outside;
+  padding-left: 50px;
+}
+.welcome-right li {
+  margin-top: 20px;
+  margin-bottom: 20px;
+}
+.hpfeedback {
+  height: 300px;
+  background-color: var(--bgcolor);
+}
+.fb-left {
+  left: 0;
+  float: left;
+  width: 30%;
+  padding-top: 75px;
+}
+.fb-right {
+  float: right;
+  right: 0;
+  width: 70%;
+}
+
+.companies {
+  height: 300px;
+  background-color: var(--bgcolor);
+}
+.companies-left {
+  left: 0;
+  float: left;
+  width: 70%;
+}
+.companies-right {
+  float: right;
+  right: 0;
+  width: 30%;
+  padding-top: 75px;
+}
+.codinghp {
+  height: 300px;
+  background-color: var(--bgcolor);
+}
+.coding-left {
+  left: 0;
+  float: left;
+  width: 30%;
+  padding-top: 75px;
+}
+.coding-right {
+  right: 0;
+  float: right;
+  width: 70%;
+}
+.interview-help {
+  height: 300px;
+  background-color: var(--bgcolor);
+}
+.help-left {
+  left: 0;
+  float: left;
+  width: 70%;
+}
+.help-right {
+  float: right;
+  right: 0;
+  width: 30%;
+  padding-top: 75px;
+}
+
+
+/* ----- Coding Problems Styling ----- */
+.coding {
+  border-width: 0.25px;
+  border-bottom-color: var(--brdrcolor);
+  border-bottom-style: solid;
+  overflow: auto;
+  background-color: var(--bgcolor);
+}
+.coding-header {
+  height: 150px;
+}
+.coding-logo {
+  left: 0;
+  width: 30%;
+  float: left;
+  padding: 0px;
+}
+.coding-logo img {
+  height: 100%;
+  margin-left: auto;
+  margin-right: auto;
+  display: block;
+}
+.coding-problem-name {
+  right: 0;
+  float: right;
+  width: 70%;
+  border-left-color: var(--brdrcolor);
+  border-left-style: solid;
+  padding: 20px;
+}
+.coding-problem-name h1 {
+  text-align: left;
+  font-size: 45px;
+}
+.coding-problem-name h2 {
+  text-align: left;
+  font-size: 25px;
+}
+.coding-main {
+  height: 750px;
+}
+.problem-list {
+  left: 0;
+  float: left;
+  width: 30%;
+}
+.problem-statement {
+  right: 0;
+  float: right;
+  width: 70%;
+  border-left-color: var(--brdrcolor);
+  border-left-style: solid;
+}
+.coding-problem-left {
+  width: 60%;
+  left: 0;
+  float: left;
+}
+.code-window {
+  width: 100%;
+  height: 300px;
+  text-align: top;
+  padding: 5px;
+  resize: none;
+}
+.coding-problem-right {
+  width: 40%;
+  right: 0;
+  float: right;
+}
+.compiler-window {
+  width: 100%;
+  height: 300px;
+  text-align: top;
+  padding: 5px;
+  resize: none;
+}
+
+
+/* ----- Guide Styling ----- */
+.guide-header {
+  width: 100%;
+  height: 300px;
+  padding: 30px;
+  border-width: 0.5px;
+  background-color: var(--bgcolor);
+  border-color: var(--brdrcolor);
+  border-bottom-style: solid;
+}
+.guide-header h1 {
+  text-align: left;
+  font-size: 60px;
+  margin-bottom: 25px;
+  color: var(--hdrcolor);
+  font-style: italic;
+}
+.guide-header h2 {
+  text-align: left;
+  font-size: 30px;
+  margin-bottom: 5px;
+  color: var(--hdrcolor);
+}
+.guide-section {
+  background-color: var(--bgcolor);
+  padding: 50px;
+  border-color: var(--brdrcolor);
+  border-width: 0.5px;
+  border-bottom-style: dashed;
+}
+.guide-section h2 {
+  color:var(--hdrcolor);
+  font-size: 45px;
+  font-style: italic;
+  text-align: left;
+  margin-bottom: 25px;
+}
+.guide-section body {
+  color: var(--txtcolor);
+  font-size: 30px;
+  line-height: 1.8;
+}
+.guide-section ul {
+  list-style: circle outside;
+  padding-left: 50px;
+}
+.guide-section li {
+  margin-top: 20px;
+  margin-bottom: 20px;
+}
+
+
+/* ----- Nav Bar Styling ----- */
+/*.nav-title {
+  padding-right: 50px;
+  padding-left: 0px;
+  font-size: 50px;
+  text-decoration: none;
+  white-space: nowrap;
+  color: rgb(254,251,234);
   text-align: center;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+.nav-title:visited {
+  text-decoration: none;
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
+.nav-link {
+  padding-right: 20px;
+  padding-left: 0px;
+  font-size: 30px;
+  text-decoration: none;
+  white-space: nowrap;
+  color: rgb(254,251,234);
+  text-align: center;
 }
+.nav-link:visited {
+  text-decoration: none;
+}
+.nav-link:active {
+  text-decoration: none;
+}
+.nav-link:hover {
+  text-decoration: none;
+}*/
 
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
+
+/* ----- Share Experience Styling ----- */
+.googleForm{
+  width: 100%;
   display: flex;
   flex-direction: column;
-  align-items: center;
   justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
+  align-items: center;
+}
+.feedback-section {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding-top: 50px;
+  padding-bottom: 50px;
+  background-color: var(--bgcolor);
+}
+.form {
+  border: 1px solid; 
+  border-color: var(--brdrcolor);
+  border-radius: 1rem;
+  padding: 1.5rem;
+  width: 70%;
+  font-size: 25px;
+  background-color: var(--bg2color);
+}
+.form label {
+  color: var(--hdrcolor);
+  font-size: 40px;
+  margin-top: 0.75rem;
+}
+.feedback-section select {
+  display: block;
+  width: 30rem;
+  padding: 0.75rem;
+  margin-top: 0.75rem;
+  margin-bottom: 0.75rem;
+  font-size: 25px;
+  border-radius: 5px;
+  box-shadow: 4px 4px var(--shdwcolor);
+}
+.feedback-section input, textarea, button {
+  display: block;
+  margin: 0.5rem auto 0 auto;
+  padding: .25rem .5rem;
+  text-decoration: none;
+  margin-bottom: 0.75rem;
+}
+.feedback-section input, textarea {
+  width: calc(100% - 1rem);
+  resize: none;
+  font-size: 20px;
+  padding: 0.75rem;
+  box-shadow: 4px 4px var(--shdwcolor);
+}
+.feedback-section button {
+  border: 1px solid #0d0d0d;
+  cursor: pointer;
+}
+.review-box textarea {
+  height: 12rem;
+  margin-bottom: 0;
+}
+.feedback-section h2 {
+  margin: 0 0 1rem 0;
+  text-align: center;
+  color: var(--hdrcolor);
+  font-size: 45;
+  font-style: italic;
+}
+.reviewItem {
+  border: 1px solid var(--brdrcolor);
+  box-shadow: 1px 1px var(--brdrcolor), 2px 2px var(--brdrcolor);
+  padding: 1rem;
+  width:20rem;
+  margin-top: 1rem;
 }
 
-.App-link {
-  color: #61dafb;
+/* ----- Video Player Styling ----- */
+/*.video-iframe {
+  position: relative;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  border: 0;
 }
-
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
-}
+.video-comp {
+  height: 300px;
+  overflow: hidden;
+}*/

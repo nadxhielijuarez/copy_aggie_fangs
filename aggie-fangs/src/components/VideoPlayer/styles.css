@@ -1,0 +1,77 @@
+html {
+    height: 100vh;
+    font-family: sans-serif;
+    box-sizing: border-box;
+  }
+   
+  body,
+  #root,
+  .App {
+    height: 100%;
+    margin: 0;
+  }
+   
+  .App {
+    display: grid;
+    grid-template-columns: 60% 1fr;
+    grid-template-rows: 70px 500px;
+  }
+  .search-form {
+    border-bottom: 1px solid lightgray;
+    display: flex;
+    justify-content: flex-start;
+    padding: 0 20px;
+    align-items: center;
+  }
+   
+  .form-controls {
+    display: flex;
+    flex-grow: 1;
+    align-items: center;
+    justify-content: space-between;
+  }
+  .form-controls input[type="text"] {
+    display: flex;
+    border: 1px solid lightgray;
+    flex-grow: 1;
+    padding: 10px;
+    border-radius: 4px;
+    font-size: 16px;
+  }
+  .form-controls input[type="text"]:focus {
+    outline: none;
+    border-color: gray;
+    box-shadow: 0 2px 5px lightgray;
+  }
+   
+  .form-controls label {
+    display: none;
+  }
+
+  .video {
+    box-shadow: 0 2px 1px lightgray;
+    border: 1px solid lightgray;
+    border-radius: 2px;
+    margin: 20px 0;
+  }
+   
+  .video > .title {
+    text-align: center;
+    padding: 10px;
+    margin: 0;
+    font-weight: 600;
+    font-size: 12px;
+  }
+  .video-list {
+    border-left: 1px solid lightgray;
+    grid-row: span 2;
+    padding: 0 20px;
+    height: 100%;
+    overflow: auto;
+  }
+   
+  .video-player .video-iframe {
+    height: 100%;
+    width: 100%;
+    object-fit: fill;
+  }

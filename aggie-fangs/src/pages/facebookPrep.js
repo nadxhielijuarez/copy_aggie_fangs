@@ -1,14 +1,13 @@
 import React, {useState} from 'react'
 import ReviewList from '../components/ReviewList'
-import VideoComp from '../components/VideoPlayer/VideoComp'
 import { v4 as uuidv4 } from "uuid";
+import VideoComp from '../components/VideoPlayer/VideoComp'
 
-var companyName = <text>Google</text>;
+var companyName = <text>Facebook</text>;
 
-const GooglePrep = () => {
-  const [reviews, setReviews] = useState([])
+const FacebookPrep = () => {
+    const [reviews, setReviews] = useState([])
   return (
-
     <div class='company-page'>
         <div class='company-header'>
           <h1>Interview Preparation Resources For {companyName}</h1>
@@ -48,8 +47,8 @@ const GooglePrep = () => {
           </div>
         </div>
         <div class='company-section'>
-          <h1>Youtube Playlist</h1>
-          <VideoComp playListId = "PLi9RQVmJD2fapKJ4DnZzAn55NJfo5IM1c"/>
+          <h1>Youtube Playlist</h1> 
+          <VideoComp playListId = "PLi9RQVmJD2fYckvJZSKA4YcUQ4eyNupuY"/>
         </div>
         <div class="company-section">
           <h1>Interview Reviews For {companyName}</h1>
@@ -59,4 +58,4 @@ const GooglePrep = () => {
   )
 }
 
-export default GooglePrep
+export default FacebookPrep

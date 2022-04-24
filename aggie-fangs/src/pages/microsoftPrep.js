@@ -1,14 +1,30 @@
 import React, {useState} from 'react'
 import ReviewList from '../components/ReviewList'
+import {Link } from "react-router-dom";
+import styled from "styled-components";
 import VideoComp from '../components/VideoPlayer/VideoComp'
-import { v4 as uuidv4 } from "uuid";
 
-var companyName = <text>Google</text>;
+const LinkButton = styled.button `
+  cursor: pointer;
+  background-color: rgb(100, 0, 0);
+  width: 300px;
+  height: 150px;
+  padding: 5px 15px;
+  border-radius: 20px;
+  text-decoration: none;
+  color: white;
+  font-size: 40px;
+  font-family: "Lucida Console", "Courier New", monospace;
 
-const GooglePrep = () => {
-  const [reviews, setReviews] = useState([])
+  overflow-x: hidden;
+  float: left;
+`
+
+var companyName = <text>Microsoft</text>;
+
+const MicrosoftPrep = () => {
+    const [reviews, setReviews] = useState([])
   return (
-
     <div class='company-page'>
         <div class='company-header'>
           <h1>Interview Preparation Resources For {companyName}</h1>
@@ -42,14 +58,14 @@ const GooglePrep = () => {
             <div class='company-section'>
               <h1>More Resources</h1>
               <ul>
-                
+                <li><a href="https://www.hackerrank.com/blog/how-to-crack-microsoft-interview/">Blog: How To Crack The Microsoft Interview</a></li>
               </ul>
             </div>
           </div>
         </div>
         <div class='company-section'>
           <h1>Youtube Playlist</h1>
-          <VideoComp playListId = "PLi9RQVmJD2fapKJ4DnZzAn55NJfo5IM1c"/>
+          <VideoComp playListId = "PLi9RQVmJD2fYMiu6JOL3PiEVh_Is6jAin"/>
         </div>
         <div class="company-section">
           <h1>Interview Reviews For {companyName}</h1>
@@ -59,4 +75,4 @@ const GooglePrep = () => {
   )
 }
 
-export default GooglePrep
+export default MicrosoftPrep
