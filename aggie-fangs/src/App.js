@@ -47,16 +47,22 @@ const GlobalStyle2 = createGlobalStyle`
   }
 `
 
+window.onload = function() {
+  var defaultStyle = localStorage.getItem("current-style");
+  if (!defaultStyle) {
+      localStorage.setItem("current-style", "style1");
+  }
+}
+
 function App() {
   document.title = "Aggie Fangs";
 
   const whichStyle = () => {
+    var styleInput = localStorage.getItem("current-style");
     var thisStyle = <GlobalStyle1/>;
-    var styleInput = Settings.getStyle;
     if (styleInput == "style2") {
       thisStyle = <GlobalStyle2/>;
     }
-    alert(styleInput);
     return thisStyle;
   };
   
