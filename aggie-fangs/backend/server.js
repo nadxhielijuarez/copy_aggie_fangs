@@ -58,7 +58,7 @@ app.post('/:database_id' , async (req, res) => {
   var strData = Object.keys(body)[0] //obtains the first key, currently as a string 
   var data = JSON.parse(strData) //actual object is now obtained
   /* corrected the wierd behavior*/
-  const { title, description, userEmail, name} = data
+  const { title, description, userEmail, name, tag} = data
   res.header("Access-Control-Allow-Origin", "*");
   await axios({
     method: 'POST',
@@ -109,11 +109,8 @@ app.post('/:database_id' , async (req, res) => {
         '%5C~%7Cf': {
           multi_select: [
             {
-              id: '5a3e9bad-c55e-4eaf-8902-9f52e1b60add'
-            },
-            {
-              id: '058ec567-3406-40d5-a9b6-08f46394873f'
-            },
+              id:tag
+            }
           ],
         },
         

@@ -50,7 +50,8 @@ const Form = ({form, reviews, setForm, setReviews}) => {
         title: form.company,
         name: form.name,
         userEmail: form.email,
-        description: form.review
+        description: form.review,
+        tag: form.job
       }) 
     });
 
@@ -92,12 +93,15 @@ const Form = ({form, reviews, setForm, setReviews}) => {
             value={form.job}
             onChange={handleChange}>
             <option value="None">Select Job Title</option>
-            <option value="Freshman Internship">Freshman Internship</option>
-            <option value="Sophomore Internship">Sophomore Internship</option>
-            <option value="Junior Internship">Junior Internship</option>
-            <option value="Senior Internship">Senior Internship</option>
-            <option value="Starting-Level Job (Front-End)">Starting-Level Job (Front-End)</option>
-            <option value="Starting-Level Job (Back-End)">Starting-Level Job (Back-End)</option>
+            <option value="5a3e9bad-c55e-4eaf-8902-9f52e1b60add">Freshman Internship</option>
+            <option value="dcd6f86c-e02e-42af-aac7-b1f2d13e9465">Sophomore Internship</option>
+            <option value="812fb902-5d3f-41cd-9051-bc7958b7be28">Junior Internship</option>
+            <option value="2613dbd9-0db3-4250-8edd-52426cbe1139">Senior Internship</option>
+            <option value="a762320d-c829-447a-9d91-c3d2d8385331">Starting-Level Job (Front-End)</option>
+            <option value="19f052cf-d7fe-4f9f-954d-ebb135b44489">Starting-Level Job (Back-End)</option>
+            <option value="058ec567-3406-40d5-a9b6-08f46394873f">Software Engineering</option>
+            <option value="9bf8df2f-0b86-4755-b955-c35d19003d3d">QA Engineering</option>
+            <option value="b2ef6f52-4148-4938-9075-c8eb0f843d29">full-stack</option>
           </select><br/>
           <label htmlFor='Name'>Name</label><br/>
           <textarea
