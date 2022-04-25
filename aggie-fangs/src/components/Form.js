@@ -4,11 +4,11 @@ import styled from "styled-components";
 
 const SubmitButton = styled.button `
   cursor: pointer;
-  background-color: rgb(100, 0, 0);
+  background-color: var(--btncolor);
   padding: 1.5rem;
   border-radius: 20px;
   text-decoration: none;
-  color: white;
+  color: var(--btntxtcolor);
   font-size: 40px;
   font-family: "Lucida Console", "Courier New", monospace;
 

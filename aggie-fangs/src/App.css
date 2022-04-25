@@ -1,20 +1,20 @@
 @import url('https://fonts.googleapis.com/css2?family=Roboto+Mono:wght@300;500&display=swap');
 
-:root {
+/*:root {
   --bgcolor: rgb(254,251,234);
   --bg2color: rgb(250, 250, 250);
   --btncolor: rgb(100, 0, 0);
+  --btntxtcolor: rgb(255, 255, 255);
   --hdrcolor: rgb(100, 0, 0);
   --txtcolor: rgb(0, 0, 0);
   --brdrcolor: #0d0d0d;
   --shdwcolor: #ccc;
-}
+}*/
 
 *{
   box-sizing: border-box;
   margin: 0;
   padding: 0;
-  /*background-color: var(--bgcolor);*/
 }
 
 h1{
@@ -28,6 +28,15 @@ h1{
   height: 90px;
   left: 15px;
   top:5px;
+}
+
+/* ----- Settings Page Styling -----*/
+.settings-page {
+  width: 100%;
+  height: 90%;
+  padding-top: 30px;
+  position: absolute;
+  background-color: var(--bgcolor);
 }
 
 /* ----- Company Page Styling ----- */
