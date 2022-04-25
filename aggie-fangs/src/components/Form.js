@@ -1,8 +1,10 @@
-import React from 'react'
+import React, { useEffect, useState } from "react";
 import { v4 as uuidv4 } from "uuid";
 import styled from "styled-components";
 import axios from 'axios';
+import { getJSDocTags } from 'typescript';
 
+const database_id = '22f238cc864e4a1496e42e3d8a2c05c6';
 const secretKey = 'secret_AFKZAuWeh8KSRFU7dK4vcdUTEQG1pb3CyQtwBIdj9Ws'
 
 const SubmitButton = styled.button `
@@ -18,13 +20,19 @@ const SubmitButton = styled.button `
   overflow-x: hidden;
   float: center;
 `
-const database_id = '22f238cc864e4a1496e42e3d8a2c05c6';
 const Form = ({form, reviews, setForm, setReviews}) => {
+    const [db, setDB] = useState({});
+    useEffect(() => {
+      fetch('http://localhost:3002/' + database_id).then(async (resp) => {
+        setDB(await resp.json())
+      });
+    }, []);
+   console.log("db currently-->", db)
+
 
   const handleChange = e => {
     const{name, value} = e.target;
     setForm({...form, [name]: value});
-
   }
   const sendInfo = e => {
     // todo
@@ -34,11 +42,6 @@ const Form = ({form, reviews, setForm, setReviews}) => {
     return true;
   }
   const handleSubmit = e => {
-/*    func
-    fetch('http://localhost:3002/' + database_id).then(async (resp) => {
-      console.log(resp);
-    });
- */
     fetch('http://localhost:3002/' + database_id, {
       mode:'no-cors',
       method: 'POST',
@@ -48,10 +51,10 @@ const Form = ({form, reviews, setForm, setReviews}) => {
         name: form.name,
         userEmail: form.email,
         description: form.review
-
       }) 
     });
-    console.log("form is:", form)
+
+     
 
 /*     if (checkValidity()) {
       alert("The input data is good!");
@@ -67,6 +70,7 @@ const Form = ({form, reviews, setForm, setReviews}) => {
     <form className="form" onSubmit={handleSubmit}>
         <h2>Share Your Experience</h2>
           <label htmlFor='Company'>Company</label><br/>
+
           <select placeholder="Company Name"
             id="company"
             name="company"
@@ -79,6 +83,7 @@ const Form = ({form, reviews, setForm, setReviews}) => {
             <option value="Netflix">Netflix</option>
             <option value="Apple">Apple</option>
             <option value="Microsoft">Microsoft</option>
+            
           </select><br/>
           <label htmlFor='JobTitle'>Job Title</label><br/>
           <select placeholder="Job Title"
@@ -121,7 +126,7 @@ const Form = ({form, reviews, setForm, setReviews}) => {
                  autoComplete="off"
                  onChange={handleChange}>
           </textarea></div><br/>
-          <SubmitButton onClick={handleSubmit}>
+          <SubmitButton >
             Submit
           </SubmitButton>
     </form>

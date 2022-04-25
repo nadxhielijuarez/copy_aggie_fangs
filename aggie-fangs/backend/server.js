@@ -2,6 +2,7 @@
 const express = require('express')
 const axios = require('axios')
 const cors = require('cors')
+const { makeConsoleLogger } = require('@notionhq/client/build/src/logging')
 const app = express()
 const port = 3002
 
@@ -36,18 +37,19 @@ const headers = {
 }
 
 
-/* route to basic database info */
 app.get('/:database_id', async (req, res) => {
-  res.header("Access-Control-Allow-Origin", "*");
   const { database_id } = req.params;
+  res.header("Access-Control-Allow-Origin", "*");
   const resp = await axios({
     method: 'GET',
     url: 'https://api.notion.com/v1/databases/' + database_id,
     headers
   });
-  return res.json(resp.data);
+  return res.json(resp.data)
 })
- 
+
+/* route for database tags */
+
 /* route that allows us to enter info into the feedback form */
 app.post('/:database_id' , async (req, res) => {
   const { database_id } = req.params
@@ -103,6 +105,16 @@ app.post('/:database_id' , async (req, res) => {
         },
         'k_Eb': {
           number: 12,
+        },
+        '%5C~%7Cf': {
+          multi_select: [
+            {
+              id: '5a3e9bad-c55e-4eaf-8902-9f52e1b60add'
+            },
+            {
+              id: '058ec567-3406-40d5-a9b6-08f46394873f'
+            },
+          ],
         },
         
     }
