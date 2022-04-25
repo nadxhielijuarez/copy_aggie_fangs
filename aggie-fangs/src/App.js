@@ -23,12 +23,15 @@ import theme from "./App.css";
 
 const GlobalStyle1 = createGlobalStyle`
   html {
-    --bgcolor: rgb(254,251,234);
-    --bg2color: rgb(250, 250, 250);
-    --btncolor: rgb(100, 0, 0);
-    --btntxtcolor: rgb(255, 255, 255);
-    --hdrcolor: rgb(100, 0, 0);
-    --txtcolor: rgb(0, 0, 0);
+    --bgcolor: #fafafa;
+    --bg2color: #e4e5f1;
+    --btncolor: #484b6a;
+    --btntxtcolor: #fafafa;
+    --navcolor: #484b6a;
+    --navtxtcolor: #fafafa;
+    --navtxtcolor2: #B6CCD7;
+    --hdrcolor: #9394a5;
+    --txtcolor: #484b6a;
     --brdrcolor: #0d0d0d;
     --shdwcolor: #ccc;
   }
@@ -36,10 +39,29 @@ const GlobalStyle1 = createGlobalStyle`
 
 const GlobalStyle2 = createGlobalStyle`
   html {
-    --bgcolor: rgb(0,251,234);
+    --bgcolor: #484b6a;
+    --bg2color: #9394a5;
+    --btncolor: #9394a5;
+    --btntxtcolor: #262948;
+    --navcolor: #262948;
+    --navtxtcolor: #fafafa;
+    --navtxtcolor2: #B6CCD7;
+    --hdrcolor: #9394a5;
+    --txtcolor: #fafafa;
+    --brdrcolor: #0d0d0d;
+    --shdwcolor: #ccc;
+  }
+`
+
+const GlobalStyleOriginal = createGlobalStyle`
+  html {
+    --bgcolor: rgb(254,251,234);
     --bg2color: rgb(250, 250, 250);
     --btncolor: rgb(100, 0, 0);
     --btntxtcolor: rgb(255, 255, 255);
+    --navcolor: rgb(80, 0, 0);
+    --navtxtcolor: rgb(255, 255, 255);
+    --navtxtcolor2: #B6CCD7;
     --hdrcolor: rgb(100, 0, 0);
     --txtcolor: rgb(0, 0, 0);
     --brdrcolor: #0d0d0d;
