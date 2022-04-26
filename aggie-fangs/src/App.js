@@ -30,7 +30,7 @@ const GlobalStyle1 = createGlobalStyle`
     --navcolor: #484b6a;
     --navtxtcolor: #fafafa;
     --navtxtcolor2: #B6CCD7;
-    --hdrcolor: #9394a5;
+    --hdrcolor: #6082B6;
     --txtcolor: #484b6a;
     --brdrcolor: #0d0d0d;
     --shdwcolor: #ccc;
@@ -46,7 +46,7 @@ const GlobalStyle2 = createGlobalStyle`
     --navcolor: #262948;
     --navtxtcolor: #fafafa;
     --navtxtcolor2: #B6CCD7;
-    --hdrcolor: #9394a5;
+    --hdrcolor: #ADD8E6;
     --txtcolor: #fafafa;
     --brdrcolor: #0d0d0d;
     --shdwcolor: #ccc;
@@ -72,7 +72,7 @@ const GlobalStyleOriginal = createGlobalStyle`
 window.onload = function() {
   var defaultStyle = localStorage.getItem("current-style");
   if (!defaultStyle) {
-      localStorage.setItem("current-style", "style1");
+      localStorage.setItem("current-style", "style2");
   }
 }
 
