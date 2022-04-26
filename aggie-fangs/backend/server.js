@@ -3,6 +3,7 @@ const express = require('express')
 const axios = require('axios')
 const cors = require('cors')
 const { makeConsoleLogger } = require('@notionhq/client/build/src/logging')
+const { Console } = require('console')
 const app = express()
 const port = 3002
 
@@ -47,7 +48,6 @@ app.get('/:database_id', async (req, res) => {
   });
   return res.json(resp.data)
 })
-
 
 /* route that allows us to enter info into the feedback form */
 app.post('/:database_id' , async (req, res) => {
@@ -119,6 +119,28 @@ app.post('/:database_id' , async (req, res) => {
   
 })
 
+
+/*
+translate: 
+async function getSuggestions() {
+  const notionPages = await notion.databases.query({
+    database_id: process.env.NOTION_DATABASE_ID,
+    sorts: [{ property: process.env.NOTION_VOTES_ID, direction: "descending" }],
+  })
+
+*/
+
+/* app.post(':/', async (req, res) => {
+  const { database_id } = req.params
+  const response = await axios({
+    method: 'POST',
+    url: 'https://api.notion.com/v1/databases/22f238cc864e4a1496e42e3d8a2c05c6/query',
+    headers,
+    data: {page_size: 100}
+  })
+  console.log("the response is---->", response)
+})
+ */
 app.use(cors({
   origin: ['http://localhost:3002'],
   credentials: true
