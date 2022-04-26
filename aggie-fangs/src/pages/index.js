@@ -5,13 +5,13 @@ import styled from "styled-components";
 
 const LinkButton = styled.button `
   cursor: pointer;
-  background-color: var(--btncolor);
+  background-color: rgb(100, 0, 0);
   width: 300px;
   height: 150px;
   padding: 5px 15px;
   border-radius: 20px;
   text-decoration: none;
-  color: var(--btntxtcolor);
+  color: white;
   font-size: 40px;
   font-family: "Lucida Console", "Courier New", monospace;
 

@@ -15,7 +15,7 @@ console.log("IN THE NOTION.JS file, component")
 } */
 
 export default () => {
-    const [count, setCount] = useState(0);
+/*     const [count, setCount] = useState(0);
     const [notion, setNotion] = useState(null);
     useEffect (async () =>{
         const response = await notion.databases.retrieve({ database_id:
@@ -25,10 +25,26 @@ export default () => {
         const data = await response.json();
         const [item] = data.results;
         setNotion(item);
-    }, []);
+    }, []); */
+    const [notion, setNotion] = useState([]);
+    useEffect(() => {
+        fetch("/notion/").then(res => {
+            if(res.ok) {
+                console.log("the response was ok");
+                console.log(res.text());
+                //Content( JsonConvert.SerializeObject(battle), "application/json" );
+                return res.text();
+            }else{
+                console.log("the response was NOT ok");
+
+            }
+        }).then(res => setNotion(res.result))
+
+        console.log()
+    }) 
     return (<div>
-        {"THIS THE BACKEND"}
-        {notion}
+        {"BACKEND RESPONSE IS VISIBLE IN CONSOLE"}
+       <h1>{notion}</h1> 
     </div>)
   };
 

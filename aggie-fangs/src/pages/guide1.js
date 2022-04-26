@@ -5,13 +5,13 @@ import {Link } from "react-router-dom";
 
 const LinkButton = styled.button `
   cursor: pointer;
-  background-color: var(--btncolor);
+  background-color: rgb(100, 0, 0);
   width: 200px;
   height: 90px;
   padding: 5px 15px;
   border-radius: 20px;
   text-decoration: none;
-  color: var(--btntxtcolor);
+  color: white;
   font-size: 23px;
   font-family: "Lucida Console", "Courier New", monospace;
 
