@@ -14,7 +14,7 @@ export const Nav = styled.nav`
 `;
 
 export const NavLink = styled(Link)`
-    color: #fff;
+    color: var(--navtxtcolor);
     display: flex;
     align-items: center;
     text-decoration: none;
@@ -23,13 +23,13 @@ export const NavLink = styled(Link)`
     cursor: pointer;
 
     &.active{
-        color: #B6CCD7;
+        color: var(--navtxtcolor2);
     }
 `;
 
 export const Bars = styled(FaBars)`
 display: none;
-color: #500000;
+color: var(--navcolor);
     @media screen and (max-width: 760px){
         display:block;
         position: absolute;
@@ -65,7 +65,7 @@ export const NavBtnLink = styled(Link)`
     border-radius: 4px;
     background: #fff;
     padding 10px 22px;
-    color: #000;
+    color: var(--btncolor);
     border:none;
     outline:none;
     cursor:pointer;
@@ -73,7 +73,7 @@ export const NavBtnLink = styled(Link)`
     text-decoration: none;
     &.hover{
         transition: all 0.2s ease-in-out;
-        background: #000;
-        color: #010606
+        background: var(--btncolor);
+        color: var(--btntxtcolor)
     }
 `;

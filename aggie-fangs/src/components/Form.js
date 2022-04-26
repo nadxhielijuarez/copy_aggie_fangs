@@ -71,7 +71,6 @@ const Form = ({form, reviews, setForm, setReviews}) => {
     <form className="form" onSubmit={handleSubmit}>
         <h2>Share Your Experience</h2>
           <label htmlFor='Company'>Company</label><br/>
-
           <select placeholder="Company Name"
             id="company"
             name="company"

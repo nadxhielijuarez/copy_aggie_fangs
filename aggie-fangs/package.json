@@ -7,6 +7,7 @@
     "@testing-library/jest-dom": "^5.16.3",
     "@testing-library/react": "^12.1.4",
     "@testing-library/user-event": "^13.5.0",
+    "axios": "^0.26.1",
     "ejs": "^3.1.6",
     "express": "^4.17.3",
     "js-polyfills": "^0.1.43",
@@ -49,16 +50,16 @@
       "last 1 safari version"
     ]
   },
+  "description": "This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).",
+  "main": "index.js",
+  "devDependencies": {
+    "dotenv": "^16.0.0"
+  },
   "browser": {
     "fs": false,
     "path": false,
     "os": false,
     "crypto": false
-  },
-  "description": "This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).",
-  "main": "index.js",
-  "devDependencies": {
-    "dotenv": "^16.0.0"
   },
   "proxy": "http://localhost:5000",
   "keywords": [],
