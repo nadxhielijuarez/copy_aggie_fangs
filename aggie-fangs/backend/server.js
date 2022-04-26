@@ -48,7 +48,6 @@ app.get('/:database_id', async (req, res) => {
   return res.json(resp.data)
 })
 
-/* route for database tags */
 
 /* route that allows us to enter info into the feedback form */
 app.post('/:database_id' , async (req, res) => {
