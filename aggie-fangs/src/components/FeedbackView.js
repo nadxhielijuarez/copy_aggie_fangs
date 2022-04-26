@@ -1,30 +1,44 @@
 import React, { useEffect, useState } from "react";
+import loadingGif from "../images/loading.gif"
 
-function FeedbackView(){
-    const [reviewInfo, setReviewInfo] = userState({});
-    fetch('http://localhost:3002/getReviews',{
+function FeedbackView({company}){
+    const [reviewInfo, setReviewInfo] = useState(null);
+    useEffect(() => {
+        fetch('http://localhost:3002/getReviews',{
         method: "GET"
       }).then(response => {
-       console.log(response)
        if (response.type === 'opaque' || response.ok) {
            response.json().then(revItems => {
-           console.log("Redid call---->",revItems);
            setReviewInfo(revItems)
-           return revItems
          });
        } 
      }).catch(error => {
        console.log("Error is: ", error)
      });
+    },[]);
 
-     return(
-         <div>
-             <h1>My review on{revItems[0].title}</h1>
-             <h2>description: {revItems[0].description}</h2>
-
-
-         </div>
-     )
+    
+    if(reviewInfo == null){
+        return(
+            <div>
+                <h1>Loading...</h1> 
+                <loadingGif></loadingGif>
+            </div>
+        )
+    } else {
+        console.log("reviewInfo: ", reviewInfo)
+        var rev1 = reviewInfo[0]
+        var revTitle = rev1.title
+        var revDesc = rev1.description
+        console.log("*First elem:", rev1)
+        console.log("attributes", revTitle)
+        return(
+            <div>
+                <h1>My interview with {revTitle}</h1>
+                <h2>description: {revDesc} </h2>
+            </div>
+        )
+    }
 
 }
 

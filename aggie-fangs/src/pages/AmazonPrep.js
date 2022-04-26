@@ -2,6 +2,7 @@ import React, {useState} from 'react'
 import ReviewList from '../components/ReviewList'
 import { v4 as uuidv4 } from "uuid";
 import VideoComp from '../components/VideoPlayer/VideoComp'
+import FeedbackView from '../components/FeedbackView';
 
 var companyName = <text>Amazon</text>;
 
@@ -52,7 +53,7 @@ const AmazonPrep = () => {
         </div>
         <div class="company-section">
           <h1>Interview Reviews For {companyName}</h1>
-          <ReviewList reviews = {reviews} setReviews = {setReviews}/>
+          <FeedbackView></FeedbackView>
         </div>
     </div>
   )

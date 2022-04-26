@@ -3,7 +3,7 @@ const express = require('express')
 const axios = require('axios')
 const cors = require('cors')
 const { makeConsoleLogger } = require('@notionhq/client/build/src/logging')
-const { createSuggestion, getDB, getSuggestions } = require('./notion')
+const { createSuggestion, getDB, getSuggestions, getTags } = require('./notion')
 const { getByDisplayValue } = require('@testing-library/react')
 const app = express()
 const port = 3002
@@ -52,10 +52,18 @@ app.get('/', async (req, res) => {
 })
 
 /* same but with sdk */
+/* Grabbing info from front-end example:     
+const [db, setDB] = useState({});
+    useEffect(() => {
+      fetch('http://localhost:3002/DB').then(async (resp) => {
+        setDB(await resp.json())
+      });
+    }, []);
+   console.log("*db is now==-->", db)
+ */
 app.get('/DB', async (req, res) => {
   res.header("Access-Control-Allow-Origin", "*");
   const response = await notion.databases.retrieve({database_id: NOTION_DATABASE_ID })
-  //console.log("response->", response)
   return res.json(response);
 
 })
@@ -131,7 +139,7 @@ app.post('/sendFeedback' , async (req, res) => {
   })
   
 })
-/* Uses the notionSDK!! */
+/* route to enter feedback Uses the notionSDK !! */
 app.post('/sendFeedback1', async(req, res) => {
   var body = req.body //the object is listed as: { '{"title":"EMPTY TEST","email":"test@tamu.edu"}': '' } note the 1st key is the actual obj
   var strData = Object.keys(body)[0] //obtains the first key, currently as a string 
@@ -140,6 +148,13 @@ app.post('/sendFeedback1', async(req, res) => {
   const { title, description, userEmail, name, tag} = data
   res.header("Access-Control-Allow-Origin", "*");
   await createSuggestion({title, description, userEmail, name, tag })
+})
+
+/* Route to get tags */
+app.get('/tags', async(req, res) => {
+  res.header("Access-Control-Allow-Origin", "*");
+  const database = await getTags();
+  return res.json(database)
 })
 
 /* Route for getting the feedback reviews */

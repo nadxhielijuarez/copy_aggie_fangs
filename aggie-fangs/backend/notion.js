@@ -19,23 +19,25 @@ NOTION_TITLE_ID = 'title'
 
 const notion = new Client({ auth:  NOTION_API_KEY })
 
-
-async function getDB(){
-    
-    const response = await notion.databases.retrieve({database_id: NOTION_DATABASE_ID })
-    return response
-    
-}
 async function getTags() {
   const database = await notion.databases.retrieve({
     database_id:  NOTION_DATABASE_ID,
   })
-
-  return notionPropertiesById(database.properties)[
-     NOTION_TAGS_ID
-  ].multi_select.options.map(option => {
-    return { id: option.id, name: option.name }
+  var prop = database.properties
+  var idProp = notionPropertiesById(prop)
+  var items = idProp[NOTION_TAG_ID].multi_select
+  var sorted = items.options.map(tag => {
+      return{
+        id: tag.id,
+        name: tag.name
+      }
   })
+ // console.log("my tags are->",sorted)
+  return(sorted)
+
+  /* return notionPropertiesById(database.properties)[NOTION_TAG_ID].multi_select.options.map(option => {
+    return { id: option.id, name: option.name }
+  }) */
 }
 
 function notionPropertiesById(properties) {
@@ -152,5 +154,4 @@ module.exports = {
   getTags,
   getSuggestions,
   upVoteSuggestion,
-  getDB
 }
