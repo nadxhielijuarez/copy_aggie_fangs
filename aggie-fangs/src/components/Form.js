@@ -5,7 +5,7 @@ import axios from 'axios';
 import { getJSDocTags } from 'typescript';
 
 const database_id = '22f238cc864e4a1496e42e3d8a2c05c6';
-const secretKey = 'secret_AFKZAuWeh8KSRFU7dK4vcdUTEQG1pb3CyQtwBIdj9Ws'
+//const secretKey = 'secret_AFKZAuWeh8KSRFU7dK4vcdUTEQG1pb3CyQtwBIdj9Ws'
 
 const SubmitButton = styled.button `
   cursor: pointer;
@@ -23,11 +23,11 @@ const SubmitButton = styled.button `
 const Form = ({form, reviews, setForm, setReviews}) => {
     const [db, setDB] = useState({});
     useEffect(() => {
-      fetch('http://localhost:3002/' + database_id).then(async (resp) => {
+      fetch('http://localhost:3002/DB').then(async (resp) => {
         setDB(await resp.json())
       });
     }, []);
-   console.log("db currently-->", db)
+   console.log("*db is now==-->", db)
 
 
   const handleChange = e => {
@@ -42,7 +42,7 @@ const Form = ({form, reviews, setForm, setReviews}) => {
     return true;
   }
   const handleSubmit = e => {
-    fetch('http://localhost:3002/' + database_id, {
+    fetch('http://localhost:3002/sendFeedback1', {
       mode:'no-cors',
       method: 'POST',
       headers: {'Content-Type': 'application/x-www-form-urlencoded'},
@@ -54,10 +54,7 @@ const Form = ({form, reviews, setForm, setReviews}) => {
         tag: form.job
       }) 
     });
-
-     
-
-/*     if (checkValidity()) {
+/*  if (checkValidity()) {
       alert("The input data is good!");
       e.preventDefault();
       setReviews([...reviews, form]);
