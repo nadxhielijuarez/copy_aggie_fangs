@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from "react";
 import { v4 as uuidv4 } from "uuid";
 import styled from "styled-components";
+import axios from 'axios';
 import { getJSDocTags } from 'typescript';
 
 const database_id = '22f238cc864e4a1496e42e3d8a2c05c6';
@@ -26,7 +27,7 @@ const Form = ({form, reviews, setForm, setReviews}) => {
         setDB(await resp.json())
       });
     }, []);
-  
+   console.log("db currently-->", db)
 
 
   const handleChange = e => {
