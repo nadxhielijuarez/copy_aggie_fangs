@@ -40,7 +40,7 @@ const GlobalStyle1 = createGlobalStyle`
 const GlobalStyle2 = createGlobalStyle`
   html {
     --bgcolor: #484b6a;
-    --bg2color: #9394a5;
+    --bg2color: #717283;
     --btncolor: #9394a5;
     --btntxtcolor: #262948;
     --navcolor: #262948;

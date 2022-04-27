@@ -17,6 +17,9 @@ const Navbar = () => {
             <NavLink to="/network" activeStyle>
                 <div class = "nav-link">Network</div>
             </NavLink>
+            <NavLink to="/feedbackform" activeStyle>
+                <div class = "nav-link">Share Experience</div>
+            </NavLink>
             <NavLink to="/interviewPrep" activeStyle>
                 <div class = "nav-link">Interview Prep</div>
             </NavLink>
@@ -25,9 +28,6 @@ const Navbar = () => {
             </NavLink>
             <NavLink to="/guide1" activeStyle>
                 <div class = "nav-link">Interview Guides</div>
-            </NavLink>
-            <NavLink to="/feedbackform" activeStyle>
-                <div class = "nav-link">Share Experiance</div>
             </NavLink>
             <NavLink to="/settings" activeStyle>
                 <div class = "nav-link">Settings</div>

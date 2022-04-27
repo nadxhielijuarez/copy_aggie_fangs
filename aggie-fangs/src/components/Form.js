@@ -9,11 +9,11 @@ const secretKey = 'secret_AFKZAuWeh8KSRFU7dK4vcdUTEQG1pb3CyQtwBIdj9Ws'
 
 const SubmitButton = styled.button `
   cursor: pointer;
-  background-color: rgb(100, 0, 0);
+  background-color: var(--btncolor);
   padding: 1.5rem;
   border-radius: 20px;
   text-decoration: none;
-  color: white;
+  color: var(--btntxtcolor);
   font-size: 40px;
   font-family: "Lucida Console", "Courier New", monospace;
 
