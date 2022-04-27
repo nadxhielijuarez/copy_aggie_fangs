@@ -115,6 +115,14 @@ async function getSuggestions() {
   return response.results.map(fromNotionObject)
 }
 
+async function getSuggestions(company) {
+  const response = await notion.databases.query({
+      database_id:  NOTION_DATABASE_ID,
+      sorts: [{ property: NOTION_UPVOTES_ID , direction: "ascending" }],
+    })
+return response.results.map(fromNotionObject)
+}
+
 function fromNotionObject(notionPage) {
   const propertiesById = notionPropertiesById(notionPage.properties)
 

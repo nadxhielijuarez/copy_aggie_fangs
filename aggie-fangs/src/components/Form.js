@@ -23,6 +23,7 @@ const SubmitButton = styled.button `
 `
 const Form = ({form, reviews, setForm, setReviews}) => {
   const [tags, setTags] = useState(null);
+  const[selectedValue, setSelectedValue] = useState([])
 
   useEffect(() => {
     fetch('http://localhost:3002/tags',{
@@ -37,7 +38,6 @@ const Form = ({form, reviews, setForm, setReviews}) => {
     console.log("Error is: ", error)
   });
   },[]);
-  console.log("Tags are: ", tags)
 
   const handleRemovedTag = e => {
     //
@@ -46,7 +46,14 @@ const Form = ({form, reviews, setForm, setReviews}) => {
   const handleChange = e => {
     const{name, value} = e.target;
     setForm({...form, [name]: value});
-    console.log("Form is set to: ", form)
+    //console.log("Form is set to: ", form)
+  }
+
+  
+  const handleSelectedChange = e => {
+    console.log("selected change detected")
+    setSelectedValue(Array.isArray(e) ? e.map(x => x.value) : ["empty"]);
+    console.log("selectedValue",selectedValue)
   }
   const sendInfo = e => {
     // todo
@@ -104,8 +111,8 @@ const Form = ({form, reviews, setForm, setReviews}) => {
             <Multiselect
               id="job"
               name="job"
-              value={form.job}
-              onSelect={handleChange}
+              value={tags.filter(obj => selectedValue.includes(obj))}
+              onSelect={handleSelectedChange}
               onRemove={handleRemovedTag}
               options = {tags}
               displayValue = "name"
