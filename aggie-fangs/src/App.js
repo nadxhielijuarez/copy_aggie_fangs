@@ -49,7 +49,7 @@ const GlobalStyle2 = createGlobalStyle`
     --hdrcolor: #ADD8E6;
     --txtcolor: #fafafa;
     --brdrcolor: #0d0d0d;
-    --shdwcolor: #ccc;
+    --shdwcolor: rgba(50,50,50,0.5);
   }
 `
 
