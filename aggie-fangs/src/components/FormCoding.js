@@ -16,21 +16,74 @@ const SubmitButton = styled.button `
   float: center;
 `
 
-const FormCoding = ({FormCoding, codingItems, setFormCoding, setCodingItems}) => {
+const FormCoding = ({formCd, setFormCd}) => {
+    const handleChange = e => {
+        const{name, value} = e.target;
+        setFormCd({...formCd, [name]: value});
+    }
     const checkValidity = () => {
         // todo
         return false;
     }
     const handleSubmit = e => {
         if (checkValidity()) {
-        alert("The input data is good!");
+            alert("The input data is good!");
         } else {
-        alert("Please enter valid information.")
+            alert("Please enter valid information.")
         }
     }
     return (
-        <form>
-            
+        <form className='form' onSubmit={handleSubmit}>
+            <h2>Submit A Coding Problem</h2>
+            <label htmlFor='Company'>Which Company Asked This Question?</label><br/>
+            <select placeholder="Company Name"
+                id="company"
+                name="company"
+                value={formCd.company}
+                onChange={handleChange}>
+                <option value="None">Select Company</option>
+                <option value="Google">Google</option>
+                <option value="Facebook">Facebook</option>
+                <option value="Amazon">Amazon</option>
+                <option value="Netflix">Netflix</option>
+                <option value="Apple">Apple</option>
+                <option value="Microsoft">Microsoft</option>
+                <option value="N/A">N/A</option>
+            </select><br/>
+
+            <label htmlFor='Name'>Problem Name</label>
+            <textarea
+                 value={formCd.name}
+                 placeholder="Enter problem name"  
+                 id="name" 
+                 name="name" 
+                 autoComplete="off"
+                 onChange={handleChange}>
+            </textarea><br/>
+
+            <label htmlFor='Concepts'>Concepts Covered</label>
+            <textarea
+                value={formCd.concepts}
+                placeholder="What concepts does this problem cover?"  
+                id="concepts" 
+                name="concepts" 
+                autoComplete="off"
+                onChange={handleChange}>
+            </textarea><br/>
+          
+            <label htmlFor='prompt'>Problem Prompt</label><br/>
+            <div class="review-box"><textarea
+                    value={formCd.prompt}
+                    placeholder="Enter problem prompt"  
+                    id="review" 
+                    name="review" 
+                    autoComplete="off"
+                    onChange={handleChange}>
+            </textarea></div><br/>
+
+            <SubmitButton >
+                Submit
+            </SubmitButton>
         </form>
     )
 }

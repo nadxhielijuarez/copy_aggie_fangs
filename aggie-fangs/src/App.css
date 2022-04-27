@@ -133,6 +133,7 @@ h1{
   text-align: left;
   margin: auto;
   margin-bottom: 0px;
+  color: var(--txtcolor);
 }
 .hp h1 {
   text-align: left;
@@ -405,6 +406,7 @@ h1{
   width: 70%;
   font-size: 25px;
   background-color: var(--bg2color);
+  margin-bottom: 5rem;
 }
 .form label {
   color: var(--hdrcolor);
@@ -431,9 +433,10 @@ h1{
 .feedback-section input, textarea {
   width: calc(100% - 1rem);
   resize: none;
-  font-size: 20px;
+  font-size: 30px;
   padding: 0.75rem;
   box-shadow: 4px 4px var(--shdwcolor);
+  height: 4rem;
 }
 .feedback-section button {
   border: 1px solid #0d0d0d;
@@ -442,9 +445,12 @@ h1{
 .review-box textarea {
   height: 12rem;
   margin-bottom: 0;
+  font-size: 20px;
+  resize: vertical;
+  overflow: auto;
 }
 .feedback-section h2 {
-  margin: 0 0 1rem 0;
+  margin: 0 0 2rem 0;
   text-align: center;
   color: var(--hdrcolor);
   font-size: 45;

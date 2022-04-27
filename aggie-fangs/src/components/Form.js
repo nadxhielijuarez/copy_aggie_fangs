@@ -34,9 +34,6 @@ const Form = ({form, reviews, setForm, setReviews}) => {
     const{name, value} = e.target;
     setForm({...form, [name]: value});
   }
-  const sendInfo = e => {
-    // todo
-  }
   const checkValidity = () => {
     // todo
     return true;
@@ -54,22 +51,12 @@ const Form = ({form, reviews, setForm, setReviews}) => {
         tag: form.job
       }) 
     });
-
-     
-
-/*     if (checkValidity()) {
-      alert("The input data is good!");
-      e.preventDefault();
-      setReviews([...reviews, form]);
-      setForm({company: "", review: "", id: uuidv4()});
-    } else {
-      alert("Please enter valid information.")
-    } */
   }
 
   return (  
     <form className="form" onSubmit={handleSubmit}>
         <h2>Share Your Experience</h2>
+
           <label htmlFor='Company'>Company</label><br/>
           <select placeholder="Company Name"
             id="company"
@@ -83,8 +70,8 @@ const Form = ({form, reviews, setForm, setReviews}) => {
             <option value="Netflix">Netflix</option>
             <option value="Apple">Apple</option>
             <option value="Microsoft">Microsoft</option>
-            
           </select><br/>
+
           <label htmlFor='JobTitle'>Job Title</label><br/>
           <select placeholder="Job Title"
             id="job"
@@ -102,6 +89,7 @@ const Form = ({form, reviews, setForm, setReviews}) => {
             <option value="9bf8df2f-0b86-4755-b955-c35d19003d3d">QA Engineering</option>
             <option value="b2ef6f52-4148-4938-9075-c8eb0f843d29">full-stack</option>
           </select><br/>
+
           <label htmlFor='Name'>Name</label><br/>
           <textarea
                  value={form.name}
@@ -120,6 +108,7 @@ const Form = ({form, reviews, setForm, setReviews}) => {
                  autoComplete="off"
                  onChange={handleChange}>
           </textarea><br/>
+
           <label htmlFor='review'>Review</label><br/>
           <div class="review-box"><textarea
                  value={form.review}
@@ -129,7 +118,7 @@ const Form = ({form, reviews, setForm, setReviews}) => {
                  autoComplete="off"
                  onChange={handleChange}>
           </textarea></div><br/>
-          <SubmitButton >
+          <SubmitButton>
             Submit
           </SubmitButton>
     </form>
