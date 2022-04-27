@@ -74,6 +74,10 @@ window.onload = function() {
   if (!defaultStyle) {
       localStorage.setItem("current-style", "style2");
   }
+  var thisCompany = localStorage.getItem("this-company");
+  if (!thisCompany) {
+    localStorage.setItem("this-company", "None");
+  }
 }
 
 function App() {

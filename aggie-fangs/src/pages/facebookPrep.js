@@ -8,6 +8,9 @@ var companyName = <text>Facebook</text>;
 
 const FacebookPrep = () => {
     const [reviews, setReviews] = useState([])
+
+    localStorage.setItem("this-company", "Facebook");
+
   return (
     <div class='company-page'>
         <div class='company-header'>

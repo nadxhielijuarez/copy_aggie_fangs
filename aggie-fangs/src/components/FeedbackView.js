@@ -48,21 +48,27 @@ function FeedbackView({company}){
         // if statement to change which up image to use based on whether the user has voted
         var downImage = <img src={downimg2} alt="upvote" align="right"/>
         // if statement to change which down image to use
+        var thisCompany = localStorage.getItem("this-company");
+
 
         reviewInfo.map( singleReviewItem => (
-            reviewList.push(<div className="reviewBox">
-                <h3>Name: {singleReviewItem.name} / {singleReviewItem.title}</h3>
-                <h3>Tags: </h3>
-                <body>
-                    {singleReviewItem.description}
-                </body>
-                <div class="votes up">
-                    <a onClick={upVote}>{upImage}</a>{singleReviewItem.upVotes}
-                </div>
-                <div class="votes down">
-                    <a onClick={downVote}>{downImage}</a>{singleReviewItem.downVots}
-                </div>
-            </div>)
+            reviewList.push(
+                (!thisCompany.localeCompare(singleReviewItem.title)) ? 
+                (<div className="reviewBox">
+                    <h3>Name: {singleReviewItem.name} / {singleReviewItem.title}</h3>
+                    <h3>Tags: </h3>
+                    <body>
+                        {singleReviewItem.description}
+                    </body>
+                    <div class="votes up">
+                        <a onClick={upVote}>{upImage}</a>{singleReviewItem.upVotes}
+                    </div>
+                    <div class="votes down">
+                        <a onClick={downVote}>{downImage}</a>{singleReviewItem.downVots}
+                    </div>
+                </div>)
+                : null
+            )
         ));
 
         return(

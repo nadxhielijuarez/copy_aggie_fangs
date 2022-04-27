@@ -8,6 +8,9 @@ var companyName = <text>Netflix</text>;
 
 const NetflixPrep = () => {
     const [reviews, setReviews] = useState([])
+
+    localStorage.setItem("this-company", "Netflix");
+
   return (
     <div class='company-page'>
         <div class='company-header'>

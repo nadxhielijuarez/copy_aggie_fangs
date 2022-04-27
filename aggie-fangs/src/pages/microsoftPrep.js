@@ -25,6 +25,9 @@ var companyName = <text>Microsoft</text>;
 
 const MicrosoftPrep = () => {
     const [reviews, setReviews] = useState([])
+
+    localStorage.setItem("this-company", "Microsoft");
+
   return (
     <div class='company-page'>
         <div class='company-header'>
