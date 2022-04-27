@@ -94,6 +94,11 @@ h1{
   background-color: var(--bg2color);
   padding: 1rem;
 }
+.company-section img {
+  margin-left: auto;
+  margin-right: auto;
+  display: block;
+}
 .company-section h1 {
   width: 100%;
   border-bottom: 0.25px dashed var(--brdrcolor);
@@ -462,4 +467,61 @@ h1{
   padding: 1rem;
   width:20rem;
   margin-top: 1rem;
+}
+
+/* ----- Review Styling ----- */
+.reviewList {
+  overflow: hidden
+}
+.reviewBox {
+  width: 30%;
+  margin-left: 2.5%;
+  margin-top: 2.5%;
+  height: 450px;
+  z-index: 1;
+  top: 0;
+  overflow-x: hidden;
+  overflow: hidden;
+  float:left;
+  display: block;
+  padding: 10px;
+  border-width: 0.5px;
+  border-color: var(--brdrcolor);
+  border-style: solid;
+  background-color: var(--bgcolor);
+}
+.reviewBox h3 {
+  color: var(--txtcolor);
+  font-size: 25px;
+  font-style: normal;
+  border: none;
+  text-align: left;
+  margin-top: 0;
+  margin-bottom: 0.05rem;
+}
+.reviewBox body {
+  color: var(--txtcolor);
+  height: 70%;
+  overflow-y: scroll;
+  border-color: var(--brdrcolor);
+  border-width: 0.5px;
+  border-top-style: solid;
+  border-bottom-style: solid;
+}
+.votes img {
+  margin-left: 10px;
+  margin-bottom: 10px;
+  margin-right: 10px;
+  width: 20px;
+  cursor: pointer;
+}
+.votes {
+  color: var(--txtcolor);
+  font-size: 18px;
+  text-indent: 0;
+  width: 50%;
+  float: left;
+}
+.down {
+  text-align: right;
 }

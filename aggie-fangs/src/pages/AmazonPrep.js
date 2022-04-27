@@ -51,9 +51,9 @@ const AmazonPrep = () => {
           <h1>Youtube Playlist</h1>
           <VideoComp playListId = "PLi9RQVmJD2fZgRyOunLyt94uVbJL43pZ_"/>  
         </div>
-        <div class="company-section">
+        <div class="company-section reviewList">
           <h1>Interview Reviews For {companyName}</h1>
-          <FeedbackView></FeedbackView>
+          <FeedbackView/>
         </div>
     </div>
   )

@@ -2,6 +2,7 @@ import React, {useState} from 'react'
 import ReviewList from '../components/ReviewList'
 import { v4 as uuidv4 } from "uuid";
 import VideoComp from '../components/VideoPlayer/VideoComp'
+import FeedbackView from '../components/FeedbackView';
 
 var companyName = <text>Facebook</text>;
 
@@ -50,9 +51,9 @@ const FacebookPrep = () => {
           <h1>Youtube Playlist</h1> 
           <VideoComp playListId = "PLi9RQVmJD2fYckvJZSKA4YcUQ4eyNupuY"/>
         </div>
-        <div class="company-section">
+        <div class="company-section reviewList">
           <h1>Interview Reviews For {companyName}</h1>
-          <ReviewList reviews = {reviews} setReviews = {setReviews}/>
+          <FeedbackView/>
         </div>
     </div>
   )
