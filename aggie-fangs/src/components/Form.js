@@ -46,7 +46,7 @@ const Form = ({form, reviews, setForm, setReviews}) => {
   const handleChange = e => {
     const{name, value} = e.target;
     setForm({...form, [name]: value});
-    //console.log("Form is set to: ", form)
+    console.log("Form is set to: ", form)
   }
 
   
@@ -80,6 +80,7 @@ const Form = ({form, reviews, setForm, setReviews}) => {
     } else {
       alert("Please enter valid information.")
     } */
+   // console.log("form is: ", form, " and the job is: ", form.job )
   }
   
   if(tags == null){
@@ -110,15 +111,17 @@ const Form = ({form, reviews, setForm, setReviews}) => {
             </select><br/>
 
             <label htmlFor='JobTitle'>Job Title</label><br/>
-            <Multiselect
+            <select placeholder="Job Type"
               id="job"
               name="job"
-              value={tags.filter(obj => selectedValue.includes(obj))}
-              onSelect={handleSelectedChange}
-              onRemove={handleRemovedTag}
-              options = {tags}
-              displayValue = "name"
-              /><br/>
+              value={form.job}
+              onChange={handleChange}>
+              <option value="None">Select Job Type(s)</option>
+              {tags.map(company =>
+                (<option value = {company.id}>{company.name}</option>)
+                )}
+              </select><br/>
+
             <label htmlFor='Name'>Name</label><br/>
             <textarea
                    value={form.name}

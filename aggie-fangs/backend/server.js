@@ -69,13 +69,11 @@ app.get('/DB', async (req, res) => {
 })
 
 /* route that allows us to enter info into the feedback form */
-app.post('/sendFeedback' , async (req, res) => {
+/* app.post('/sendFeedback' , async (req, res) => {
   const  database_id  = '22f238cc864e4a1496e42e3d8a2c05c6'
-  /* weird behaviour  */
   var body = req.body //the object is listed as: { '{"title":"EMPTY TEST","email":"test@tamu.edu"}': '' } note the 1st key is the actual obj
   var strData = Object.keys(body)[0] //obtains the first key, currently as a string 
   var data = JSON.parse(strData) //actual object is now obtained
-  /* corrected the wierd behavior*/
   const { title, description, userEmail, name, tag} = data
   res.header("Access-Control-Allow-Origin", "*");
   await axios({
@@ -138,13 +136,14 @@ app.post('/sendFeedback' , async (req, res) => {
     }
   })
   
-})
+}) */
 /* route to enter feedback Uses the notionSDK !! */
 app.post('/sendFeedback1', async(req, res) => {
   var body = req.body //the object is listed as: { '{"title":"EMPTY TEST","email":"test@tamu.edu"}': '' } note the 1st key is the actual obj
   var strData = Object.keys(body)[0] //obtains the first key, currently as a string 
   var data = JSON.parse(strData) //actual object is now obtained
   /* corrected the wierd behavior*/
+  console.log("data is--->", data)
   const { title, description, userEmail, name, tag} = data
   res.header("Access-Control-Allow-Origin", "*");
   await createSuggestion({title, description, userEmail, name, tag })
