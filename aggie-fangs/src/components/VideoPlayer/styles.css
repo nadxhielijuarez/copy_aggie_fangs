@@ -23,6 +23,13 @@ html {
     padding: 0 20px;
     align-items: center;
   }
+
+  .App h3 {
+    text-align: "center"; 
+    font-size: "18px";
+    font-weight: "bold";
+
+  }
    
   .form-controls {
     display: flex;
