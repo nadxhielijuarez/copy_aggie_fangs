@@ -54,6 +54,9 @@ h1{
   position: absolute;
   background-color: var(--bgcolor);
 }
+.settings-menu body {
+  text-align: center;
+}
 
 /* ----- Company Page Styling ----- */
 .company-page {

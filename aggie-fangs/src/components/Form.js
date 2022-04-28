@@ -95,14 +95,19 @@ const Form = ({form, reviews, setForm, setReviews}) => {
       <form className="form" onSubmit={handleSubmit}>
           <h2>Share Your Experience</h2>
             <label htmlFor='Company'>Company</label><br/>
-            <textarea
-                   value={form.company}
-                   placeholder="Enter company name"  
-                   id="company" 
-                   name="company" 
-                   autoComplete="off"
-                   onChange={handleChange}>
-            </textarea><br/>
+            <select placeholder="Company"
+                id="company"
+                name="company"
+                value={form.company}
+                onChange={handleChange}>
+                <option value="None">Select Company</option>
+                <option value="Google">Google</option>
+                <option value="Facebook">Facebook</option>
+                <option value="Amazon">Amazon</option>
+                <option value="Netflix">Netflix</option>
+                <option value="Apple">Apple</option>
+                <option value="Microsoft">Microsoft</option>
+            </select><br/>
 
             <label htmlFor='JobTitle'>Job Title</label><br/>
             <Multiselect

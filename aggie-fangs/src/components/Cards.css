@@ -1,6 +1,6 @@
 .cards {
-    padding: 4rem;
-    background: #fff;
+    padding-bottom: 4rem;
+    background: var(--bgcolor);
   }
   
   h1 {
@@ -30,6 +30,7 @@
     flex: 1;
     margin: 0 1rem;
     border-radius: 10px;
+    background-color: var(--bg2color);
   }
   
   .cards__item__link {
@@ -49,6 +50,7 @@
     width: 100%;
     padding-top: 67%;
     overflow: hidden;
+    background-color: #fff;
   }
   
   .fade-img {

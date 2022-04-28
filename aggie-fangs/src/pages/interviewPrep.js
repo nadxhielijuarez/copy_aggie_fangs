@@ -3,12 +3,10 @@ import Cards from '../components/Cards'
 import Form from '../components/Form'
 const InterviewPrep = () => {
   return (
-    <>
-    <Cards />
-    </>
+    <div className='company-page'>
+      <Cards />
+    </div>
     
-    
-
   )
 }
 
