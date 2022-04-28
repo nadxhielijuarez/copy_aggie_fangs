@@ -35,13 +35,6 @@ function FeedbackView({company}){
             </div>
         )
     } else {
-        console.log("reviewInfo: ", reviewInfo)
-        var rev1 = reviewInfo[5]
-        var revTitle = rev1.title
-        var revDesc = rev1.description
-        console.log("*First elem:", rev1)
-        console.log("attributes", revTitle)
-
         var reviewList = new Array();
 
         var upImage = <img src={upimg2} alt="upvote" align="left"/>

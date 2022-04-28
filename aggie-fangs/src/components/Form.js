@@ -60,7 +60,7 @@ const Form = ({form, reviews, setForm, setReviews}) => {
     return true;
   }
   const handleSubmit = e => {
-    fetch('http://localhost:3002/sendFeedback1', {
+    fetch('http://localhost:3002/addRev', {
       mode:'no-cors',
       method: 'POST',
       headers: {'Content-Type': 'application/x-www-form-urlencoded'},

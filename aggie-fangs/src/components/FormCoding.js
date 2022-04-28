@@ -17,15 +17,28 @@ const SubmitButton = styled.button `
 `
 
 const FormCoding = ({formCd, setFormCd}) => {
+
+
     const handleChange = e => {
         const{name, value} = e.target;
         setFormCd({...formCd, [name]: value});
     }
     const checkValidity = () => {
         // todo
-        return false;
+        return true;
     }
     const handleSubmit = e => {
+        fetch('http://localhost:3002/addCodeProb', {
+            mode:'no-cors',
+            method: 'POST',
+            headers: {'Content-Type': 'application/x-www-form-urlencoded'},
+            body: JSON.stringify({
+                company: formCd.company,
+                concepts:formCd.name,
+                probTitle: formCd.concepts,
+                probPrompt:formCd.prompt,
+            }) 
+          });
         if (checkValidity()) {
             alert("The input data is good!");
         } else {
@@ -54,7 +67,7 @@ const FormCoding = ({formCd, setFormCd}) => {
             <label htmlFor='Name'>Problem Name</label>
             <textarea
                  value={formCd.name}
-                 placeholder="Enter problem name"  
+                 placeholder="Enter problem title"  
                  id="name" 
                  name="name" 
                  autoComplete="off"
@@ -75,8 +88,8 @@ const FormCoding = ({formCd, setFormCd}) => {
             <div class="review-box"><textarea
                     value={formCd.prompt}
                     placeholder="Enter problem prompt"  
-                    id="review" 
-                    name="review" 
+                    id="prompt" 
+                    name="prompt" 
                     autoComplete="off"
                     onChange={handleChange}>
             </textarea></div><br/>

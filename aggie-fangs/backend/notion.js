@@ -1,7 +1,8 @@
 const { Client } = require("@notionhq/client")
 
 const NOTION_API_KEY = 'secret_AFKZAuWeh8KSRFU7dK4vcdUTEQG1pb3CyQtwBIdj9Ws'
-NOTION_DATABASE_ID = '22f238cc864e4a1496e42e3d8a2c05c6'
+feedbackID = '22f238cc864e4a1496e42e3d8a2c05c6'
+codeProbId ='6874305ce7a84e0b812f48cc649e8dd9'
 //email type: email
 NOTION_EMAIL_ID = 'S%3AUR'
 //name type: rich text
@@ -21,7 +22,7 @@ const notion = new Client({ auth:  NOTION_API_KEY })
 
 async function getTags() {
   const database = await notion.databases.retrieve({
-    database_id:  NOTION_DATABASE_ID,
+    database_id:  feedbackID,
   })
   var prop = database.properties
   var idProp = notionPropertiesById(prop)
@@ -47,10 +48,10 @@ function notionPropertiesById(properties) {
   }, {})
 }
 
-function createSuggestion({ title, description, userEmail, name, tag}) {
+async function addReview({ title, description, userEmail, name, tag}) {
   notion.pages.create({
     parent: {
-      database_id:  NOTION_DATABASE_ID,
+      database_id:  feedbackID,
     },
     properties: {
         'Company Name': {
@@ -107,9 +108,64 @@ function createSuggestion({ title, description, userEmail, name, tag}) {
   })
 }
 
+function addCodeProb({company, concepts, probTitle, probPrompt}) {
+  notion.pages.create({
+    parent: {
+      database_id:  '6874305ce7a84e0b812f48cc649e8dd9',
+    },
+    properties: {
+        'Company Name': {
+          title: [
+            {
+              type: "text",
+              text: {
+                content:company,
+              },
+            },
+          ],
+        },
+        'Tqov': {
+          rich_text: [
+            {
+              type: "text",
+              text: {
+                content: concepts,
+              },
+            },
+          ],
+        },
+        'efwD': {
+          rich_text: [
+            {
+              type: "text",
+              text: {
+                content: probPrompt,
+              },
+            },
+          ],
+        },
+        'h%5Da%3E': {
+          rich_text: [
+            {
+              type: "text",
+              text: {
+                content: probTitle,
+              },
+            },
+          ],
+        },
+
+        
+    }
+
+
+
+  })
+}
+
 async function getSuggestions() {
     const response = await notion.databases.query({
-        database_id:  NOTION_DATABASE_ID,
+        database_id:  feedbackID,
         sorts: [{ property: NOTION_UPVOTES_ID , direction: "ascending" }],
       })
   return response.results.map(fromNotionObject)
@@ -117,7 +173,7 @@ async function getSuggestions() {
 
 async function getSuggestions(company) {
   const response = await notion.databases.query({
-      database_id:  NOTION_DATABASE_ID,
+      database_id:  feedbackID,
       sorts: [{ property: NOTION_UPVOTES_ID , direction: "ascending" }],
     })
 return response.results.map(fromNotionObject)
@@ -158,8 +214,9 @@ async function getSuggestion(pageId) {
 }
 
 module.exports = {
-  createSuggestion,
+  addReview,
   getTags,
   getSuggestions,
   upVoteSuggestion,
+  addCodeProb,
 }

@@ -3,7 +3,7 @@ const express = require('express')
 const axios = require('axios')
 const cors = require('cors')
 const { makeConsoleLogger } = require('@notionhq/client/build/src/logging')
-const { createSuggestion, getDB, getSuggestions, getTags } = require('./notion')
+const { addReview, getSuggestions, getTags,addCodeProb } = require('./notion')
 const { getByDisplayValue } = require('@testing-library/react')
 const app = express()
 const port = 3002
@@ -11,7 +11,8 @@ const port = 3002
 const secretKey = 'secret_AFKZAuWeh8KSRFU7dK4vcdUTEQG1pb3CyQtwBIdj9Ws'
 const { Client } = require("@notionhq/client")
 const notion = new Client({ auth:  secretKey })
-NOTION_DATABASE_ID = '22f238cc864e4a1496e42e3d8a2c05c6'
+NOTION_Feedback_DATABASE_ID = '22f238cc864e4a1496e42e3d8a2c05c6'
+NOTION_CodeProb_DATABASE_ID = '6874305ce7a84e0b812f48cc649e8dd9'
 //email type: email
 NOTION_EMAIL_ID = 'S%3AUR'
 //name type: rich text
@@ -61,9 +62,16 @@ const [db, setDB] = useState({});
     }, []);
    console.log("*db is now==-->", db)
  */
-app.get('/DB', async (req, res) => {
+app.get('/FeedbackDB', async (req, res) => {
   res.header("Access-Control-Allow-Origin", "*");
-  const response = await notion.databases.retrieve({database_id: NOTION_DATABASE_ID })
+  const response = await notion.databases.retrieve({database_id: NOTION_Feedback_DATABASE_ID })
+  return res.json(response);
+
+})
+
+app.get('/codeProbDB', async (req, res) => {
+  res.header("Access-Control-Allow-Origin", "*");
+  const response = await notion.databases.retrieve({database_id: NOTION_CodeProb_DATABASE_ID })
   return res.json(response);
 
 })
@@ -138,17 +146,28 @@ app.get('/DB', async (req, res) => {
   
 }) */
 /* route to enter feedback Uses the notionSDK !! */
-app.post('/sendFeedback1', async(req, res) => {
+app.post('/addRev', async(req, res) => {
   var body = req.body //the object is listed as: { '{"title":"EMPTY TEST","email":"test@tamu.edu"}': '' } note the 1st key is the actual obj
   var strData = Object.keys(body)[0] //obtains the first key, currently as a string 
   var data = JSON.parse(strData) //actual object is now obtained
   /* corrected the wierd behavior*/
-  console.log("data is--->", data)
+  //console.log("data is--->", data)
   const { title, description, userEmail, name, tag} = data
   res.header("Access-Control-Allow-Origin", "*");
-  await createSuggestion({title, description, userEmail, name, tag })
+  await addReview({title, description, userEmail, name, tag })
 })
 
+
+app.post('/addCodeProb', async(req, res) => {
+  var body = req.body //the object is listed as: { '{"title":"EMPTY TEST","email":"test@tamu.edu"}': '' } note the 1st key is the actual obj
+  var strData = Object.keys(body)[0] //obtains the first key, currently as a string 
+  var data = JSON.parse(strData) //actual object is now obtained
+  /* corrected the wierd behavior*/
+  //console.log("data is--->", data)
+  const { company, concepts, probTitle, probPrompt} = data
+  res.header("Access-Control-Allow-Origin", "*");
+  await addCodeProb({ company, concepts, probTitle, probPrompt })
+})
 /* Route to get tags */
 app.get('/tags', async(req, res) => {
   res.header("Access-Control-Allow-Origin", "*");
@@ -160,7 +179,7 @@ app.get('/tags', async(req, res) => {
 app.get('/getReviews' , async (req, res) => {
   res.header("Access-Control-Allow-Origin", "*");
   const response = await getSuggestions()
-  console.log("the response is----->", response)
+ // console.log("the response is----->", response)
   return res.json(response)
 })
 
