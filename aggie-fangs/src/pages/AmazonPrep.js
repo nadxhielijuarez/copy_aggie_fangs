@@ -5,6 +5,7 @@ import VideoComp from '../components/VideoPlayer/VideoComp'
 import FeedbackView from '../components/FeedbackView';
 import LeetCodeURL from '../components/LeetCodeURL'
 import HackerRankURL from '../components/HackerRankURL'
+import OtherURL from '../components/OtherURL'
 
 var companyName = <text>Amazon</text>;
 
@@ -43,7 +44,7 @@ const AmazonPrep = () => {
             <div class='company-section'>
               <h1>More Resources</h1>
               <ul>
-                
+                <OtherURL/>
               </ul>
             </div>
           </div>
