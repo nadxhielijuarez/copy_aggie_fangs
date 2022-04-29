@@ -34,8 +34,8 @@ const FormCoding = ({formCd, setFormCd}) => {
             headers: {'Content-Type': 'application/x-www-form-urlencoded'},
             body: JSON.stringify({
                 company: formCd.company,
-                concepts:formCd.name,
-                probTitle: formCd.concepts,
+                probTitle:formCd.name,
+                concepts: formCd.concepts,
                 probPrompt:formCd.prompt,
             }) 
           });

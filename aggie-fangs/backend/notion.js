@@ -3,6 +3,7 @@ const { Client } = require("@notionhq/client")
 const NOTION_API_KEY = 'secret_AFKZAuWeh8KSRFU7dK4vcdUTEQG1pb3CyQtwBIdj9Ws'
 feedbackID = '22f238cc864e4a1496e42e3d8a2c05c6'
 codeProbId ='6874305ce7a84e0b812f48cc649e8dd9'
+leetCodeId ='3cb9e25839cd4ab2abe7d189b46575d2'
 //email type: email
 NOTION_EMAIL_ID = 'S%3AUR'
 //name type: rich text
@@ -51,7 +52,7 @@ function notionPropertiesById(properties) {
 async function addReview({ title, description, userEmail, name, tag}) {
   notion.pages.create({
     parent: {
-      database_id:  feedbackID,
+      database_id: feedbackID,
     },
     properties: {
         'Company Name': {
@@ -111,7 +112,7 @@ async function addReview({ title, description, userEmail, name, tag}) {
 function addCodeProb({company, concepts, probTitle, probPrompt}) {
   notion.pages.create({
     parent: {
-      database_id:  '6874305ce7a84e0b812f48cc649e8dd9',
+      database_id: codeProbId,
     },
     properties: {
         'Company Name': {
@@ -162,6 +163,40 @@ function addCodeProb({company, concepts, probTitle, probPrompt}) {
 
   })
 }
+function addLeetcodeURL({company, probTitle, url}) {
+  notion.pages.create({
+    parent: {
+      database_id: '3cb9e25839cd4ab2abe7d189b46575d2',
+    },
+    properties: {
+        'Company Name': {
+          title: [
+            {
+              type: "text",
+              text: {
+                content:company,
+              },
+            },
+          ],
+        },
+        'h%5Da%3E': {
+          rich_text: [
+            {
+              type: "text",
+              text: {
+                content: probTitle,
+              },
+            },
+          ],
+        },
+        'OXwE': {
+            url: url
+          }
+        }
+      
+  })
+}
+
 
 async function getSuggestions() {
     const response = await notion.databases.query({
@@ -219,4 +254,5 @@ module.exports = {
   getSuggestions,
   upVoteSuggestion,
   addCodeProb,
+  addLeetcodeURL,
 }

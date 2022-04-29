@@ -3,7 +3,7 @@ const express = require('express')
 const axios = require('axios')
 const cors = require('cors')
 const { makeConsoleLogger } = require('@notionhq/client/build/src/logging')
-const { addReview, getSuggestions, getTags,addCodeProb } = require('./notion')
+const { addReview, getSuggestions, getTags,addCodeProb, addLeetcodeURL } = require('./notion')
 const { getByDisplayValue } = require('@testing-library/react')
 const app = express()
 const port = 3002
@@ -13,6 +13,7 @@ const { Client } = require("@notionhq/client")
 const notion = new Client({ auth:  secretKey })
 NOTION_Feedback_DATABASE_ID = '22f238cc864e4a1496e42e3d8a2c05c6'
 NOTION_CodeProb_DATABASE_ID = '6874305ce7a84e0b812f48cc649e8dd9'
+NOTION_LeetCodeURL_DATABASE_ID = '3cb9e25839cd4ab2abe7d189b46575d2'
 //email type: email
 NOTION_EMAIL_ID = 'S%3AUR'
 //name type: rich text
@@ -72,6 +73,13 @@ app.get('/FeedbackDB', async (req, res) => {
 app.get('/codeProbDB', async (req, res) => {
   res.header("Access-Control-Allow-Origin", "*");
   const response = await notion.databases.retrieve({database_id: NOTION_CodeProb_DATABASE_ID })
+  return res.json(response);
+
+})
+
+app.get('/LeetCodeDB', async (req, res) => {
+  res.header("Access-Control-Allow-Origin", "*");
+  const response = await notion.databases.retrieve({database_id: NOTION_LeetCodeURL_DATABASE_ID })
   return res.json(response);
 
 })
@@ -157,7 +165,6 @@ app.post('/addRev', async(req, res) => {
   await addReview({title, description, userEmail, name, tag })
 })
 
-
 app.post('/addCodeProb', async(req, res) => {
   var body = req.body //the object is listed as: { '{"title":"EMPTY TEST","email":"test@tamu.edu"}': '' } note the 1st key is the actual obj
   var strData = Object.keys(body)[0] //obtains the first key, currently as a string 
@@ -167,6 +174,17 @@ app.post('/addCodeProb', async(req, res) => {
   const { company, concepts, probTitle, probPrompt} = data
   res.header("Access-Control-Allow-Origin", "*");
   await addCodeProb({ company, concepts, probTitle, probPrompt })
+})
+
+app.post('/addLeetCode', async(req, res) => {
+  var body = req.body //the object is listed as: { '{"title":"EMPTY TEST","email":"test@tamu.edu"}': '' } note the 1st key is the actual obj
+  var strData = Object.keys(body)[0] //obtains the first key, currently as a string 
+  var data = JSON.parse(strData) //actual object is now obtained
+  /* corrected the wierd behavior*/
+  //console.log("data is--->", data)
+  const { company, probTitle, url} = data
+  res.header("Access-Control-Allow-Origin", "*");
+  await addLeetcodeURL({ company, probTitle, url })
 })
 /* Route to get tags */
 app.get('/tags', async(req, res) => {
