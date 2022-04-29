@@ -1,9 +1,9 @@
 import React, { useEffect, useState } from "react";
 import loadingGif from "../images/loading.gif";
 
-function LeetCodeURL(){
+function HackerRankURL(){
     const [urls, setUrls] = useState(null);
-    const databaseID = '3cb9e25839cd4ab2abe7d189b46575d2'
+    const databaseID = '0698bdf32713495586b8a33be98bf48e'
     useEffect(() => {
         fetch('http://localhost:3002/getURLS/'+databaseID,{
         method: "GET"
@@ -49,4 +49,4 @@ function LeetCodeURL(){
 
 }
 
-export default LeetCodeURL;
+export default HackerRankURL;

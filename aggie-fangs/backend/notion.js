@@ -200,7 +200,6 @@ function addLeetcodeURL({company, probTitle, url}) {
   })
 }
 
-
 function addHackerRankURL({company, probTitle, url}) {
   //console.log("in notion recieved: ", company, probTitle, url)
   notion.pages.create({
@@ -280,12 +279,11 @@ async function getReviews() {
   return response.results.map(feedbackObj)
 }
 
-async function getLeetCodeURLS() {
+async function getURLS(db) {
   const response = await notion.databases.query({
-      database_id:  leetCodeId,
-
+      database_id: db,
     })
-return response.results.map(leetCodeObj)
+return response.results.map(urlObj)
 }
 
 async function getCodeProbs() {
@@ -313,7 +311,7 @@ function feedbackObj(notionPage) {
   }
 }
 
-function leetCodeObj(notionPage) {
+function urlObj(notionPage) {
   const propertiesById = notionPropertiesById(notionPage.properties)
   return {
     id: notionPage.id,
@@ -373,7 +371,7 @@ module.exports = {
   downVoteReview,
   getReview,
   addLeetcodeURL,
-  getLeetCodeURLS,
+  getURLS,
   getCodeProbs,
   addHackerRankURL,
   addOtherURL,
