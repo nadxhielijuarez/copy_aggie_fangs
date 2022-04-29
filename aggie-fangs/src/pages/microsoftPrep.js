@@ -4,6 +4,7 @@ import {Link } from "react-router-dom";
 import styled from "styled-components";
 import VideoComp from '../components/VideoPlayer/VideoComp'
 import FeedbackView from '../components/FeedbackView';
+import LeetCodeURL from '../components/LeetCodeURL'
 
 const LinkButton = styled.button `
   cursor: pointer;
@@ -52,11 +53,7 @@ const MicrosoftPrep = () => {
             <div class='company-section'>
               <h1>LeetCode Problems</h1>
               <ul>
-                <li><a href="https://leetcode.com/problem-list/top-microsoft-questions/">LeetCode's Overall List</a></li>
-                <li><a href="https://leetcode.com/problems/two-sum">Two Sum</a></li>
-                <li><a href="https://leetcode.com/problems/add-two-numbers">Add Two Numbers</a></li>
-                <li><a href="https://leetcode.com/problems/longest-substring-without-repeating-characters">Longest Substring Without Repeating Characters</a></li>
-                <li><a href="https://leetcode.com/problems/regular-expression-matching">Regular Expression Matching</a></li>
+                <LeetCodeURL/>
               </ul>
             </div>
             <div class='company-section'>

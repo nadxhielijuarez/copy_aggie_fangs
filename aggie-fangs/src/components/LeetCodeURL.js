@@ -33,7 +33,7 @@ function LeetCodeURL(){
             urlArr.push(
                 (!thisCompany.localeCompare(urlObj.title)) ? 
                 (
-                    <li><a href={urlObj.url}>"{urlObj.name}'</a></li>
+                    <li><a href={urlObj.url}>{urlObj.name}</a></li>
                 )
                 : null
             )
