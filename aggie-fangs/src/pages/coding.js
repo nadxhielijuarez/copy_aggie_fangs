@@ -66,7 +66,6 @@ class Coding extends Component {
                 </div>
                 <div class="coding coding-main">
                     <div class="split problem-list">
-                        <h1>Problems:</h1>
                         <form className='problem-sort'>
                             <div className='radio'>
                                 <label>
@@ -146,6 +145,7 @@ class Coding extends Component {
                                 </label>
                             </div>
                         </form>
+                        <h1>Problems:</h1>
 
                         <ul>
                             <li><a href="">String Reversal</a></li>

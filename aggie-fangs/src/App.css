@@ -14,10 +14,9 @@
   box-sizing: border-box;
   margin: 0;
   padding: 0;
-  /*background-color: var(--bgcolor);*/
 }
 
-h1{
+h1 {
   font-size: 30px;
   font-family: "Roboto", sans-serif;
 }
@@ -46,6 +45,40 @@ h1{
   background: var(--hdrcolor);
 }
 
+/* ----- Coding Problems List Styling ----- */
+.problem-sort {
+  width: 90%;
+  padding: 3%;
+  overflow: hidden;
+  background-color: var(--bg2color);
+  border-color: var(--brdrcolor);
+  border-width: 0.5px;
+  border-style: solid;
+  margin-left: auto;
+  margin-right: auto;
+  margin-bottom: 20px;
+}
+.problem-sort label {
+  color: var(--txtcolor);
+  font-size: 30px;
+  width: 50%;
+  float: left;
+}
+input[type="radio"] {
+  margin-right: 1rem;
+  font: inherit;
+  color: currentColor;
+  width: 1rem;
+  height: 1rem;
+  border: 0.15em solid currentColor;
+  border-radius: 50%;
+  transform: translateY(-0.075em);
+  place-content: center;
+}
+input[type="radio"]:focus {
+  outline: none;
+}
+
 /* ----- Settings Page Styling ----- */
 .settings-page {
   width: 100%;
@@ -63,6 +96,12 @@ h1{
   width: 100%;
   position: absolute;
   background-color: var(--bgcolor);
+}
+.company-page a {
+  color: var(--lnkcolor);
+}
+.company-page a:visited {
+  color: var(--lnk2color);
 }
 .company-header {
   width: 100%;
@@ -265,6 +304,12 @@ h1{
   overflow: auto;
   background-color: var(--bgcolor);
 }
+.coding a {
+  color: var(--lnkcolor);
+}
+.coding a:visited {
+  color: var(--lnk2color);
+}
 .coding-header {
   height: 150px;
 }
@@ -291,13 +336,16 @@ h1{
 .coding-problem-name h1 {
   text-align: left;
   font-size: 45px;
+  color: var(--hdrcolor);
 }
 .coding-problem-name h2 {
   text-align: left;
   font-size: 25px;
+  color: var(--txtcolor);
 }
 .coding-main {
   height: 750px;
+  color: var(--txtcolor);
 }
 .problem-list {
   left: 0;
@@ -310,6 +358,10 @@ h1{
   width: 70%;
   border-left-color: var(--brdrcolor);
   border-left-style: solid;
+  color: var(--txtcolor);
+}
+.problem-statement h2 {
+  color: var(--hdrcolor);
 }
 .coding-problem-left {
   width: 60%;
@@ -386,6 +438,12 @@ h1{
 .guide-section li {
   margin-top: 20px;
   margin-bottom: 20px;
+}
+.guide-section a {
+  color: var(--lnkcolor);
+}
+.guide-section a:visited {
+  color: var(--lnk2color);
 }
 
 /* ----- Share Experience Styling ----- */
