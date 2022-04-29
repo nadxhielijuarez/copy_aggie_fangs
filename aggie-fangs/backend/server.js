@@ -3,7 +3,7 @@ const express = require('express')
 const axios = require('axios')
 const cors = require('cors')
 const { makeConsoleLogger } = require('@notionhq/client/build/src/logging')
-const {  downVoteReview, upVoteReview, getReview,addReview, getReviews, getTags,addCodeProb, addLeetcodeURL } = require('./notion')
+const { getLeetCodeURLS, downVoteReview, upVoteReview, getReview,addReview, getReviews, getTags,addCodeProb, addLeetcodeURL } = require('./notion')
 const { getByDisplayValue } = require('@testing-library/react')
 const app = express()
 const port = 3002
@@ -198,6 +198,14 @@ app.get('/getReviews' , async (req, res) => {
   res.header("Access-Control-Allow-Origin", "*");
   const response = await getReviews()
  // console.log("the response is----->", response)
+  return res.json(response)
+})
+
+/*route for LC urls */
+app.get('/getLeetCodeURLS' , async (req, res) => {
+  res.header("Access-Control-Allow-Origin", "*");
+  const response = await getLeetCodeURLS()
+  console.log("the response for LC is----->", response)
   return res.json(response)
 })
 

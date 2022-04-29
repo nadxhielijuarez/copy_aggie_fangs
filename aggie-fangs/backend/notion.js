@@ -163,6 +163,7 @@ function addCodeProb({company, concepts, probTitle, probPrompt}) {
 
   })
 }
+
 function addLeetcodeURL({company, probTitle, url}) {
   notion.pages.create({
     parent: {
@@ -197,17 +198,23 @@ function addLeetcodeURL({company, probTitle, url}) {
   })
 }
 
-
 async function getReviews() {
     const response = await notion.databases.query({
         database_id:  feedbackID,
         sorts: [{ property: NOTION_UPVOTES_ID , direction: "descending" }],
       })
-  return response.results.map(fromNotionObject)
+  return response.results.map(feedbackObj)
 }
 
+async function getLeetCodeURLS() {
+  const response = await notion.databases.query({
+      database_id:  leetCodeId,
 
-function fromNotionObject(notionPage) {
+    })
+return response.results.map(leetCodeObj)
+}
+
+function feedbackObj(notionPage) {
   const propertiesById = notionPropertiesById(notionPage.properties)
 
   return {
@@ -221,6 +228,16 @@ function fromNotionObject(notionPage) {
       propertiesById[ NOTION_DESCRIPTION_ID].rich_text[0].text
         .content,
     email: propertiesById[NOTION_EMAIL_ID].email,
+  }
+}
+
+function leetCodeObj(notionPage) {
+  const propertiesById = notionPropertiesById(notionPage.properties)
+  return {
+    id: notionPage.id,
+    title: propertiesById['title'].title[0].plain_text,
+    name: propertiesById['h%5Da%3E'].rich_text[0].text.content,
+    url: propertiesById['OXwE'].url,
   }
 }
 
@@ -251,7 +268,7 @@ async function downVoteReview(pageId) {
 }
 
 async function getReview(pageId) {
-  return fromNotionObject(await notion.pages.retrieve({ page_id: pageId}))
+  return feedbackObj(await notion.pages.retrieve({ page_id: pageId}))
 }
 
 module.exports = {
@@ -261,6 +278,7 @@ module.exports = {
   upVoteReview,
   addCodeProb,
   addLeetcodeURL,
-  getReview,
   downVoteReview,
+  getReview,
+  getLeetCodeURLS,
 }
