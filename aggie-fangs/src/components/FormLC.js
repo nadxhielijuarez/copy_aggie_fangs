@@ -26,16 +26,23 @@ const FormLC = ({formLC, setFormLC}) => {
         return true;
     }
     const handleSubmit = e => {
-        fetch('http://localhost:3002/addLeetCode', {
-            mode:'no-cors',
-            method: 'POST',
-            headers: {'Content-Type': 'application/x-www-form-urlencoded'},
-            body: JSON.stringify({
-                company: formLC.company,
-                probTitle:formLC.name, 
-                url:formLC.link,
-            }) 
-          });
+        console.log("formLC.urlType", formLC.urlType)
+        if(formLC.urlType != undefined || formLC.urlType != "None" ){
+            var urlEndPoint = 'http://localhost:3002/add' + formLC.urlType
+            console.log("Endpoint is: ", urlEndPoint)
+            fetch(urlEndPoint, {
+                mode:'no-cors',
+                method: 'POST',
+                headers: {'Content-Type': 'application/x-www-form-urlencoded'},
+                body: JSON.stringify({
+                    company: formLC.company,
+                    probTitle:formLC.name, 
+                    url:formLC.link,
+                }) 
+              });
+        } else{
+            alert("Need to enter Link Type!")
+        }
 
           
         if (checkValidity()) {
@@ -46,7 +53,7 @@ const FormLC = ({formLC, setFormLC}) => {
     }
     return (
         <form className='form' onSubmit={handleSubmit}>
-            <h2>Submit A LeetCode Link</h2>
+            <h2>Submit A LeetCode/HackerRank/Other Link</h2>
 
             <label htmlFor='Company'>Company</label><br/>
             <select placeholder="Company"
@@ -62,6 +69,19 @@ const FormLC = ({formLC, setFormLC}) => {
                 <option value="Apple">Apple</option>
                 <option value="Microsoft">Microsoft</option>
             </select><br/>
+
+            <label htmlFor='urlType'>Linkk Type?</label><br/>
+            <select placeholder="Link Type"
+                id="urlType"
+                name="urlType"
+                value={formLC.urlType}
+                onChange={handleChange}>
+                <option value="None">Select Link Type</option>
+                <option value="LeetCode">LeetCode</option>
+                <option value="HackerRank">HackerRank</option>
+                <option value="OtherURL">Other (article or general)</option>
+            </select><br/>
+            
             <label htmlFor='Name'>Name</label>
             <textarea
                 value={formLC.name}
@@ -75,7 +95,7 @@ const FormLC = ({formLC, setFormLC}) => {
             <label htmlFor='Link'>Link</label>
             <textarea
                 value={formLC.link}
-                placeholder="Enter LeetCode Link"  
+                placeholder="Enter LeetCode/HackerRank/Other Link"  
                 id="link" 
                 name="link" 
                 autoComplete="off"

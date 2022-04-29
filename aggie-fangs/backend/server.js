@@ -3,7 +3,7 @@ const express = require('express')
 const axios = require('axios')
 const cors = require('cors')
 const { makeConsoleLogger } = require('@notionhq/client/build/src/logging')
-const { getCodeProbs, getLeetCodeURLS, downVoteReview, upVoteReview, getReview,addReview, getReviews, getTags,addCodeProb, addLeetcodeURL } = require('./notion')
+const { addOtherURL, addHackerRankURL, getCodeProbs, getLeetCodeURLS, downVoteReview, upVoteReview, getReview,addReview, getReviews, getTags,addCodeProb, addLeetcodeURL } = require('./notion')
 const { getByDisplayValue } = require('@testing-library/react')
 const app = express()
 const port = 3002
@@ -14,6 +14,8 @@ const notion = new Client({ auth:  secretKey })
 NOTION_Feedback_DATABASE_ID = '22f238cc864e4a1496e42e3d8a2c05c6'
 NOTION_CodeProb_DATABASE_ID = '6874305ce7a84e0b812f48cc649e8dd9'
 NOTION_LeetCodeURL_DATABASE_ID = '3cb9e25839cd4ab2abe7d189b46575d2'
+NOTION_HackerRankURL_DATABASE_ID = '0698bdf32713495586b8a33be98bf48e'
+NOTION_OtherURL_DATABASE_ID = '056f97d0a08240eaa197b4bcc97f2263'
 //email type: email
 NOTION_EMAIL_ID = 'S%3AUR'
 //name type: rich text
@@ -63,6 +65,8 @@ const [db, setDB] = useState({});
     }, []);
    console.log("*db is now==-->", db)
  */
+
+   /*displaying DB info for troublshooting*/
 app.get('/FeedbackDB', async (req, res) => {
   res.header("Access-Control-Allow-Origin", "*");
   const response = await notion.databases.retrieve({database_id: NOTION_Feedback_DATABASE_ID })
@@ -83,6 +87,21 @@ app.get('/LeetCodeDB', async (req, res) => {
   return res.json(response);
 
 })
+
+app.get('/HackerRankDB', async (req, res) => {
+  res.header("Access-Control-Allow-Origin", "*");
+  const response = await notion.databases.retrieve({database_id: NOTION_HackerRankURL_DATABASE_ID })
+  return res.json(response);
+
+})
+
+app.get('/OtherURLDB', async (req, res) => {
+  res.header("Access-Control-Allow-Origin", "*");
+  const response = await notion.databases.retrieve({database_id: NOTION_OtherURL_DATABASE_ID })
+  return res.json(response);
+
+})
+
 
 /* route that allows us to enter info into the feedback form */
 /* app.post('/sendFeedback' , async (req, res) => {
@@ -181,10 +200,34 @@ app.post('/addLeetCode', async(req, res) => {
   var strData = Object.keys(body)[0] //obtains the first key, currently as a string 
   var data = JSON.parse(strData) //actual object is now obtained
   /* corrected the wierd behavior*/
-  //console.log("data is--->", data)
+  console.log("data is--->", data)
   const { company, probTitle, url} = data
   res.header("Access-Control-Allow-Origin", "*");
   await addLeetcodeURL({ company, probTitle, url })
+})
+
+app.post('/addOtherURL', async(req, res) => {
+  console.log("------------->IN OTHER URL<----------")
+  var body = req.body //the object is listed as: { '{"title":"EMPTY TEST","email":"test@tamu.edu"}': '' } note the 1st key is the actual obj
+  var strData = Object.keys(body)[0] //obtains the first key, currently as a string 
+  var data = JSON.parse(strData) //actual object is now obtained
+  /* corrected the wierd behavior*/
+  console.log("data is--->", data)
+  const { company, probTitle, url} = data
+  res.header("Access-Control-Allow-Origin", "*");
+  await addOtherURL({ company, probTitle, url })
+})
+
+app.post('/addHackerRank', async(req, res) => {
+  var body = req.body //the object is listed as: { '{"title":"EMPTY TEST","email":"test@tamu.edu"}': '' } note the 1st key is the actual obj
+  console.log("------------->IN HACKER RANK<----------")
+  var strData = Object.keys(body)[0] //obtains the first key, currently as a string 
+  var data = JSON.parse(strData)
+  /* corrected the wierd behavior*/
+  const { company, probTitle, url} = data
+  res.header("Access-Control-Allow-Origin", "*");
+  console.log("for hacker rank obj, recieved-->", strData)
+  await addHackerRankURL(data)
 })
 /* Route to get tags */
 app.get('/tags', async(req, res) => {

@@ -4,6 +4,8 @@ const NOTION_API_KEY = 'secret_AFKZAuWeh8KSRFU7dK4vcdUTEQG1pb3CyQtwBIdj9Ws'
 feedbackID = '22f238cc864e4a1496e42e3d8a2c05c6'
 codeProbId ='6874305ce7a84e0b812f48cc649e8dd9'
 leetCodeId ='3cb9e25839cd4ab2abe7d189b46575d2'
+hackerRankId ='0698bdf32713495586b8a33be98bf48e'
+otherUrlId ='056f97d0a08240eaa197b4bcc97f2263'
 //email type: email
 NOTION_EMAIL_ID = 'S%3AUR'
 //name type: rich text
@@ -167,7 +169,7 @@ function addCodeProb({company, concepts, probTitle, probPrompt}) {
 function addLeetcodeURL({company, probTitle, url}) {
   notion.pages.create({
     parent: {
-      database_id: '3cb9e25839cd4ab2abe7d189b46575d2',
+      database_id: leetCodeId,
     },
     properties: {
         'Company Name': {
@@ -176,6 +178,78 @@ function addLeetcodeURL({company, probTitle, url}) {
               type: "text",
               text: {
                 content:company,
+              },
+            },
+          ],
+        },
+        'h%5Da%3E': {
+          rich_text: [
+            {
+              type: "text",
+              text: {
+                content: probTitle,
+              },
+            },
+          ],
+        },
+        'OXwE': {
+            url: url
+          }
+        }
+      
+  })
+}
+
+
+function addHackerRankURL({company, probTitle, url}) {
+  //console.log("in notion recieved: ", company, probTitle, url)
+  notion.pages.create({
+    parent: {
+      database_id: hackerRankId,
+    },
+    properties: {
+        'title': {
+          title: [
+            {
+              type: "text",
+              text: {
+                content: company,
+              },
+            },
+          ],
+        },
+        'h%5Da%3E': {
+          rich_text: [
+            {
+              type: "text",
+              text: {
+                content: probTitle,
+              },
+            },
+          ],
+        },
+        'OXwE': {
+            url: url
+          }
+        }
+      
+  })
+}
+
+function addOtherURL({company, probTitle, url}) {
+  //console.log("in notion recieved: ", company, probTitle, url)
+  console.log("in notion.js")
+  notion.pages.create({
+    parent: {
+      database_id: otherUrlId,
+    },
+    properties: {
+        'title': {
+          title: [
+            {
+              type: "text",
+              text: {
+                content: company,
               },
             },
           ],
@@ -301,4 +375,7 @@ module.exports = {
   addLeetcodeURL,
   getLeetCodeURLS,
   getCodeProbs,
+  addHackerRankURL,
+  addOtherURL,
+  
 }
