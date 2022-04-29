@@ -11,12 +11,6 @@ const Navbar = () => {
         <Bars />
         <NavMenu>
             <img class="logo-img" src={logo} alt="logo"/>
-            <NavLink to="/applications" activeStyle>
-                <div class = "nav-link">Applications</div>
-            </NavLink>
-            <NavLink to="/network" activeStyle>
-                <div class = "nav-link">Network</div>
-            </NavLink>
             <NavLink to="/feedbackform" activeStyle>
                 <div class = "nav-link">Share Experience</div>
             </NavLink>
