@@ -214,6 +214,14 @@ async function getLeetCodeURLS() {
 return response.results.map(leetCodeObj)
 }
 
+async function getCodeProbs() {
+  const response = await notion.databases.query({
+      database_id: codeProbId,
+
+    })
+return response.results.map(codeProbObj)
+}
+
 function feedbackObj(notionPage) {
   const propertiesById = notionPropertiesById(notionPage.properties)
 
@@ -238,6 +246,17 @@ function leetCodeObj(notionPage) {
     title: propertiesById['title'].title[0].plain_text,
     name: propertiesById['h%5Da%3E'].rich_text[0].text.content,
     url: propertiesById['OXwE'].url,
+  }
+}
+
+function codeProbObj(notionPage) {
+  const propertiesById = notionPropertiesById(notionPage.properties)
+  return {
+    id: notionPage.id,
+    company: propertiesById['title'].title[0].plain_text,
+    title: propertiesById['h%5Da%3E'].rich_text[0].text.content,
+    prompt: propertiesById['efwD'].rich_text[0].text.content,
+    concepts: propertiesById['Tqov'].rich_text[0].text.content,
   }
 }
 
@@ -277,8 +296,9 @@ module.exports = {
   getReviews,
   upVoteReview,
   addCodeProb,
-  addLeetcodeURL,
   downVoteReview,
   getReview,
+  addLeetcodeURL,
   getLeetCodeURLS,
+  getCodeProbs,
 }

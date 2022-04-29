@@ -3,7 +3,7 @@ const express = require('express')
 const axios = require('axios')
 const cors = require('cors')
 const { makeConsoleLogger } = require('@notionhq/client/build/src/logging')
-const { getLeetCodeURLS, downVoteReview, upVoteReview, getReview,addReview, getReviews, getTags,addCodeProb, addLeetcodeURL } = require('./notion')
+const { getCodeProbs, getLeetCodeURLS, downVoteReview, upVoteReview, getReview,addReview, getReviews, getTags,addCodeProb, addLeetcodeURL } = require('./notion')
 const { getByDisplayValue } = require('@testing-library/react')
 const app = express()
 const port = 3002
@@ -205,7 +205,14 @@ app.get('/getReviews' , async (req, res) => {
 app.get('/getLeetCodeURLS' , async (req, res) => {
   res.header("Access-Control-Allow-Origin", "*");
   const response = await getLeetCodeURLS()
-  console.log("the response for LC is----->", response)
+  //console.log("the response for LC is----->", response)
+  return res.json(response)
+})
+
+app.get('/getCodeProb' , async (req, res) => {
+  res.header("Access-Control-Allow-Origin", "*");
+  const response = await getCodeProbs()
+  //console.log("the response for LC is----->", response)
   return res.json(response)
 })
 
@@ -227,11 +234,11 @@ app.get('/downVote/:id' , async (req, res) => {
  // console.log("the response is----->", response)
   return res.json(response)
 })
+
 app.use(cors({
   origin: ['http://localhost:3002'],
   credentials: true
 }))
-
 
 app.listen(port, () => {
   console.log(`On port ${port}`)
