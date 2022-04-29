@@ -198,10 +198,10 @@ function addLeetcodeURL({company, probTitle, url}) {
 }
 
 
-async function getSuggestions() {
+async function getReviews() {
     const response = await notion.databases.query({
         database_id:  feedbackID,
-        sorts: [{ property: NOTION_UPVOTES_ID , direction: "ascending" }],
+        sorts: [{ property: NOTION_UPVOTES_ID , direction: "descending" }],
       })
   return response.results.map(fromNotionObject)
 }
@@ -224,8 +224,8 @@ function fromNotionObject(notionPage) {
   }
 }
 
-async function upVoteSuggestion(pageId) {
-  const suggestion = await getSuggestion(pageId)
+async function upVoteReview(pageId) {
+  const suggestion = await getReview(pageId)
   const votes = suggestion.upVotes + 1
   await notion.pages.update({
     page_id: pageId,
@@ -237,8 +237,8 @@ async function upVoteSuggestion(pageId) {
   return votes
 }
 
-async function downVoteSuggestion(pageId) {
-  const suggestion = await getSuggestion(pageId)
+async function downVoteReview(pageId) {
+  const suggestion = await getReview(pageId)
   const votes = suggestion.downVotes - 1
   await notion.pages.update({
     page_id: pageId,
@@ -250,18 +250,17 @@ async function downVoteSuggestion(pageId) {
   return votes
 }
 
-async function getSuggestion(pageId) {
+async function getReview(pageId) {
   return fromNotionObject(await notion.pages.retrieve({ page_id: pageId}))
 }
 
 module.exports = {
   addReview,
   getTags,
-  getSuggestions,
-  upVoteSuggestion,
+  getReviews,
+  upVoteReview,
   addCodeProb,
   addLeetcodeURL,
-  getSuggestion,
-  downVoteSuggestion
-  
+  getReview,
+  downVoteReview,
 }

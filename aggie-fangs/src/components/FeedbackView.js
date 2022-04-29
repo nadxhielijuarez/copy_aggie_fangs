@@ -21,36 +21,36 @@ function FeedbackView({company}){
      });
     },[]);
 
-
     function upVote(id) {
-        console.log("upvote id: ", id)
+       // console.log("upvote id: ", id)
             fetch('http://localhost:3002/upVote/' + id,{
             method: "GET"
-    }).then(response => {
-        if (response.type === 'opaque' || response.ok) {
-        } 
+        }).then(response => {
+            if (response.type === 'opaque' || response.ok) {
+                window.location.href = window.location.href;
+            } 
         }).catch(error => {
         console.log("Error is: ", error)
         });
         
-        // do something with the id of the review
     }
 
     function downVote(id) {
         // do something with the id of the review
-        console.log("*downvote id: ", id)
+        //console.log("*downvote id: ", id)
         fetch('http://localhost:3002/downVote/' + id,{
-        method: "GET"
-}).then(response => {
-    if (response.type === 'opaque' || response.ok) {
-    } 
-    }).catch(error => {
-    console.log("Error is: ", error)
-    });
-    
+        method: "GET" 
+        }).then(response => {
+            if (response.type === 'opaque' || response.ok) {
+                window.location.href = window.location.href;
+            } 
+        }).catch(error => {
+            console.log("Error is: ", error)
+        });
+       
     }
 
-    
+
     if(reviewInfo == null ){
         return(
             <div>
@@ -59,15 +59,13 @@ function FeedbackView({company}){
         )
     } else {
         var reviewList = new Array();
-
         var upImage = <img src={upimg2} alt="upvote" align="left"/>
         // if statement to change which up image to use based on whether the user has voted
         var downImage = <img src={downimg2} alt="upvote" align="right"/>
         // if statement to change which down image to use
         var thisCompany = localStorage.getItem("this-company");
-
-
-        reviewInfo.map( singleReviewItem => (
+        /*the down vote and up votes dont display properly on some company pages */
+        reviewInfo.map( singleReviewItem => {
             reviewList.push(
                 (!thisCompany.localeCompare(singleReviewItem.title)) ? 
                 (<div className="reviewBox">
@@ -77,7 +75,7 @@ function FeedbackView({company}){
                         {singleReviewItem.description}
                     </body>
                     <div class="votes up">
-                        <a onClick={() => {upVote(singleReviewItem.id)} }>{upImage}</a>{singleReviewItem.upVotes}
+                        <a onClick={() => { upVote(singleReviewItem.id)}}>{upImage}</a>{singleReviewItem.upVotes}
                     </div>
                     <div class="votes down">
                         <a onClick={() => {downVote(singleReviewItem.id)}}>{downImage}</a>{singleReviewItem.downVotes}
@@ -85,8 +83,8 @@ function FeedbackView({company}){
                 </div>)
                 : null
             )
-        ));
-
+        });
+        
         return(
             <div>
                 {reviewList}
