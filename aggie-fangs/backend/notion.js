@@ -206,13 +206,6 @@ async function getSuggestions() {
   return response.results.map(fromNotionObject)
 }
 
-async function getSuggestions(company) {
-  const response = await notion.databases.query({
-      database_id:  feedbackID,
-      sorts: [{ property: NOTION_UPVOTES_ID , direction: "ascending" }],
-    })
-return response.results.map(fromNotionObject)
-}
 
 function fromNotionObject(notionPage) {
   const propertiesById = notionPropertiesById(notionPage.properties)
@@ -221,7 +214,7 @@ function fromNotionObject(notionPage) {
     id: notionPage.id,
     title: propertiesById[ NOTION_TITLE_ID].title[0].plain_text,
     upVotes: propertiesById[ NOTION_UPVOTES_ID].number,
-    downVots: propertiesById[ NOTION_UPVOTES_ID].number,
+    downVotes: propertiesById[ NOTION_DVOTES_ID].number,
     name: propertiesById[NOTION_NAME_ID].rich_text[0].text.content,
     tags: propertiesById[ NOTION_TAG_ID].multi_select[0].name,
     description:
@@ -233,11 +226,24 @@ function fromNotionObject(notionPage) {
 
 async function upVoteSuggestion(pageId) {
   const suggestion = await getSuggestion(pageId)
-  const votes = suggestion.votes + 1
+  const votes = suggestion.upVotes + 1
   await notion.pages.update({
     page_id: pageId,
     properties: {
-      [ NOTION_VOTES_ID]: { number: votes },
+      [ NOTION_UPVOTES_ID]: { number: votes },
+    },
+  })
+
+  return votes
+}
+
+async function downVoteSuggestion(pageId) {
+  const suggestion = await getSuggestion(pageId)
+  const votes = suggestion.downVotes - 1
+  await notion.pages.update({
+    page_id: pageId,
+    properties: {
+      [ NOTION_DVOTES_ID]: { number: votes },
     },
   })
 
@@ -245,7 +251,7 @@ async function upVoteSuggestion(pageId) {
 }
 
 async function getSuggestion(pageId) {
-  return fromNotionObject(await notion.pages.retrieve({ page_id: pageId }))
+  return fromNotionObject(await notion.pages.retrieve({ page_id: pageId}))
 }
 
 module.exports = {
@@ -255,4 +261,7 @@ module.exports = {
   upVoteSuggestion,
   addCodeProb,
   addLeetcodeURL,
+  getSuggestion,
+  downVoteSuggestion
+  
 }

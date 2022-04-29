@@ -20,15 +20,38 @@ function FeedbackView({company}){
        console.log("Error is: ", error)
      });
     },[]);
-    function upVote (id) {
-        // do something with the id of the review
-    }
-    function downVote (id) {
+
+
+    function upVote(id) {
+        console.log("upvote id: ", id)
+            fetch('http://localhost:3002/upVote/' + id,{
+            method: "GET"
+    }).then(response => {
+        if (response.type === 'opaque' || response.ok) {
+        } 
+        }).catch(error => {
+        console.log("Error is: ", error)
+        });
+        
         // do something with the id of the review
     }
 
+    function downVote(id) {
+        // do something with the id of the review
+        console.log("*downvote id: ", id)
+        fetch('http://localhost:3002/downVote/' + id,{
+        method: "GET"
+}).then(response => {
+    if (response.type === 'opaque' || response.ok) {
+    } 
+    }).catch(error => {
+    console.log("Error is: ", error)
+    });
     
-    if(reviewInfo == null){
+    }
+
+    
+    if(reviewInfo == null ){
         return(
             <div>
                 <img src={loadingGif} alt="wait until the page loads"/>
@@ -54,10 +77,10 @@ function FeedbackView({company}){
                         {singleReviewItem.description}
                     </body>
                     <div class="votes up">
-                        <a onClick={upVote}>{upImage}</a>{singleReviewItem.upVotes}
+                        <a onClick={() => {upVote(singleReviewItem.id)} }>{upImage}</a>{singleReviewItem.upVotes}
                     </div>
                     <div class="votes down">
-                        <a onClick={downVote}>{downImage}</a>{singleReviewItem.downVots}
+                        <a onClick={() => {downVote(singleReviewItem.id)}}>{downImage}</a>{singleReviewItem.downVotes}
                     </div>
                 </div>)
                 : null

@@ -3,7 +3,7 @@ const express = require('express')
 const axios = require('axios')
 const cors = require('cors')
 const { makeConsoleLogger } = require('@notionhq/client/build/src/logging')
-const { addReview, getSuggestions, getTags,addCodeProb, addLeetcodeURL } = require('./notion')
+const {  downVoteSuggestion, upVoteSuggestion, getSuggestion,addReview, getSuggestions, getTags,addCodeProb, addLeetcodeURL } = require('./notion')
 const { getByDisplayValue } = require('@testing-library/react')
 const app = express()
 const port = 3002
@@ -201,6 +201,24 @@ app.get('/getReviews' , async (req, res) => {
   return res.json(response)
 })
 
+app.get('/upVote/:id' , async (req, res) => {
+  const upvoteID = req.params['id']
+  console.log(" RECIEVED THIS ID-->", upvoteID)
+  res.header("Access-Control-Allow-Origin", "*");
+  const response = await upVoteSuggestion(upvoteID)
+ // console.log("the response is----->", response)
+  return res.json(response)
+})
+
+
+app.get('/downVote/:id' , async (req, res) => {
+  const downvoteID = req.params['id']
+  console.log(" in down votes RECIEVED THIS ID-->", downvoteID)
+  res.header("Access-Control-Allow-Origin", "*");
+  const response = await downVoteSuggestion(downvoteID)
+ // console.log("the response is----->", response)
+  return res.json(response)
+})
 app.use(cors({
   origin: ['http://localhost:3002'],
   credentials: true
