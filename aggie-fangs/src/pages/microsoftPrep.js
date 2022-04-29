@@ -5,6 +5,8 @@ import styled from "styled-components";
 import VideoComp from '../components/VideoPlayer/VideoComp'
 import FeedbackView from '../components/FeedbackView';
 import LeetCodeURL from '../components/LeetCodeURL'
+import HackerRankURL from '../components/HackerRankURL'
+import OtherURL from '../components/OtherURL'
 
 const LinkButton = styled.button `
   cursor: pointer;
@@ -45,7 +47,7 @@ const MicrosoftPrep = () => {
             <div class='company-section'>
               <h1>HackerRank Links</h1>
               <ul>
-                
+                <HackerRankURL/>
               </ul>
             </div>
           </div>
@@ -59,7 +61,7 @@ const MicrosoftPrep = () => {
             <div class='company-section'>
               <h1>More Resources</h1>
               <ul>
-                <li><a href="https://www.hackerrank.com/blog/how-to-crack-microsoft-interview/">Blog: How To Crack The Microsoft Interview</a></li>
+                <OtherURL/>
               </ul>
             </div>
           </div>

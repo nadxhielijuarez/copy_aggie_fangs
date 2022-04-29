@@ -4,6 +4,8 @@ import { v4 as uuidv4 } from "uuid";
 import VideoComp from '../components/VideoPlayer/VideoComp'
 import FeedbackView from '../components/FeedbackView';
 import LeetCodeURL from '../components/LeetCodeURL'
+import HackerRankURL from '../components/HackerRankURL'
+import OtherURL from '../components/OtherURL'
 
 var companyName = <text>Facebook</text>;
 
@@ -28,7 +30,7 @@ const FacebookPrep = () => {
             <div class='company-section'>
               <h1>HackerRank Links</h1>
               <ul>
-                
+                <HackerRankURL/>
               </ul>
             </div>
           </div>
@@ -42,7 +44,7 @@ const FacebookPrep = () => {
             <div class='company-section'>
               <h1>More Resources</h1>
               <ul>
-                
+                <OtherURL/>
               </ul>
             </div>
           </div>
