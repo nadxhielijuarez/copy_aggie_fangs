@@ -1,6 +1,7 @@
 import React, { Component } from 'react'
 import logo from "./../images/Aggie_Fangs_Logo_Transparent.png";
 import styled from "styled-components";
+import codeProb from "./codingProb"
 
 const RunButton = styled.button `
   cursor: pointer;
@@ -33,23 +34,18 @@ class Coding extends Component {
         probInOut = <text>In: apple<br/>Out: elppa<br/>In: howdy<br/>Out: ydwoh</text>;
     }
     getProblemList() {
-        // populate problemList
-/*         const [tags, setTags] = useState(null);
-        const[selectedValue, setSelectedValue] = useState([])
-      
-        useEffect(() => {
-          fetch('http://localhost:3002/tags',{
-          method: "GET"
+        // populate problemLis
+        fetch('http://localhost:3002/getCodeProb',{
+            method: "GET"
         }).then(response => {
-          if (response.type === 'opaque' || response.ok) {
-              response.json().then(revItems => {
-                setTags(revItems)
+            if (response.type === 'opaque' || response.ok) {
+                response.json().then(codeProbsObjs => {
+                console.log(codeProbsObjs)
             });
-          } 
+            } 
         }).catch(error => {
-          console.log("Error is: ", error)
+            console.log("Error is: ", error)
         });
-        },[]); */
         
     }
     handleChange(event) {
@@ -57,6 +53,18 @@ class Coding extends Component {
         localStorage.setItem("this-company", thisCompany);
         this.setState({
             selectedOption: thisCompany
+        });
+
+        fetch('http://localhost:3002/getCodeProb',{
+            method: "GET"
+        }).then(response => {
+            if (response.type === 'opaque' || response.ok) {
+                response.json().then(codeProbsObjs => {
+                console.log(codeProbsObjs)
+            });
+            } 
+        }).catch(error => {
+            console.log("Error is: ", error)
         });
     }
     constructor() {
@@ -91,7 +99,9 @@ class Coding extends Component {
         });
         },[]); */
         return (
+            
             <div>
+                <codeProb/>
                 <div class="coding coding-header">
                     <div class="split coding-logo">
                         <img src={logo} alt="logo" />

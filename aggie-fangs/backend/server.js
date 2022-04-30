@@ -2,14 +2,10 @@
 const express = require('express')
 const axios = require('axios')
 const cors = require('cors')
-const helmet = require('helmet')
-const compression = require('compression')
 const { makeConsoleLogger } = require('@notionhq/client/build/src/logging')
 const { addOtherURL, addHackerRankURL, getCodeProbs, getURLS, downVoteReview, upVoteReview, getReview,addReview, getReviews, getTags,addCodeProb, addLeetcodeURL } = require('./notion')
 const { getByDisplayValue } = require('@testing-library/react')
 const app = express()
-app.use(helmet())
-app.use(compression())
 const port = 3002
 
 const secretKey = 'secret_AFKZAuWeh8KSRFU7dK4vcdUTEQG1pb3CyQtwBIdj9Ws'
