@@ -1,6 +1,7 @@
-import React, { Component } from 'react'
+import React, { Component, useState } from 'react'
 import logo from "./../images/Aggie_Fangs_Logo_Transparent.png";
 import styled from "styled-components";
+import CodingProblemList from "./codingProb.js";
 
 const RunButton = styled.button `
   cursor: pointer;
@@ -13,15 +14,13 @@ const RunButton = styled.button `
   text-align: center;
   font-size: 13px;
   font-family: "Lucida Console", "Courier New", monospace;
-  align-self: left;
-  left: 0;
+  float: left;
 `
 
 var probName = <text></text>;
 var probConcepts = <text></text>;
 var probPrompt = <text></text>;
-var probInOut = <text></text>;
-var problemList = new Array();
+var probCompany = <text></text>;
 
 class Coding extends Component {
     getProblem () {
@@ -30,27 +29,10 @@ class Coding extends Component {
         probName = <text>String Reversal</text>;
         probConcepts = <text>Traversal of Lists or Strings, Basic Problem Solving</text>;
         probPrompt = <text>Given a string, write a function that reverses the string such that the old first element is now the last element, the old second element is now the second to last element, etc.</text>;
-        probInOut = <text>In: apple<br/>Out: elppa<br/>In: howdy<br/>Out: ydwoh</text>;
-    }
-    getProblemList() {
-        // populate problemList
-/*         const [tags, setTags] = useState(null);
-        const[selectedValue, setSelectedValue] = useState([])
-      
-        useEffect(() => {
-          fetch('http://localhost:3002/tags',{
-          method: "GET"
-        }).then(response => {
-          if (response.type === 'opaque' || response.ok) {
-              response.json().then(revItems => {
-                setTags(revItems)
-            });
-          } 
-        }).catch(error => {
-          console.log("Error is: ", error)
-        });
-        },[]); */
-        
+        probName = localStorage.getItem("problem-title");
+        probConcepts = localStorage.getItem("problem-concepts");
+        probPrompt = localStorage.getItem("problem-prompt");
+        probCompany = localStorage.getItem("problem-company");
     }
     handleChange(event) {
         var thisCompany = event.target.value;
@@ -70,26 +52,9 @@ class Coding extends Component {
             selectedOption: thisCompany
         };
         this.handleChange = this.handleChange.bind(this);
-        this.getProblemList();
         this.getProblem();
     }
     render() {
-/*         const [probList, setProbList] = useState(null);
-        const[selectedValue, setSelectedValue] = useState([])
-      
-        useEffect(() => {
-          fetch('http://localhost:3002/getCodeProb',{
-          method: "GET"
-        }).then(response => {
-          if (response.type === 'opaque' || response.ok) {
-              response.json().then(revItems => {
-                setProbList(revItems)
-            });
-          } 
-        }).catch(error => {
-          console.log("Error is: ", error)
-        });
-        },[]); */
         return (
             <div>
                 <div class="coding coding-header">
@@ -104,6 +69,7 @@ class Coding extends Component {
                 <div class="coding coding-main">
                     <div class="split problem-list">
                         <form className='problem-sort'>
+                            <h1>Sort by:</h1>
                             <div className='radio'>
                                 <label>
                                     <input
@@ -182,17 +148,11 @@ class Coding extends Component {
                                 </label>
                             </div>
                         </form>
-                        <h1>Problems:</h1>
-
-                        <ul>
-                            <li><a href="">String Reversal</a></li>
-                        </ul>
+                        <CodingProblemList/>
                     </div>
                     <div class="split problem-statement">
                         <h2>Problem Prompt:</h2>
                         <body>{probPrompt}</body>
-                        <h2>Sample Inputs and Outputs:</h2>
-                        <body>{probInOut}</body>
                         <h2>Your Code:</h2>
                         <div class="coding-problem-left">
                             <textarea class="code-window" id="userCode" name="userCode"/>

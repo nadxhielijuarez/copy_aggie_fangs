@@ -58,6 +58,15 @@ h1 {
   margin-right: auto;
   margin-bottom: 20px;
 }
+.problem-sort h1 {
+  width: 100%;
+  border-bottom: 0.25px dashed var(--brdrcolor);
+  color: var(--hdrcolor);
+  font-size: 30px;
+  font-style: italic;
+  padding: 0.7rem;
+  margin-bottom: 1rem;
+}
 .problem-sort label {
   color: var(--txtcolor);
   font-size: 30px;
@@ -318,6 +327,8 @@ input[type="radio"]:focus {
   width: 30%;
   float: left;
   padding: 0px;
+  border-right-color: var(--brdrcolor);
+  border-right-style: solid;
 }
 .coding-logo img {
   height: 100%;
@@ -329,8 +340,6 @@ input[type="radio"]:focus {
   right: 0;
   float: right;
   width: 70%;
-  border-left-color: var(--brdrcolor);
-  border-left-style: solid;
   padding: 20px;
 }
 .coding-problem-name h1 {
@@ -344,24 +353,36 @@ input[type="radio"]:focus {
   color: var(--txtcolor);
 }
 .coding-main {
-  height: 750px;
+  overflow: hidden;
   color: var(--txtcolor);
 }
 .problem-list {
   left: 0;
   float: left;
   width: 30%;
+  border-width: 0.25px;
+  border-right-color: var(--brdrcolor);
+  border-right-style: solid;
+  min-height: 670px;
 }
 .problem-statement {
   right: 0;
   float: right;
   width: 70%;
-  border-left-color: var(--brdrcolor);
-  border-left-style: solid;
   color: var(--txtcolor);
+  border-width: 0.25px;
+  border-left-color: var(--brdrcolor);
+  /*border-left-style: solid;*/
 }
 .problem-statement h2 {
   color: var(--hdrcolor);
+  font-size: 40px;
+  margin-bottom: 1rem;
+}
+.problem-statement body {
+  color: var(--txtcolor);
+  font-size: 30px;
+  margin-bottom: 1rem;
 }
 .coding-problem-left {
   width: 60%;
@@ -387,7 +408,30 @@ input[type="radio"]:focus {
   padding: 5px;
   resize: none;
 }
-
+.show-problems {
+  width: 90%;
+  padding: 3%;
+  overflow: hidden;
+  background-color: var(--bg2color);
+  border-color: var(--brdrcolor);
+  border-width: 0.5px;
+  border-style: solid;
+  margin-left: auto;
+  margin-right: auto;
+  margin-bottom: 20px;
+}
+.show-problems h1 {
+  width: 100%;
+  border-bottom: 0.25px dashed var(--brdrcolor);
+  color: var(--hdrcolor);
+  font-size: 30px;
+  font-style: italic;
+  padding: 0.7rem;
+  margin-bottom: 1rem;
+}
+.show-problems body {
+  font-size: 20px;
+}
 
 /* ----- Guide Styling ----- */
 .guide-header {
