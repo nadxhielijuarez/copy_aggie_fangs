@@ -21,7 +21,7 @@ var probName = <text></text>;
 var probConcepts = <text></text>;
 var probPrompt = <text></text>;
 var probInOut = <text></text>;
-
+var problemList = new Array();
 
 class Coding extends Component {
     getProblem () {
@@ -31,6 +31,26 @@ class Coding extends Component {
         probConcepts = <text>Traversal of Lists or Strings, Basic Problem Solving</text>;
         probPrompt = <text>Given a string, write a function that reverses the string such that the old first element is now the last element, the old second element is now the second to last element, etc.</text>;
         probInOut = <text>In: apple<br/>Out: elppa<br/>In: howdy<br/>Out: ydwoh</text>;
+    }
+    getProblemList() {
+        // populate problemList
+/*         const [tags, setTags] = useState(null);
+        const[selectedValue, setSelectedValue] = useState([])
+      
+        useEffect(() => {
+          fetch('http://localhost:3002/tags',{
+          method: "GET"
+        }).then(response => {
+          if (response.type === 'opaque' || response.ok) {
+              response.json().then(revItems => {
+                setTags(revItems)
+            });
+          } 
+        }).catch(error => {
+          console.log("Error is: ", error)
+        });
+        },[]); */
+        
     }
     handleChange(event) {
         var thisCompany = event.target.value;
@@ -50,9 +70,26 @@ class Coding extends Component {
             selectedOption: thisCompany
         };
         this.handleChange = this.handleChange.bind(this);
+        this.getProblemList();
         this.getProblem();
     }
     render() {
+/*         const [probList, setProbList] = useState(null);
+        const[selectedValue, setSelectedValue] = useState([])
+      
+        useEffect(() => {
+          fetch('http://localhost:3002/getCodeProb',{
+          method: "GET"
+        }).then(response => {
+          if (response.type === 'opaque' || response.ok) {
+              response.json().then(revItems => {
+                setProbList(revItems)
+            });
+          } 
+        }).catch(error => {
+          console.log("Error is: ", error)
+        });
+        },[]); */
         return (
             <div>
                 <div class="coding coding-header">
