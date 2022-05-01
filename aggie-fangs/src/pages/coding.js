@@ -2,6 +2,9 @@ import React, { Component, useState } from 'react'
 import logo from "./../images/Aggie_Fangs_Logo_Transparent.png";
 import styled from "styled-components";
 import CodingProblemList from "./codingProb.js";
+import Editor from "@monaco-editor/react"
+import axios from 'axios';
+import Axios from 'axios';
 
 const RunButton = styled.button `
   cursor: pointer;
@@ -22,6 +25,7 @@ var probConcepts = <text></text>;
 var probPrompt = <text></text>;
 var probCompany = <text></text>;
 
+
 class Coding extends Component {
     getProblem () {
         // todo
@@ -41,6 +45,7 @@ class Coding extends Component {
             selectedOption: thisCompany
         });
     }
+    
     constructor() {
         super();
         var thisCompany = localStorage.getItem("this-company");
@@ -49,10 +54,27 @@ class Coding extends Component {
         }
         this.state = {
             name: "react",
-            selectedOption: thisCompany
+            selectedOption: thisCompany,
+            userCode: "#include<bits/stdc++.h> using namespace std; int main(){ return 0; }",
+            language: "cpp17",
+            userOutput: "Terminal Output",
+            userInput: "",
+            loading: false
         };
         this.handleChange = this.handleChange.bind(this);
+        this.compile = this.compile.bind(this);
         this.getProblem();
+    }
+    async compile(){
+        this.setState({userOutput: "Loading..."})
+        axios.post(`http://localhost:8000/compile`, {
+            code: this.state.userCode,
+            stdin: this.state.userInput
+            }).then((res) => {
+                console.log(res);
+                this.setState({userOutput: res.data.output})
+          }).then(() => {
+          })
     }
     render() {
         return (
@@ -155,13 +177,17 @@ class Coding extends Component {
                         <body>{probPrompt}</body>
                         <h2>Your Code:</h2>
                         <div class="coding-problem-left">
-                            <textarea class="code-window" id="userCode" name="userCode"/>
-                            <RunButton class="run-button">Run Code</RunButton>
+                            <Editor
+                                height= "calc(100vh - 50px)"
+                                width = "100%"
+                                defaultLanguage = "cpp"
+                                defaultValue=  "#include<bits/stdc++.h> using namespace std; int main(){ return 0; }"
+                                onChange={(value) => this.setState({userCode: value})}
+                            />
+                            <RunButton class="run-button" onClick={this.compile}>Run Code</RunButton>
                         </div>
                         <div class="coding-problem-right">
-                            <textarea disabled class="compiler-window" id="terminal" name="terminal">
-                                Terminal Output
-                            </textarea>
+                            <textarea disabled class="compiler-window" id="terminal" name="terminal" value={this.state.userOutput}/>
                         </div>
                     </div>
                 </div>

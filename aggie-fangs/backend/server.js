@@ -35,10 +35,13 @@ NOTION_UPVOTES_ID = 'k_Eb'
 //title type: title
 NOTION_TITLE_ID = 'title'
 
-
+app.use(cors({
+  origin: ['http://localhost:3002'],
+  credentials: true
+}))
 app.use(express.urlencoded({extended: true })); 
 
-app.use(express.json());   
+app.use(express.json());
 //properties: myProperties
 //const myProperties = 
 // What we'll pass into axios
@@ -284,10 +287,9 @@ app.get('/downVote/:id' , async (req, res) => {
   return res.json(response)
 })
 
-app.use(cors({
-  origin: ['http://localhost:3002'],
-  credentials: true
-}))
+
+
+
 
 app.listen(port, () => {
   console.log(`On port ${port}`)
