@@ -16,6 +16,8 @@ const SubmitButton = styled.button `
   float: center;
 `
 
+var dbAddress = localStorage.getItem("db-address");
+
 const FormLC = ({formLC, setFormLC}) => {
     const handleChange = e => {
         const{name, value} = e.target;
@@ -28,7 +30,7 @@ const FormLC = ({formLC, setFormLC}) => {
     const handleSubmit = e => {
         console.log("formLC.urlType", formLC.urlType)
         if(formLC.urlType != undefined || formLC.urlType != "None" ){
-            var urlEndPoint = 'http://localhost:3002/add' + formLC.urlType
+            var urlEndPoint = dbAddress + '/add' + formLC.urlType
             console.log("Endpoint is: ", urlEndPoint)
             fetch(urlEndPoint, {
                 mode:'no-cors',
@@ -70,7 +72,7 @@ const FormLC = ({formLC, setFormLC}) => {
                 <option value="Microsoft">Microsoft</option>
             </select><br/>
 
-            <label htmlFor='urlType'>Linkk Type?</label><br/>
+            <label htmlFor='urlType'>Link Type?</label><br/>
             <select placeholder="Link Type"
                 id="urlType"
                 name="urlType"
@@ -102,7 +104,7 @@ const FormLC = ({formLC, setFormLC}) => {
                 onChange={handleChange}>
             </textarea><br/><br/>
 
-            <SubmitButton >
+            <SubmitButton>
                 Submit
             </SubmitButton>
         </form>

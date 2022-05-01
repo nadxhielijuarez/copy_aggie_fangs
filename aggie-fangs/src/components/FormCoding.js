@@ -16,6 +16,8 @@ const SubmitButton = styled.button `
   float: center;
 `
 
+var dbAddress = localStorage.getItem("db-address");
+
 const FormCoding = ({formCd, setFormCd}) => {
 
 
@@ -28,7 +30,7 @@ const FormCoding = ({formCd, setFormCd}) => {
         return true;
     }
     const handleSubmit = e => {
-        fetch('http://localhost:3002/addCodeProb', {
+        fetch(dbAddress + '/addCodeProb', {
             mode:'no-cors',
             method: 'POST',
             headers: {'Content-Type': 'application/x-www-form-urlencoded'},

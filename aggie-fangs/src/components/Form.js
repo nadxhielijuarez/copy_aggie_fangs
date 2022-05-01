@@ -8,6 +8,8 @@ import loadingGif from "../images/loading.gif"
 const database_id = '22f238cc864e4a1496e42e3d8a2c05c6';
 //const secretKey = 'secret_AFKZAuWeh8KSRFU7dK4vcdUTEQG1pb3CyQtwBIdj9Ws'
 
+var dbAddress = localStorage.getItem("db-address");
+
 const SubmitButton = styled.button `
   cursor: pointer;
   background-color: var(--btncolor);
@@ -26,7 +28,7 @@ const Form = ({form, reviews, setForm, setReviews}) => {
   const[selectedValue, setSelectedValue] = useState([])
 
   useEffect(() => {
-    fetch('http://localhost:3002/tags',{
+    fetch(dbAddress + '/tags',{
     method: "GET"
   }).then(response => {
     if (response.type === 'opaque' || response.ok) {
