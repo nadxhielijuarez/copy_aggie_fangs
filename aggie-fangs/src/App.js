@@ -82,6 +82,10 @@ window.onload = function() {
   if (!thisCompany) {
     localStorage.setItem("this-company", "None");
   }
+  var dbAddress = localStorage.getItem("db-address");
+  var localAddress = "http://localhost:3002";
+  var publicAddress = "184.92.91.83:3002";
+  localStorage.setItem("db-address", localAddress);
 }
 
 function App() {

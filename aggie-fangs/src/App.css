@@ -69,7 +69,7 @@ h1 {
 }
 .problem-sort label {
   color: var(--txtcolor);
-  font-size: 30px;
+  font-size: 25px;
   width: 50%;
   float: left;
 }

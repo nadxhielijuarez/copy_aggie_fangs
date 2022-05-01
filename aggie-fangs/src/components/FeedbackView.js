@@ -5,10 +5,14 @@ import upimg2 from "../images/up2.png";
 import downimg1 from "../images/down1.png";
 import downimg2 from "../images/down2.png";
 
+var dbAddress = localStorage.getItem("db-address");
+alert(dbAddress);
+//reviewAddress = "http://localhost:3002/getReviews";
+
 function FeedbackView({company}){
     const [reviewInfo, setReviewInfo] = useState(null);
     useEffect(() => {
-        fetch('http://localhost:3002/getReviews',{
+        fetch(dbAddress + "/getReviews",{
         method: "GET"
       }).then(response => {
        if (response.type === 'opaque' || response.ok) {
@@ -23,7 +27,7 @@ function FeedbackView({company}){
 
     function upVote(id) {
        // console.log("upvote id: ", id)
-            fetch('http://localhost:3002/upVote/' + id,{
+            fetch(dbAddress + '/upVote/' + id,{
             method: "GET"
         }).then(response => {
             if (response.type === 'opaque' || response.ok) {
@@ -38,7 +42,7 @@ function FeedbackView({company}){
     function downVote(id) {
         // do something with the id of the review
         //console.log("*downvote id: ", id)
-        fetch('http://localhost:3002/downVote/' + id,{
+        fetch(dbAddress + '/downVote/' + id,{
         method: "GET" 
         }).then(response => {
             if (response.type === 'opaque' || response.ok) {

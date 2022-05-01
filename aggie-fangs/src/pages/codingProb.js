@@ -17,10 +17,12 @@ const ProbButton = styled.button `
   margin-bottom: 0;
 `
 
+var dbAddress = localStorage.getItem("db-address");
+
 function CodingProblemList () {
   const [codeProbArr, setcodeProbArr] = useState(null);
   useEffect(() => {
-    fetch('http://localhost:3002/getCodeProb',{
+    fetch(dbAddress + '/getCodeProb',{
     method: "GET"
   }).then(response => {
     if (response.type === 'opaque' || response.ok) {
@@ -42,7 +44,7 @@ function CodingProblemList () {
     var probPrompt = objID;
     var probCompany = localStorage.getItem("this-company");
 
-    
+
     localStorage.setItem("problem-title", probTitle);
     localStorage.setItem("problem-concepts", probConcepts);
     localStorage.setItem("problem-prompt", probPrompt);

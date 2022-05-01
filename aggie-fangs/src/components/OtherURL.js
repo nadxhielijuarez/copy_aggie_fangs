@@ -1,11 +1,13 @@
 import React, { useEffect, useState } from "react";
 import loadingGif from "../images/loading.gif";
 
+var dbAddress = localStorage.getItem("db-address");
+
 function OtherURL(){
     const [urls, setUrls] = useState(null);
     const databaseID = '056f97d0a08240eaa197b4bcc97f2263'
     useEffect(() => {
-        fetch('http://localhost:3002/getURLS/'+databaseID,{
+        fetch(dbAddress + '/getURLS/' + databaseID,{
         method: "GET"
       }).then(response => {
        if (response.type === 'opaque' || response.ok) {
