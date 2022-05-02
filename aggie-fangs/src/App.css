@@ -632,3 +632,8 @@ input[type="radio"]:focus {
 .down {
   text-align: right;
 }
+
+/* ----- Nav Bar Styling ---- */
+.nav-title {
+  margin-left: 2rem;
+}
