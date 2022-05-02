@@ -19,7 +19,7 @@ import Guide2 from "./pages/guide2";
 import Guide3 from "./pages/guide3";
 import FeedbackForm from "./pages/feedbackform";
 import Settings from "./pages/settings";
-import theme from "./App.css";
+import "./App.css";
 
 const GlobalStyle1 = createGlobalStyle`
   html {
@@ -85,8 +85,8 @@ window.onload = function() {
   var localDBAddress = "http://localhost:3002";
   var publicDBAddress = "184.92.91.83:3002";
   localStorage.setItem("db-address", localDBAddress);
-  var localCompAddress = "http://localhost:8000";
-  var publicCompAddress = "184.92.91.83:8000";
+  var localCompAddress = "http://localhost:3001";
+  var publicCompAddress = "184.92.91.83:3001";
   localStorage.setItem("comp-address", localCompAddress);
 }
 

@@ -54,17 +54,24 @@ function CodingProblemList ({onClick}) {
   console.log("singleCoding Problem with given id is: ", singleCode)
 
 
-
-  function changeCurrentProblem (obj) {
-
-    /* -------------- Get problem info by id here -------------- */
-    //console.log("IN THE CHANGE CURRENT PROBLEM")
-    var probTitle = obj.title;
-    var probConcepts = obj.concepts;
-    var probPrompt = obj.prompt;
-    var probCompany = localStorage.getItem("this-company");
-    //console.log("already have problem info..")
-    //console.log(probTitle, probConcepts, probPrompt, probCompany)
+    var probTitle = "None Selected";
+    var probConcepts = "N/A";
+    var probPrompt = "N/A";
+    var probCompany = "N/A";
+    var codeProb = null;
+    if (codeProbArr != null) {
+      codeProbArr.map(codeObj => {
+        codeProb = (codeObj.id === objID) ?
+          codeObj :
+          codeProb
+      })
+    }
+    if (codeProb) {
+      probTitle = codeProb.title;
+      probConcepts = codeProb.concepts;
+      probPrompt = codeProb.prompt;
+      probCompany = codeProb.company;
+    }
 
 
     localStorage.setItem("problem-title", probTitle);
@@ -72,7 +79,7 @@ function CodingProblemList ({onClick}) {
     localStorage.setItem("problem-prompt", probPrompt);
     localStorage.setItem("problem-company", probCompany);
     window.location.reload();
-  }
+  
 
   var problemList = new Array();
   var thisCompany = localStorage.getItem("this-company");

@@ -6,11 +6,11 @@ const Navbar = () => {
     <>
     <Nav>
         <NavLink exact to="/">
+            <img src={logo} alt="logo" height="100%"/>
             <h1 class="nav-title">Aggie Fangs</h1>
         </NavLink>
         <Bars />
         <NavMenu>
-            <img class="logo-img" src={logo} alt="logo"/>
             <NavLink to="/feedbackform" activeStyle>
                 <div class = "nav-link">Share Experience</div>
             </NavLink>
@@ -27,9 +27,6 @@ const Navbar = () => {
                 <div class = "nav-link">Settings</div>
             </NavLink>
         </NavMenu>
-        <NavBtn>
-            <NavBtnLink to="/signin">Sign in</NavBtnLink>
-        </NavBtn>
     </Nav>
     </>
   )

@@ -131,6 +131,7 @@ class Coding extends Component {
                     <div class="split coding-problem-name">
                         <h1>Problem Name: {probName}</h1>
                         <h2>Concepts Covered: {probConcepts}</h2>
+                        <h2>Company: {probCompany}</h2>
                     </div>
                 </div>
                 <div class="coding coding-main">
