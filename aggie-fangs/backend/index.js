@@ -3,7 +3,7 @@ const express = require("express");
 const cors = require("cors");
 const axios = require("axios");
 const app = express();
-const PORT = 8000;
+const PORT = 3001;
  
 app.use(cors());
 app.use(express.json());
@@ -15,7 +15,7 @@ app.post("/compile", (req, res) => {
         "clientId": "8e2179c5f20a2ea0d7f50415eba3bc21",
         "clientSecret": "c59a29e64993daecaf7781371ee5b24af7e6363379cad0ae36c80890dc2acac1",
         "script": req.body.code,
-        "stdin": req.body.stdin,
+        "stdin": req.body.std,
         "language": "cpp17",
         "versionIndex": "0"
       });
