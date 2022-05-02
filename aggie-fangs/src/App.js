@@ -83,7 +83,7 @@ window.onload = function() {
     localStorage.setItem("this-company", "None");
   }
   var localDBAddress = "http://localhost:3002";
-  var publicDBAddress = "184.92.91.83:3002";
+  var publicDBAddress = "http://35.208.174.43:3002/";
   localStorage.setItem("db-address", localDBAddress);
   var localCompAddress = "http://localhost:3001";
   var publicCompAddress = "184.92.91.83:3001";
