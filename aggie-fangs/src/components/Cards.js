@@ -13,7 +13,7 @@ function Cards() {
                 <ul className='cards__items'>
                     <CardItems src= "images/googleLogo.png" text="Interview Prep for Google" label = "Google" path = "/googlePrep"/>
                     <CardItems src= "images/facebookLogo.png" text="Interview Prep for Facebook" label = "Facebook" path = "/facebookPrep"/>
-                    <CardItems src= "images/amazonLogo.png" text="Interview Prep for Amazon" label = "Amazon" path = "/amazonPrep"/>
+                    <CardItems src= "images/amazonlogo.png" text="Interview Prep for Amazon" label = "Amazon" path = "/amazonPrep"/>
                 </ul>
                 <ul className='cards__items'>
                     <CardItems src= "images/netflixLogo.png" text="Interview Prep for Netflix" label = "Netflix" path = "/netflixPrep"/>
