@@ -14,6 +14,7 @@
     "express": "^4.17.3",
     "helmet": "^5.0.2",
     "js-polyfills": "^0.1.43",
+    "monaco-editor": "^0.33.0",
     "multi-select-dropdown": "^0.0.2",
     "multiselect-react-dropdown": "^2.0.21",
     "nodemon": "^2.0.15",

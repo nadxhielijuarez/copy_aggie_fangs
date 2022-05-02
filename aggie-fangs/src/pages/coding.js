@@ -25,6 +25,10 @@ var probConcepts = <text></text>;
 var probPrompt = <text></text>;
 var probCompany = <text></text>;
 
+var compAddress = localStorage.getItem("comp-address");
+
+var startingCode = "// C++ \n#include<bits/stdc++.h>\n#include <stdio.h>\nusing namespace std;\n\nint main() {\n\t// enter your code here \n\t\n\t\n\treturn 0;\n}";
+
 
 class Coding extends Component {
     getProblem () {
@@ -55,7 +59,7 @@ class Coding extends Component {
         this.state = {
             name: "react",
             selectedOption: thisCompany,
-            userCode: "#include<bits/stdc++.h> using namespace std; int main(){ return 0; }",
+            userCode: "#include<bits/stdc++.h>\nusing namespace std;\nint main() {\n\treturn 0;\n}",
             language: "cpp17",
             userOutput: "Terminal Output",
             userInput: "",
@@ -67,7 +71,7 @@ class Coding extends Component {
     }
     async compile(){
         this.setState({userOutput: "Loading..."})
-        axios.post(`http://localhost:8000/compile`, {
+        axios.post(compAddress + `/compile`, {
             code: this.state.userCode,
             stdin: this.state.userInput
             }).then((res) => {
@@ -178,10 +182,9 @@ class Coding extends Component {
                         <h2>Your Code:</h2>
                         <div class="coding-problem-left">
                             <Editor
-                                height= "calc(100vh - 50px)"
-                                width = "100%"
+                                className='code-editor'
                                 defaultLanguage = "cpp"
-                                defaultValue=  "#include<bits/stdc++.h> using namespace std; int main(){ return 0; }"
+                                defaultValue=  {startingCode}
                                 onChange={(value) => this.setState({userCode: value})}
                             />
                             <RunButton class="run-button" onClick={this.compile}>Run Code</RunButton>
