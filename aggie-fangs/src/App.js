@@ -19,7 +19,7 @@ import Guide2 from "./pages/guide2";
 import Guide3 from "./pages/guide3";
 import FeedbackForm from "./pages/feedbackform";
 import Settings from "./pages/settings";
-import theme from "./App.css";
+import "./App.css";
 
 const GlobalStyle1 = createGlobalStyle`
   html {
