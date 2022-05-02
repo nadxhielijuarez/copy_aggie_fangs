@@ -23,22 +23,28 @@ const SubmitButton = styled.button `
   overflow-x: hidden;
   float: center;
 `
+
 const Form = ({form, reviews, setForm, setReviews}) => {
+  var dbAddress = localStorage.getItem("db-address");
   const [tags, setTags] = useState(null);
   const[selectedValue, setSelectedValue] = useState([])
-
+  console.log("**STARTING THE USE EFFECT FUNCTION REQUEST")
   useEffect(() => {
-    fetch(dbAddress + '/tags',{
-    method: "GET"
-  }).then(response => {
-    if (response.type === 'opaque' || response.ok) {
-        response.json().then(revItems => {
-          setTags(revItems)
-      });
-    } 
-  }).catch(error => {
-    console.log("Error is: ", error)
-  });
+    //console.log("Db address is:", dbA)
+    const url = dbAddress+ '/tags'
+    console.log("URL IS:", url)
+    axios
+      .get(url, {
+        headers: {
+          Accept: "application/json",
+          "Content-Type": "application/json;charset=UTF-8",
+        },
+      })
+      .then(({data}) => {
+        setTags(data)
+        console.log(data);
+    });
+
   },[]);
 
   const handleRemovedTag = e => {
@@ -62,7 +68,9 @@ const Form = ({form, reviews, setForm, setReviews}) => {
     return true;
   }
   const handleSubmit = e => {
-    fetch('http://localhost:3002/addRev', {
+   // console.log("STARTING THE FETCH REQUEST")
+    const url = dbAddress + "/addRev"
+    fetch(url, {
       mode:'no-cors',
       method: 'POST',
       headers: {'Content-Type': 'application/x-www-form-urlencoded'},
@@ -74,15 +82,6 @@ const Form = ({form, reviews, setForm, setReviews}) => {
         tag: form.job
       }) 
     });
-/*  if (checkValidity()) {
-      alert("The input data is good!");
-      e.preventDefault();
-      setReviews([...reviews, form]);
-      setForm({company: "", review: "", id: uuidv4()});
-    } else {
-      alert("Please enter valid information.")
-    } */
-   // console.log("form is: ", form, " and the job is: ", form.job )
   }
   
   if(tags == null){

@@ -68,7 +68,7 @@
     "os": false,
     "crypto": false
   },
-  "proxy": "http://localhost:3002",
+  "proxy": "http://35.208.174.43:3002",
   "keywords": [],
   "author": "",
   "license": "ISC"

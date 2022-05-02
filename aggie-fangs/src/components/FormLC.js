@@ -15,9 +15,8 @@ const SubmitButton = styled.button `
   float: center;
 `
 
-var dbAddress = localStorage.getItem("db-address");
-
 const FormLC = ({formLC, setFormLC}) => {
+    var dbAddress = localStorage.getItem("db-address");
     const handleChange = e => {
         const{name, value} = e.target;
         setFormLC({...formLC, [name]: value});

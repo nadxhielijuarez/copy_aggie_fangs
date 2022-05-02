@@ -32,7 +32,7 @@ NOTION_UPVOTES_ID = 'k_Eb'
 NOTION_TITLE_ID = 'title'
 
 app.use(cors({
-  origin: ['http://localhost:3002'],
+  origin: ['http://35.208.174.43:3002'],
   credentials: true
 }))
 app.use(express.urlencoded({extended: true })); 
