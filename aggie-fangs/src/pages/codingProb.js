@@ -39,10 +39,24 @@ function CodingProblemList () {
 
     /* -------------- Get problem info by id here -------------- */
 
-    var probTitle = "String Reversal";
-    var probConcepts = objID;
-    var probPrompt = objID;
-    var probCompany = localStorage.getItem("this-company");
+    var probTitle = "None Selected";
+    var probConcepts = "N/A";
+    var probPrompt = "N/A";
+    var probCompany = "N/A";
+    var codeProb = null;
+    if (codeProbArr != null) {
+      codeProbArr.map(codeObj => {
+        codeProb = (codeObj.id === objID) ?
+          codeObj :
+          codeProb
+      })
+    }
+    if (codeProb) {
+      probTitle = codeProb.title;
+      probConcepts = codeProb.concepts;
+      probPrompt = codeProb.prompt;
+      probCompany = codeProb.company;
+    }
 
 
     localStorage.setItem("problem-title", probTitle);

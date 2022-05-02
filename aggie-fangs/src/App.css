@@ -341,10 +341,12 @@ input[type="radio"]:focus {
   float: right;
   width: 70%;
   padding: 20px;
+  overflow-y: hidden;
+  overflow-x: auto;
 }
 .coding-problem-name h1 {
   text-align: left;
-  font-size: 45px;
+  font-size: 40px;
   color: var(--hdrcolor);
 }
 .coding-problem-name h2 {
