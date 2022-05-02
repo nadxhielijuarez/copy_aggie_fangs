@@ -1,7 +1,6 @@
 import React, { Component, useState } from 'react'
 import logo from "./../images/Aggie_Fangs_Logo_Transparent.png";
 import styled from "styled-components";
-import codeProb from "./codingProb"
 import CodingProblemList from "./codingProb.js";
 import Editor from "@monaco-editor/react"
 import axios from 'axios';
@@ -27,7 +26,6 @@ var probName = <text></text>;
 var probConcepts = <text></text>;
 var probPrompt = <text></text>;
 var probCompany = <text></text>;
-var probInOut = <text></text>
 
 var compAddress = localStorage.getItem("comp-address");
 
@@ -44,22 +42,6 @@ class Coding extends Component {
         probName = <text>String Reversal</text>;
         probConcepts = <text>Traversal of Lists or Strings, Basic Problem Solving</text>;
         probPrompt = <text>Given a string, write a function that reverses the string such that the old first element is now the last element, the old second element is now the second to last element, etc.</text>;
-        probInOut = <text>In: apple<br/>Out: elppa<br/>In: howdy<br/>Out: ydwoh</text>;
-    }
-    getProblemList() {
-        // populate problemLis
-        fetch('http://localhost:3002/getCodeProb',{
-            method: "GET"
-        }).then(response => {
-            if (response.type === 'opaque' || response.ok) {
-                response.json().then(codeProbsObjs => {
-                console.log(codeProbsObjs)
-            });
-            } 
-        }).catch(error => {
-            console.log("Error is: ", error)
-        });
-        
         probName = localStorage.getItem("problem-title");
         probConcepts = localStorage.getItem("problem-concepts");
         probPrompt = localStorage.getItem("problem-prompt");
@@ -70,18 +52,6 @@ class Coding extends Component {
         localStorage.setItem("this-company", thisCompany);
         this.setState({
             selectedOption: thisCompany
-        });
-
-        fetch('http://localhost:3002/getCodeProb',{
-            method: "GET"
-        }).then(response => {
-            if (response.type === 'opaque' || response.ok) {
-                response.json().then(codeProbsObjs => {
-                console.log(codeProbsObjs)
-            });
-            } 
-        }).catch(error => {
-            console.log("Error is: ", error)
         });
     }
     saveCode() {
@@ -121,9 +91,7 @@ class Coding extends Component {
     }
     render() {
         return (
-            
             <div>
-                <codeProb/>
                 <div class="coding coding-header">
                     <div class="split coding-logo">
                         <img src={logo} alt="logo" />

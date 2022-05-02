@@ -38,9 +38,7 @@ app.use(cors({
 app.use(express.urlencoded({extended: true })); 
 
 app.use(express.json());
-//properties: myProperties
-//const myProperties = 
-// What we'll pass into axios
+
 const headers = {
   'Content-Type': 'application/json',
   Authorization: `Bearer ${secretKey}`,
@@ -181,7 +179,7 @@ app.post('/addRev', async(req, res) => {
   var strData = Object.keys(body)[0] //obtains the first key, currently as a string 
   var data = JSON.parse(strData) //actual object is now obtained
   /* corrected the wierd behavior*/
-  //console.log("data is--->", data)
+  console.log("data is--->", data)
   const { title, description, userEmail, name, tag} = data
   res.header("Access-Control-Allow-Origin", "*");
   await addReview({title, description, userEmail, name, tag })
@@ -292,6 +290,7 @@ app.get('/codingProb/:id' , async (req, res) => {
   return res.json(response)
 })
 
+app.use(cors());
 
 app.listen(port, () => {
   console.log(`On port ${port}`)

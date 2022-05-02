@@ -19,7 +19,7 @@ const ProbButton = styled.button `
 
 var dbAddress = localStorage.getItem("db-address");
 
-function CodingProblemList ({onClick}) {
+function CodingProblemList () {
   const [codeProbArr, setcodeProbArr] = useState(null);
   useEffect(() => {
     fetch(dbAddress + '/getCodeProb',{
@@ -35,24 +35,9 @@ function CodingProblemList ({onClick}) {
   });
   },[]);
 
-  const [singleCode, setSingleCode] = useState(null);
-  const [id, setId] = useState('4648e3b4-35b3-4d8d-8f80-eab40a24adff'); //this is a random exisiting problem, for microsoft
-  /*Set microsoft as default to corespond to first problem */
-  useEffect(() => {
-    fetch(dbAddress + '/codingProb/' + id,{
-    method: "GET"
-  }).then(response => {
-    if (response.type === 'opaque' || response.ok) {
-        response.json().then(codingProblem => {
-          setSingleCode(codingProblem)
-      });
-    } 
-  }).catch(error => {
-    console.log("Error is: ", error)
-  });
-  },[]);
-  console.log("singleCoding Problem with given id is: ", singleCode)
+  function changeCurrentProblem (objID) {
 
+    /* -------------- Get problem info by id here -------------- */
 
     var probTitle = "None Selected";
     var probConcepts = "N/A";
@@ -79,7 +64,7 @@ function CodingProblemList ({onClick}) {
     localStorage.setItem("problem-prompt", probPrompt);
     localStorage.setItem("problem-company", probCompany);
     window.location.reload();
-  
+  }
 
   var problemList = new Array();
   var thisCompany = localStorage.getItem("this-company");
@@ -88,10 +73,7 @@ function CodingProblemList ({onClick}) {
     codeProbArr.map(codeObj => {
       problemList.push((!thisCompany.localeCompare(codeObj.company) || thisCompany == "None") ?
       (<div>
-        <ProbButton onClick={() => {
-          changeCurrentProblem(codeObj); 
-        console.log("codeobj is:", codeObj)
-      }}>{codeObj.title} ({codeObj.company })</ProbButton>
+        <ProbButton onClick={() => {changeCurrentProblem(codeObj.id)}}>{codeObj.title} ({codeObj.company})</ProbButton>
       </div>)
       : null)
     })
