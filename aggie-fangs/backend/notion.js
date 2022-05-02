@@ -359,9 +359,8 @@ async function downVoteReview(pageId) {
 }
 
 async function getReview(pageId) {
-  return feedbackObj(await notion.pages.retrieve({ page_id: pageId}))
+  return codeProbObj(await notion.pages.retrieve({ page_id: pageId}))
 }
-
 module.exports = {
   addReview,
   getTags,

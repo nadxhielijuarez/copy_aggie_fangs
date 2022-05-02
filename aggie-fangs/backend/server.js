@@ -283,8 +283,14 @@ app.get('/downVote/:id' , async (req, res) => {
   return res.json(response)
 })
 
-
-
+app.get('/codingProb/:id' , async (req, res) => {
+  const codeProbID = req.params['id']
+  console.log(" RECIEVED THIS ID for coding problems-->", downvoteID)
+  res.header("Access-Control-Allow-Origin", "*");
+  const response = await getReview(codeProbID)
+  console.log("the response is----->", response)
+  return res.json(response)
+})
 
 
 app.listen(port, () => {

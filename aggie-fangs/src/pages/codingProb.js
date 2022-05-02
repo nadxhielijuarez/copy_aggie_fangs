@@ -19,7 +19,7 @@ const ProbButton = styled.button `
 
 var dbAddress = localStorage.getItem("db-address");
 
-function CodingProblemList () {
+function CodingProblemList ({onClick}) {
   const [codeProbArr, setcodeProbArr] = useState(null);
   useEffect(() => {
     fetch(dbAddress + '/getCodeProb',{
@@ -35,14 +35,36 @@ function CodingProblemList () {
   });
   },[]);
 
-  function changeCurrentProblem (objID) {
+  const [singleCode, setSingleCode] = useState(null);
+  const [id, setId] = useState('4648e3b4-35b3-4d8d-8f80-eab40a24adff'); //this is a random exisiting problem, for microsoft
+  /*Set microsoft as default to corespond to first problem */
+  useEffect(() => {
+    fetch(dbAddress + '/codingProb/' + id,{
+    method: "GET"
+  }).then(response => {
+    if (response.type === 'opaque' || response.ok) {
+        response.json().then(codingProblem => {
+          setSingleCode(codingProblem)
+      });
+    } 
+  }).catch(error => {
+    console.log("Error is: ", error)
+  });
+  },[]);
+  console.log("singleCoding Problem with given id is: ", singleCode)
+
+
+
+  function changeCurrentProblem (obj) {
 
     /* -------------- Get problem info by id here -------------- */
-
-    var probTitle = "String Reversal";
-    var probConcepts = objID;
-    var probPrompt = objID;
+    //console.log("IN THE CHANGE CURRENT PROBLEM")
+    var probTitle = obj.title;
+    var probConcepts = obj.concepts;
+    var probPrompt = obj.prompt;
     var probCompany = localStorage.getItem("this-company");
+    //console.log("already have problem info..")
+    //console.log(probTitle, probConcepts, probPrompt, probCompany)
 
 
     localStorage.setItem("problem-title", probTitle);
@@ -59,7 +81,10 @@ function CodingProblemList () {
     codeProbArr.map(codeObj => {
       problemList.push((!thisCompany.localeCompare(codeObj.company) || thisCompany == "None") ?
       (<div>
-        <ProbButton onClick={() => {changeCurrentProblem(codeObj.id)}}>{codeObj.title} ({codeObj.company})</ProbButton>
+        <ProbButton onClick={() => {
+          changeCurrentProblem(codeObj); 
+        console.log("codeobj is:", codeObj)
+      }}>{codeObj.title} ({codeObj.company })</ProbButton>
       </div>)
       : null)
     })

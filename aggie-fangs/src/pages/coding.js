@@ -27,6 +27,7 @@ var probName = <text></text>;
 var probConcepts = <text></text>;
 var probPrompt = <text></text>;
 var probCompany = <text></text>;
+var probInOut = <text></text>
 
 var compAddress = localStorage.getItem("comp-address");
 
