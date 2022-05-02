@@ -34,6 +34,8 @@ const GlobalStyle1 = createGlobalStyle`
     --txtcolor: #484b6a;
     --brdrcolor: #0d0d0d;
     --shdwcolor: #ccc;
+    --lnkcolor: #406094;
+    --lnk2color: #262948;
   }
 `
 
@@ -50,6 +52,8 @@ const GlobalStyle2 = createGlobalStyle`
     --txtcolor: #fafafa;
     --brdrcolor: #0d0d0d;
     --shdwcolor: rgba(50,50,50,0.5);
+    --lnkcolor: #9cc7b5;
+    --lnk2color: #8bb6c4;
   }
 `
 
@@ -78,6 +82,12 @@ window.onload = function() {
   if (!thisCompany) {
     localStorage.setItem("this-company", "None");
   }
+  var localDBAddress = "http://localhost:3002";
+  var publicDBAddress = "184.92.91.83:3002";
+  localStorage.setItem("db-address", localDBAddress);
+  var localCompAddress = "http://localhost:8000";
+  var publicCompAddress = "184.92.91.83:8000";
+  localStorage.setItem("comp-address", localCompAddress);
 }
 
 function App() {

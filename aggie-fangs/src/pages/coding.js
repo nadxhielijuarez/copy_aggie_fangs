@@ -1,28 +1,40 @@
-import React, { Component } from 'react'
+import React, { Component, useState } from 'react'
 import logo from "./../images/Aggie_Fangs_Logo_Transparent.png";
 import styled from "styled-components";
 import codeProb from "./codingProb"
+import CodingProblemList from "./codingProb.js";
+import Editor from "@monaco-editor/react"
+import axios from 'axios';
+import Axios from 'axios';
+import { FaThList } from 'react-icons/fa';
 
 const RunButton = styled.button `
   cursor: pointer;
-  background-color: rgb(75, 0, 130);
+  background-color: var(--btncolor);
   width: 100px;
   height: 50px;
   padding: 5px 15px;
   border-radius: 8px;
-  color: white;
+  color: var(--btntxtcolor);
   text-align: center;
   font-size: 13px;
   font-family: "Lucida Console", "Courier New", monospace;
-  align-self: left;
-  left: 0;
+  float: left;
+  margin-right: 1rem;
 `
 
 var probName = <text></text>;
 var probConcepts = <text></text>;
 var probPrompt = <text></text>;
-var probInOut = <text></text>;
-var problemList = new Array();
+var probCompany = <text></text>;
+
+var compAddress = localStorage.getItem("comp-address");
+
+var startingCode = "// C++ \n#include<bits/stdc++.h>\n#include <stdio.h>\nusing namespace std;\n\nint main() {\n\t// enter your code here \n\t\n\t\n\treturn 0;\n}";
+var savedCode = localStorage.getItem("saved-code");
+if (savedCode) {
+    startingCode = savedCode;
+}
 
 class Coding extends Component {
     getProblem () {
@@ -47,6 +59,10 @@ class Coding extends Component {
             console.log("Error is: ", error)
         });
         
+        probName = localStorage.getItem("problem-title");
+        probConcepts = localStorage.getItem("problem-concepts");
+        probPrompt = localStorage.getItem("problem-prompt");
+        probCompany = localStorage.getItem("problem-company");
     }
     handleChange(event) {
         var thisCompany = event.target.value;
@@ -67,6 +83,10 @@ class Coding extends Component {
             console.log("Error is: ", error)
         });
     }
+    saveCode() {
+        localStorage.setItem("saved-code", this.state.userCode);
+    }
+    
     constructor() {
         super();
         var thisCompany = localStorage.getItem("this-company");
@@ -75,29 +95,30 @@ class Coding extends Component {
         }
         this.state = {
             name: "react",
-            selectedOption: thisCompany
+            selectedOption: thisCompany,
+            userCode: "#include<bits/stdc++.h>\nusing namespace std;\nint main() {\n\treturn 0;\n}",
+            language: "cpp17",
+            userOutput: "Terminal Output",
+            userInput: "",
+            loading: false
         };
+        this.saveCode = this.saveCode.bind(this);
         this.handleChange = this.handleChange.bind(this);
-        this.getProblemList();
+        this.compile = this.compile.bind(this);
         this.getProblem();
     }
+    async compile(){
+        this.setState({userOutput: "Loading..."})
+        axios.post(compAddress + `/compile`, {
+            code: this.state.userCode,
+            stdin: this.state.userInput
+            }).then((res) => {
+                console.log(res);
+                this.setState({userOutput: res.data.output})
+          }).then(() => {
+          })
+    }
     render() {
-/*         const [probList, setProbList] = useState(null);
-        const[selectedValue, setSelectedValue] = useState([])
-      
-        useEffect(() => {
-          fetch('http://localhost:3002/getCodeProb',{
-          method: "GET"
-        }).then(response => {
-          if (response.type === 'opaque' || response.ok) {
-              response.json().then(revItems => {
-                setProbList(revItems)
-            });
-          } 
-        }).catch(error => {
-          console.log("Error is: ", error)
-        });
-        },[]); */
         return (
             
             <div>
@@ -113,8 +134,8 @@ class Coding extends Component {
                 </div>
                 <div class="coding coding-main">
                     <div class="split problem-list">
-                        <h1>Problems:</h1>
                         <form className='problem-sort'>
+                            <h1>Sort by:</h1>
                             <div className='radio'>
                                 <label>
                                     <input
@@ -193,25 +214,24 @@ class Coding extends Component {
                                 </label>
                             </div>
                         </form>
-
-                        <ul>
-                            <li><a href="">String Reversal</a></li>
-                        </ul>
+                        <CodingProblemList/>
                     </div>
                     <div class="split problem-statement">
                         <h2>Problem Prompt:</h2>
                         <body>{probPrompt}</body>
-                        <h2>Sample Inputs and Outputs:</h2>
-                        <body>{probInOut}</body>
                         <h2>Your Code:</h2>
                         <div class="coding-problem-left">
-                            <textarea class="code-window" id="userCode" name="userCode"/>
-                            <RunButton class="run-button">Run Code</RunButton>
+                            <Editor
+                                className='code-editor'
+                                defaultLanguage = "cpp"
+                                defaultValue=  {startingCode}
+                                onChange={(value) => this.setState({userCode: value})}
+                            />
+                            <RunButton class="run-button" onClick={this.compile}>Run Code</RunButton>
+                            <RunButton class="save-button" onClick={this.saveCode}>Save</RunButton>
                         </div>
                         <div class="coding-problem-right">
-                            <textarea disabled class="compiler-window" id="terminal" name="terminal">
-                                Terminal Output
-                            </textarea>
+                            <textarea disabled class="compiler-window" id="terminal" name="terminal" value={this.state.userOutput}/>
                         </div>
                     </div>
                 </div>

@@ -1,11 +1,13 @@
 import React, { useEffect, useState } from "react";
 import loadingGif from "../images/loading.gif";
 
+var dbAddress = localStorage.getItem("db-address");
+
 function HackerRankURL(){
     const [urls, setUrls] = useState(null);
     const databaseID = '0698bdf32713495586b8a33be98bf48e'
     useEffect(() => {
-        fetch('http://localhost:3002/getURLS/'+databaseID,{
+        fetch(dbAddress + '/getURLS/'+databaseID,{
         method: "GET"
       }).then(response => {
        if (response.type === 'opaque' || response.ok) {
