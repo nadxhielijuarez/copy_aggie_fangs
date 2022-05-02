@@ -9,12 +9,12 @@ import { FaThList } from 'react-icons/fa';
 
 const RunButton = styled.button `
   cursor: pointer;
-  background-color: rgb(75, 0, 130);
+  background-color: var(--btncolor);
   width: 100px;
   height: 50px;
   padding: 5px 15px;
   border-radius: 8px;
-  color: white;
+  color: var(--btntxtcolor);
   text-align: center;
   font-size: 13px;
   font-family: "Lucida Console", "Courier New", monospace;

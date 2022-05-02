@@ -30,19 +30,18 @@ const FormCoding = ({formCd, setFormCd}) => {
         return true;
     }
     const handleSubmit = e => {
-        fetch(dbAddress + '/addCodeProb', {
-            mode:'no-cors',
-            method: 'POST',
-            headers: {'Content-Type': 'application/x-www-form-urlencoded'},
-            body: JSON.stringify({
-                company: formCd.company,
-                probTitle:formCd.name,
-                concepts: formCd.concepts,
-                probPrompt:formCd.prompt,
-            }) 
-          });
         if (checkValidity()) {
-            alert("The input data is good!");
+            fetch(dbAddress + '/addCodeProb', {
+                mode:'no-cors',
+                method: 'POST',
+                headers: {'Content-Type': 'application/x-www-form-urlencoded'},
+                body: JSON.stringify({
+                    company: formCd.company,
+                    probTitle:formCd.name,
+                    concepts: formCd.concepts,
+                    probPrompt:formCd.prompt,
+                }) 
+              });
         } else {
             alert("Please enter valid information.")
         }
