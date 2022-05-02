@@ -83,10 +83,11 @@ window.onload = function() {
     localStorage.setItem("this-company", "None");
   }
   var localDBAddress = "http://localhost:3002";
-  var publicDBAddress = "35.208.174.43:3002";
-  localStorage.setItem("db-address", localDBAddress);
+  var publicDBAddress = "http://35.208.174.43:3002";
+  //publicDBAddress = "http://aggie-fangs.uc.r.appspot.com/:3002";
+  localStorage.setItem("db-address", publicDBAddress);
   var localCompAddress = "http://localhost:3001";
-  var publicCompAddress = "35.208.174.43:3001";
+  var publicCompAddress = "http://35.208.174.43:3001";
   localStorage.setItem("comp-address", publicCompAddress);
 }
 
