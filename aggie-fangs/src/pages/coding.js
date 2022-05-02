@@ -5,6 +5,7 @@ import CodingProblemList from "./codingProb.js";
 import Editor from "@monaco-editor/react"
 import axios from 'axios';
 import Axios from 'axios';
+import { FaThList } from 'react-icons/fa';
 
 const RunButton = styled.button `
   cursor: pointer;
@@ -18,6 +19,7 @@ const RunButton = styled.button `
   font-size: 13px;
   font-family: "Lucida Console", "Courier New", monospace;
   float: left;
+  margin-right: 1rem;
 `
 
 var probName = <text></text>;
@@ -28,7 +30,10 @@ var probCompany = <text></text>;
 var compAddress = localStorage.getItem("comp-address");
 
 var startingCode = "// C++ \n#include<bits/stdc++.h>\n#include <stdio.h>\nusing namespace std;\n\nint main() {\n\t// enter your code here \n\t\n\t\n\treturn 0;\n}";
-
+var savedCode = localStorage.getItem("saved-code");
+if (savedCode) {
+    startingCode = savedCode;
+}
 
 class Coding extends Component {
     getProblem () {
@@ -49,6 +54,9 @@ class Coding extends Component {
             selectedOption: thisCompany
         });
     }
+    saveCode() {
+        localStorage.setItem("saved-code", this.state.userCode);
+    }
     
     constructor() {
         super();
@@ -65,6 +73,7 @@ class Coding extends Component {
             userInput: "",
             loading: false
         };
+        this.saveCode = this.saveCode.bind(this);
         this.handleChange = this.handleChange.bind(this);
         this.compile = this.compile.bind(this);
         this.getProblem();
@@ -188,6 +197,7 @@ class Coding extends Component {
                                 onChange={(value) => this.setState({userCode: value})}
                             />
                             <RunButton class="run-button" onClick={this.compile}>Run Code</RunButton>
+                            <RunButton class="save-button" onClick={this.saveCode}>Save</RunButton>
                         </div>
                         <div class="coding-problem-right">
                             <textarea disabled class="compiler-window" id="terminal" name="terminal" value={this.state.userOutput}/>
