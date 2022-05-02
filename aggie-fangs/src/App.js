@@ -87,7 +87,7 @@ window.onload = function() {
   localStorage.setItem("db-address", localDBAddress);
   var localCompAddress = "http://localhost:3001";
   var publicCompAddress = "184.92.91.83:3001";
-  localStorage.setItem("comp-address", localCompAddress);
+  localStorage.setItem("comp-address", publicCompAddress);
 }
 
 function App() {
