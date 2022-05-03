@@ -80,7 +80,9 @@ class Coding extends Component {
     }
     async compile(){
         this.setState({userOutput: "Loading..."})
-        axios.post(compAddress + `/compile`, {
+        const url = compAddress + 'compile'
+        //console.log("URL IS----->", url)
+        axios.post(url, {
             code: this.state.userCode,
             stdin: this.state.userInput
             }).then((res) => {
